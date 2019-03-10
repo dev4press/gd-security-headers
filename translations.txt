@@ -1,0 +1,26 @@
+=== GD Power Search for bbPress ===
+== List of included languages ==
+
+=== de_DE [Deutsch - German] ===
+Plugin Version: 1.0
+
+=== es_ES [Español - Spanish] ===
+Plugin Version: 1.0
+
+=== fr_FR [Français - French] ===
+Plugin Version: 1.0
+
+=== it_IT [Italiano - Italian] ===
+Plugin Version: 1.0
+
+=== nl_NL [Nederlands - Dutch] ===
+Plugin Version: 1.0
+
+=== pl_PL [Polskie - Polish] ===
+Plugin Version: 1.0
+
+=== ru_RU [Русский - Russian] ===
+Plugin Version: 1.0
+
+=== sr_RS [Српски - Serbian] ===
+Plugin Version: 1.0
