@@ -71,7 +71,6 @@ require_once(GDSIH_PATH.'core/objects/cache.php');
 
 global $_gdsih_core, $_gdsih_settings, $_gdsih_db;
 
-$_gdsih_db = new gdsih_core_db();
 $_gdsih_settings = new gdsih_core_settings();
 $_gdsih_core = new gdsih_core_plugin();
 
@@ -79,12 +78,6 @@ $_gdsih_core = new gdsih_core_plugin();
 function gdsih() {
     global $_gdsih_core;
     return $_gdsih_core;
-}
-
-/** @return gdsih_core_db */
-function gdsih_db() {
-    global $_gdsih_db;
-    return $_gdsih_db;
 }
 
 /** @return gdsih_core_settings */
