@@ -46,11 +46,13 @@ require_once(GDSIH_D4PLIB.'d4p.core.php');
 /* D4PLIB */
 
 d4p_includes(array(
-    array('name' => 'cache-wordpress', 'directory' => 'functions'), 
-    array('name' => 'plugin', 'directory' => 'plugin'), 
+    array('name' => 'cache-wordpress', 'directory' => 'functions'),
+    array('name' => 'datetime', 'directory' => 'core'),
+    array('name' => 'plugin', 'directory' => 'plugin'),
     array('name' => 'errors', 'directory' => 'plugin'), 
-    array('name' => 'settings', 'directory' => 'plugin'), 
-    'functions', 
+    array('name' => 'settings', 'directory' => 'plugin'),
+    array('name' => 'ip', 'directory' => 'classes'),
+    'functions',
     'sanitize', 
     'access', 
     'wp'
@@ -60,19 +62,13 @@ require_once(GDSIH_PATH.'core/version.php');
 require_once(GDSIH_PATH.'core/settings.php');
 require_once(GDSIH_PATH.'core/plugin.php');
 
-require_once(GDSIH_PATH.'core/functions.php');
-require_once(GDSIH_PATH.'core/classes.php');
-
-require_once(GDSIH_PATH.'core/objects/db.php');
-require_once(GDSIH_PATH.'core/objects/bbpress.php');
-require_once(GDSIH_PATH.'core/objects/search.php');
-require_once(GDSIH_PATH.'core/objects/form.php');
-require_once(GDSIH_PATH.'core/objects/cache.php');
+require_once(GDSIH_PATH.'core/objects/core.db.php');
 
 global $_gdsih_core, $_gdsih_settings, $_gdsih_db;
 
 $_gdsih_settings = new gdsih_core_settings();
 $_gdsih_core = new gdsih_core_plugin();
+$_gdsih_db = new gdsih_core_db();
 
 /** @return gdsih_core_plugin */
 function gdsih() {
@@ -84,6 +80,12 @@ function gdsih() {
 function gdsih_settings() {
     global $_gdsih_settings;
     return $_gdsih_settings;
+}
+
+/** @return gdsih_core_db */
+function gdsih_db() {
+    global $_gdsih_db;
+    return $_gdsih_db;
 }
 
 if (D4P_ADMIN) {

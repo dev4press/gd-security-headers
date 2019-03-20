@@ -1,0 +1,678 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural - Forms: nplurals = INTEGER; plural = EXPRESSION;\n"
+"Project-Id-Version: GD Security Headers\n"
+"POT-Creation-Date: 03/20/2019 04:38:04 PM\n"
+"Language-Team: Milan Petrovic <support@dev4press.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: GD i18n 2.1\n"
+
+#: core/admin/install.php:76
+msgid "Some columns are missing."
+msgstr ""
+
+#: core/admin/install.php:81
+msgid "Table missing."
+msgstr ""
+
+#: core/admin/plugin.php:49
+#: core/admin/plugin.php:64
+msgid "Rows"
+msgstr ""
+
+#: core/admin/plugin.php:78
+msgid "GD Security Headers is activated and it needs to finish installation."
+msgstr ""
+
+#: core/admin/plugin.php:79
+#: core/admin/plugin.php:88
+msgid "Click Here"
+msgstr ""
+
+#: core/admin/plugin.php:87
+msgid "GD Security Headers is updated and it needs to finish the update process."
+msgstr ""
+
+#: core/admin/plugin.php:97
+msgid "Overview"
+msgstr ""
+
+#: core/admin/plugin.php:98
+#: core/admin/plugin.php:102
+#: forms/front.php:36
+msgid "About"
+msgstr ""
+
+#: core/admin/plugin.php:99
+#: forms/tools/reportslog.php:32
+msgid "CSP Reports"
+msgstr ""
+
+#: core/admin/plugin.php:100
+#: forms/tools/reportslog.php:35
+msgid "XXP Reports"
+msgstr ""
+
+#: core/admin/plugin.php:101
+#: forms/front.php:31
+#: forms/settings.php:31
+msgid "Settings"
+msgstr ""
+
+#: core/admin/plugin.php:180
+#: forms/setup/database.php:23
+msgid "OK"
+msgstr ""
+
+#: core/admin/plugin.php:181
+msgid "Cancel"
+msgstr ""
+
+#: core/admin/plugin.php:182
+#: core/grids/csp.php:167
+#: core/grids/xxp.php:137
+msgid "Delete"
+msgstr ""
+
+#: core/admin/plugin.php:183
+#: forms/tools.php:31
+msgid "Remove"
+msgstr ""
+
+#: core/admin/plugin.php:184
+msgid "Clear"
+msgstr ""
+
+#: core/admin/plugin.php:185
+#: core/admin/plugin.php:198
+msgid "Are you sure you want to do this?"
+msgstr ""
+
+#: core/admin/plugin.php:186
+#: forms/shared/bottom.php:4
+msgid "Please Wait..."
+msgstr ""
+
+#: core/admin/plugin.php:196
+msgid "Select Image"
+msgstr ""
+
+#: core/admin/plugin.php:197
+msgid "Use Selected Image"
+msgstr ""
+
+#: core/admin/plugin.php:199
+msgid "Image not selected."
+msgstr ""
+
+#: core/grids/csp.php:49
+#: core/grids/xxp.php:49
+msgid "All Time"
+msgstr ""
+
+#: core/grids/csp.php:50
+#: core/grids/xxp.php:50
+msgid "Last hour"
+msgstr ""
+
+#: core/grids/csp.php:51
+#: core/grids/xxp.php:51
+msgid "Last 4 hours"
+msgstr ""
+
+#: core/grids/csp.php:52
+#: core/grids/xxp.php:52
+msgid "Last 8 hours"
+msgstr ""
+
+#: core/grids/csp.php:53
+#: core/grids/xxp.php:53
+msgid "Last 12 hours"
+msgstr ""
+
+#: core/grids/csp.php:54
+#: core/grids/xxp.php:54
+msgid "Last day"
+msgstr ""
+
+#: core/grids/csp.php:55
+#: core/grids/xxp.php:55
+msgid "Last 2 days"
+msgstr ""
+
+#: core/grids/csp.php:56
+#: core/grids/xxp.php:56
+msgid "Last 3 day"
+msgstr ""
+
+#: core/grids/csp.php:57
+#: core/grids/xxp.php:57
+msgid "Last 5 day"
+msgstr ""
+
+#: core/grids/csp.php:58
+#: core/grids/xxp.php:58
+msgid "Last 7 day"
+msgstr ""
+
+#: core/grids/csp.php:59
+#: core/grids/xxp.php:59
+msgid "Last 30 days"
+msgstr ""
+
+#: core/grids/csp.php:63
+msgid "All Violated Directives"
+msgstr ""
+
+#: core/grids/csp.php:67
+msgid "All Effective Directive"
+msgstr ""
+
+#: core/grids/csp.php:78
+#: core/grids/xxp.php:66
+msgid "Filter"
+msgstr ""
+
+#: core/grids/csp.php:109
+#: core/grids/xxp.php:84
+msgid "%s %s"
+msgstr ""
+
+#: core/grids/csp.php:132
+#: core/grids/xxp.php:107
+msgid "ID"
+msgstr ""
+
+#: core/grids/csp.php:133
+#: core/grids/xxp.php:108
+msgid "IP"
+msgstr ""
+
+#: core/grids/csp.php:134
+msgid "Violated"
+msgstr ""
+
+#: core/grids/csp.php:135
+msgid "Effective"
+msgstr ""
+
+#: core/grids/csp.php:136
+msgid "URL"
+msgstr ""
+
+#: core/grids/csp.php:137
+msgid "Blocked"
+msgstr ""
+
+#: core/grids/csp.php:138
+#: core/grids/csp.php:208
+#: core/grids/xxp.php:110
+#: core/grids/xxp.php:174
+msgid "Data"
+msgstr ""
+
+#: core/grids/csp.php:139
+#: core/grids/xxp.php:111
+msgid "Reported"
+msgstr ""
+
+#: core/grids/csp.php:195
+msgid "Referer"
+msgstr ""
+
+#: core/grids/csp.php:199
+#: core/grids/xxp.php:165
+msgid "User Agent"
+msgstr ""
+
+#: core/grids/csp.php:205
+#: core/grids/xxp.php:171
+msgid "View All Data"
+msgstr ""
+
+#: core/grids/csp.php:209
+#: core/grids/xxp.php:175
+msgid "Value"
+msgstr ""
+
+#: core/grids/csp.php:231
+#: core/grids/xxp.php:197
+msgid "No IP logged"
+msgstr ""
+
+#: core/grids/csp.php:235
+#: core/grids/xxp.php:201
+msgid "Reports"
+msgstr ""
+
+#: core/grids/csp.php:243
+#: core/grids/xxp.php:209
+msgid "Your current IP."
+msgstr ""
+
+#: core/grids/csp.php:246
+#: core/grids/xxp.php:212
+msgid "Your server IP."
+msgstr ""
+
+#: core/grids/xxp.php:109
+msgid "Requested URL"
+msgstr ""
+
+#: forms/about/changelog.php:2
+#: forms/about/info.php:4
+#: forms/about/minor.php:3
+#: forms/front.php:18
+msgid "Version"
+msgstr ""
+
+#: forms/about/header.php:23
+msgid "Configure various security related HTTP headers, including Content Security Policy, Referrer Policy and more. All headers can be added to .HTACCESS file."
+msgstr ""
+
+#: forms/about/header.php:12
+msgid "What&#8217;s New"
+msgstr ""
+
+#: forms/about/header.php:13
+msgid "Info"
+msgstr ""
+
+#: forms/about/header.php:14
+msgid "Changelog"
+msgstr ""
+
+#: forms/about/header.php:15
+msgid "Dev4Press"
+msgstr ""
+
+#: forms/about/header.php:21
+msgid "Welcome to GD Security Headers&nbsp;%s"
+msgstr ""
+
+#: forms/about/header.php:27
+msgid "Version %s"
+msgstr ""
+
+#: forms/about/info.php:5
+msgid "Status"
+msgstr ""
+
+#: forms/about/info.php:6
+msgid "Edition"
+msgstr ""
+
+#: forms/about/info.php:7
+msgid "Build"
+msgstr ""
+
+#: forms/about/info.php:8
+msgid "Date"
+msgstr ""
+
+#: forms/about/info.php:12
+msgid "First released"
+msgstr ""
+
+#: forms/about/info.php:18
+msgid "System Requirements"
+msgstr ""
+
+#: forms/about/info.php:21
+msgid "WordPress"
+msgstr ""
+
+#: forms/about/info.php:22
+msgid "PHP"
+msgstr ""
+
+#: forms/about/info.php:23
+msgid "MySQL"
+msgstr ""
+
+#: forms/about/info.php:29
+msgid "Knowledge Base and Support Forums"
+msgstr ""
+
+#: forms/about/info.php:40
+msgid "Important Links"
+msgstr ""
+
+#: forms/about/info.php:43
+msgid "On WordPress.org"
+msgstr ""
+
+#: forms/about/info.php:44
+msgid "On Dev4Press"
+msgstr ""
+
+#: forms/about/info.php:32
+msgid "To learn more about the plugin, check out plugin %s articles and FAQ. To get additional help, you can use %s."
+msgstr ""
+
+#: forms/about/info.php:33
+msgid "knowledge base"
+msgstr ""
+
+#: forms/about/info.php:34
+msgid "support forum"
+msgstr ""
+
+#: forms/about/minor.php:1
+msgid "Maintenance and Security Releases"
+msgstr ""
+
+#: forms/about/minor.php:7
+msgid "For more information, see <a href='%s'>the changelog</a>."
+msgstr ""
+
+#: forms/setup/database.php:0
+msgid "Database Tables"
+msgstr ""
+
+#: forms/setup/database.php:9
+msgid "Upgrade Notices"
+msgstr ""
+
+#: forms/setup/database.php:13
+msgid "Tables Check"
+msgstr ""
+
+#: forms/setup/database.php:21
+msgid "ERROR"
+msgstr ""
+
+#: forms/shared/bottom.php:6
+msgid "Working. Please wait..."
+msgstr ""
+
+#: forms/shared/top.php:40
+msgid "Settings are saved."
+msgstr ""
+
+#: forms/shared/top.php:43
+msgid "Import operation completed."
+msgstr ""
+
+#: forms/shared/top.php:46
+msgid "Nothing done."
+msgstr ""
+
+#: forms/tools/export.php:3
+#: forms/tools/import.php:1
+#: forms/tools/remove.php:1
+#: forms/tools/reportslog.php:17
+msgid "Important"
+msgstr ""
+
+#: forms/tools/export.php:5
+msgid "With this tool you export all plugin settings into plain text file using JSON format. Do not modify export file, change can make it unusable."
+msgstr ""
+
+#: forms/tools/import.php:3
+msgid "With this tool you import all plugin settings from plain text file made using the Export tool. If you made changes to this file, it is very likely that import will fail."
+msgstr ""
+
+#: forms/tools/import.php:8
+msgid "Import File"
+msgstr ""
+
+#: forms/tools/import.php:10
+msgid "Select file you want to import"
+msgstr ""
+
+#: forms/tools/remove.php:3
+msgid "This tool can remove plugin settings saved in the WordPress options table and all database tables added by the plugin."
+msgstr ""
+
+#: forms/tools/remove.php:4
+msgid "Deletion operations are not reversible, and it is highly recommended to create database backup before proceeding with this tool."
+msgstr ""
+
+#: forms/tools/remove.php:5
+msgid "If you choose to remove plugin settings, once that is done, all settings will be reinitialized to default values if you choose to leave plugin active."
+msgstr ""
+
+#: forms/tools/remove.php:10
+msgid "Remove plugin settings"
+msgstr ""
+
+#: forms/tools/remove.php:13
+msgid "All Plugin Settings"
+msgstr ""
+
+#: forms/tools/remove.php:19
+msgid "Remove database data and tables"
+msgstr ""
+
+#: forms/tools/remove.php:22
+msgid "Remove plugins database tables and all data in them"
+msgstr ""
+
+#: forms/tools/remove.php:25
+msgid "Remove all data from database tables"
+msgstr ""
+
+#: forms/tools/remove.php:28
+msgid "Database tables that will be affected"
+msgstr ""
+
+#: forms/tools/remove.php:37
+msgid "Disable Plugin"
+msgstr ""
+
+#: forms/tools/remove.php:40
+msgid "Disable plugin"
+msgstr ""
+
+#: forms/tools/reportslog.php:19
+msgid "This will remove old entries from CSP and XXP reports log. This operation is not reversible."
+msgstr ""
+
+#: forms/tools/reportslog.php:24
+msgid "Reports fo Cleanup"
+msgstr ""
+
+#: forms/tools/reportslog.php:29
+msgid "Select Tables"
+msgstr ""
+
+#: forms/tools/reportslog.php:45
+msgid "Report Cleanup Period"
+msgstr ""
+
+#: forms/tools/reportslog.php:50
+msgid "Select Period"
+msgstr ""
+
+#: forms/tools/reportslog.php:3
+msgid "Remove all logged data"
+msgstr ""
+
+#: forms/tools/reportslog.php:4
+msgid "Remove logged data older than 1 day"
+msgstr ""
+
+#: forms/tools/reportslog.php:5
+msgid "Remove logged data older than 3 days"
+msgstr ""
+
+#: forms/tools/reportslog.php:6
+msgid "Remove logged data older than 7 days"
+msgstr ""
+
+#: forms/tools/reportslog.php:7
+msgid "Remove logged data older than 14 days"
+msgstr ""
+
+#: forms/tools/reportslog.php:8
+msgid "Remove logged data older than 30 days"
+msgstr ""
+
+#: forms/tools/reportslog.php:9
+msgid "Remove logged data older than 60 days"
+msgstr ""
+
+#: forms/tools/reportslog.php:10
+msgid "Remove logged data older than 90 days"
+msgstr ""
+
+#: forms/tools/reportslog.php:11
+msgid "Remove logged data older than 180 days"
+msgstr ""
+
+#: forms/tools/reportslog.php:12
+msgid "Remove logged data older than 1 year"
+msgstr ""
+
+#: forms/front.php:32
+#: forms/tools.php:48
+msgid "Tools"
+msgstr ""
+
+#: forms/install.php:17
+msgid "Installation"
+msgstr ""
+
+#: forms/install.php:20
+msgid "Before you continue, make sure plugin installation was successful."
+msgstr ""
+
+#: forms/install.php:34
+#: forms/update.php:34
+msgid "All Done"
+msgstr ""
+
+#: forms/install.php:37
+msgid "Installation completed."
+msgstr ""
+
+#: forms/install.php:40
+#: forms/update.php:40
+msgid "Click here to continue."
+msgstr ""
+
+#: forms/settings.php:41
+msgid "Save Settings"
+msgstr ""
+
+#: forms/settings.php:45
+#: forms/tools.php:62
+msgid "Return to top"
+msgstr ""
+
+#: forms/settings.php:75
+msgid "Settings Panel"
+msgstr ""
+
+#: forms/settings.php:6
+msgid "Settings Index"
+msgstr ""
+
+#: forms/settings.php:7
+msgid "All plugin settings are split into panels, and you access each starting from the right."
+msgstr ""
+
+#: forms/settings.php:12
+msgid "Global"
+msgstr ""
+
+#: forms/settings.php:13
+msgid "From this panel you control global, common plugin settings."
+msgstr ""
+
+#: forms/tools.php:89
+msgid "Tools Panel"
+msgstr ""
+
+#: forms/tools.php:6
+msgid "Tools Index"
+msgstr ""
+
+#: forms/tools.php:7
+msgid "All plugin tools are split into several panels, and you can access each starting from the right."
+msgstr ""
+
+#: forms/tools.php:12
+msgid "Reports Logs Cleanup"
+msgstr ""
+
+#: forms/tools.php:13
+msgid "Cleanup"
+msgstr ""
+
+#: forms/tools.php:15
+msgid "Remove old reports from CSP and XXP reports logs."
+msgstr ""
+
+#: forms/tools.php:17
+msgid "Recheck and Update"
+msgstr ""
+
+#: forms/tools.php:18
+msgid "Maintenance"
+msgstr ""
+
+#: forms/tools.php:20
+msgid "Recheck plugin database tables, check for new templates and clean cache."
+msgstr ""
+
+#: forms/tools.php:22
+msgid "Export Settings"
+msgstr ""
+
+#: forms/tools.php:23
+msgid "Export"
+msgstr ""
+
+#: forms/tools.php:24
+msgid "Export all plugin settings into file."
+msgstr ""
+
+#: forms/tools.php:26
+msgid "Import Settings"
+msgstr ""
+
+#: forms/tools.php:27
+msgid "Import"
+msgstr ""
+
+#: forms/tools.php:28
+msgid "Import all plugin settings from export file."
+msgstr ""
+
+#: forms/tools.php:30
+msgid "Reset / Remove"
+msgstr ""
+
+#: forms/tools.php:32
+msgid "Remove selected plugin settings, database tables and optionally disable plugin."
+msgstr ""
+
+#: forms/update.php:17
+msgid "Update"
+msgstr ""
+
+#: forms/update.php:20
+msgid "Before you continue, make sure plugin was successfully updated."
+msgstr ""
+
+#: forms/update.php:35
+msgid "Update completed."
+msgstr ""
+
+#: forms/update.php:37
+msgid "Firewall Rules"
+msgstr ""
+
+#: forms/update.php:38
+msgid "To reset and update Firewall rules, you can use new Tools panel called 'Reset Firewall Rules'."
+msgstr ""
+
+#: forms/update.php:41
+msgid "Reset Firewall Rules."
+msgstr ""
+
