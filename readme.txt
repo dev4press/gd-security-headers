@@ -45,17 +45,7 @@ Yes. In Multisite installation, plugin is available for configuration on the Net
 Yes. POT file is provided as a base for translation. Translation files should go into Languages directory.
 
 = Where can I configure the plugin? =
-Open the WordPress Settings menu, and you will see GD Security Headers item there. This will open a panel with global plugin settings.
-
-== Translations ==
-* de_DE [Deutsch - German]
-* es_ES [Español - Spanish]
-* fr_FR [Français - French]
-* it_IT [Italiano - Italian]
-* nl_NL [Nederlands - Dutch]
-* pl_PL [Polskie - Polish]
-* ru_RU [Русский - Russian]
-* sr_RS [Српски - Serbian]
+Plugin has own top level item in the WordPress admin side menu: GD Security Headers. This will open a panel with global plugin settings. In Multisite installation, plugin panel is in the Network administration.
 
 == Upgrade Notice ==
 = 1.0 =

@@ -23,7 +23,7 @@ $_tabs = array(
     <p class="d4p-about-text">
         <?php _e("Configure various security related HTTP headers, including Content Security Policy, Referrer Policy and more. All headers can be added to .HTACCESS file.", "gd-security-headers"); ?>
     </p>
-    <div class="d4p-about-badge" style="background-color: #6F1A1A;">
+    <div class="d4p-about-badge" style="background-color: #69426A;">
         <i class="d4p-icon d4p-plugin-icon-gd-security-headers"></i>
         <?php printf(__("Version %s", "gd-security-headers"), gdsih_settings()->info_version); ?>
     </div>

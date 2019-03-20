@@ -24,9 +24,6 @@ class gdsih_core_plugin extends d4p_plugin_core {
         }
 
         $this->url = GDSIH_URL;
-
-        add_action('gdsih_plugin_init', array($this, 'core_plugin_init'), 100000);
-
         $this->datetime = new d4p_datetime_core();
     }
 
@@ -42,7 +39,7 @@ class gdsih_core_plugin extends d4p_plugin_core {
         parent::plugins_loaded();
 
         $this->_ip = d4p_visitor_ip();
-        $this->_ua = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '';
+        $this->_ua = d4p_user_agent();
 
         define('GDSIH_WPV', intval($this->wp_version));
         define('GDSIH_WPV_MAJOR', substr($this->wp_version, 0, 3));
@@ -82,5 +79,9 @@ class gdsih_core_plugin extends d4p_plugin_core {
                 wp_schedule_event($cron_time, 'daily', $this->cron_job);
             }
         }
+    }
+
+    public function maintenance_job() {
+
     }
 }

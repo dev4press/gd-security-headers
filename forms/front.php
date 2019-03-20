@@ -9,7 +9,7 @@ include(GDSIH_PATH.'core/objects/core.statistics.php');
 
 <div class="d4p-plugin-dashboard">
     <div class="d4p-content-left">
-        <div class="d4p-dashboard-badge" style="background-color: #6F1A1A">
+        <div class="d4p-dashboard-badge" style="background-color: #69426A">
             <div aria-hidden="true" class="d4p-plugin-logo"><i class="d4p-icon d4p-plugin-icon-gd-security-headers"></i></div>
             <h3>GD Security Toolbox Pro</h3>
 
