@@ -1,5 +1,5 @@
 <div class="d4p-group d4p-group-import d4p-group-about">
-    <h3>GD Security Toolbox Pro</h3>
+    <h3>GD Security Headers</h3>
     <div class="d4p-group-inner">
         <ul>
             <li><?php _e("Version", "gd-security-headers"); ?>: <span><?php echo gdsih_settings()->info_version; ?></span></li>

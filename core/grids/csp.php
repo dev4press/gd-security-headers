@@ -32,7 +32,7 @@ class gdsih_csp_report_grid extends d4p_grid {
     }
 
     private function _self($args, $getback = false) {
-        $base_url = 'admin.php?page=gd-security-toolbox-csp-reports';
+        $base_url = 'admin.php?page=gd-security-headers-csp-reports';
         $url = $base_url.'&'.$args;
 
         if ($getback) {

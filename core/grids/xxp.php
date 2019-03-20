@@ -32,7 +32,7 @@ class gdsih_xxp_report_grid extends d4p_grid {
     }
 
     private function _self($args, $getback = false) {
-        $base_url = 'admin.php?page=gd-security-toolbox-xxp-reports';
+        $base_url = 'admin.php?page=gd-security-headers-xxp-reports';
         $url = $base_url.'&'.$args;
 
         if ($getback) {

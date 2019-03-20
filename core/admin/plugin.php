@@ -151,7 +151,7 @@ class gdsih_admin_core extends d4p_admin_core {
 
             wp_enqueue_script('jquery-form');
 
-            wp_enqueue_style('fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+            wp_enqueue_style('fontawesome', GDSIH_URL.'d4plib/resources/fontawesome/css/font-awesome.min.css');
 
             wp_enqueue_style('d4plib-font', $this->file('css', 'font', true), array(), D4P_VERSION);
             wp_enqueue_style('d4plib-shared', $this->file('css', 'shared', true), array(), D4P_VERSION);
@@ -209,8 +209,8 @@ class gdsih_admin_core extends d4p_admin_core {
             add_action('load-'.$id, array($this, 'load_admin_page'));
         }
 
-        add_action('load-security-toolbox_page_gd-security-toolbox-csp-reports', array($this, 'screen_options_grid_rows_csp_reports'));
-        add_action('load-security-toolbox_page_gd-security-toolbox-xxp-reports', array($this, 'screen_options_grid_rows_xxp_reports'));
+        add_action('load-security-headers_page_gd-security-headers-csp-reports', array($this, 'screen_options_grid_rows_csp_reports'));
+        add_action('load-security-headers_page_gd-security-headers-xxp-reports', array($this, 'screen_options_grid_rows_xxp_reports'));
     }
 
     public function current_screen($screen) {
@@ -223,13 +223,13 @@ class gdsih_admin_core extends d4p_admin_core {
         if (gdsec_scope()->is_network_admin()) {
             if ($id == 'toplevel_page_gd-security-headers-front-network') {
                 $this->page = 'front';
-            } else if (substr($id, 0, 42) == 'security-toolbox_page_gd-security-headers-') {
+            } else if (substr($id, 0, 42) == 'security-headers_page_gd-security-headers-') {
                 $this->page = substr($id, 42, strlen($id) - 50);
             }
         } else {
             if ($id == 'toplevel_page_gd-security-headers-front') {
                 $this->page = 'front';
-            } else if (substr($id, 0, 42) == 'security-toolbox_page_gd-security-headers-') {
+            } else if (substr($id, 0, 42) == 'security-headers_page_gd-security-headers-') {
                 $this->page = substr($id, 42);
             }
         }

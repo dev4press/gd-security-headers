@@ -38,7 +38,7 @@ $_classes = array('d4p-wrap', 'wpv-'.GDSIH_WPV, 'd4p-page-install');
                     _e("Installation completed.", "gd-security-headers");
 
                 ?>
-                <br/><br/><a class="button-primary" href="<?php echo network_admin_url('admin.php?page=gd-security-toolbox-about'); ?>"><?php _e("Click here to continue.", "gd-security-headers"); ?></a>
+                <br/><br/><a class="button-primary" href="<?php echo network_admin_url('admin.php?page=gd-security-headers-about'); ?>"><?php _e("Click here to continue.", "gd-security-headers"); ?></a>
             </div>
             <?php echo gdsec()->recommend('install'); ?>
         </div>
