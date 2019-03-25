@@ -22,7 +22,7 @@ $scope = is_multisite() ? gdsih_scope()->get_scope() : $panels[$_panel]['scope']
 
 <form method="post" action="" autocomplete="off">
     <?php settings_fields('gd-security-headers-settings'); ?>
-    <input type="hidden" value="postback" name="gdsec_handler" />
+    <input type="hidden" value="postback" name="gdsih_handler" />
     <input type="hidden" value="<?php echo $scope; ?>" name="gdsih_scope" />
 
     <div class="d4p-content-left">
@@ -96,13 +96,13 @@ $scope = is_multisite() ? gdsih_scope()->get_scope() : $panels[$_panel]['scope']
 
             include(GDSIH_PATH.'core/admin/options.php');
 
-            $options = new gdsec_admin_settings();
+            $options = new gdsih_admin_settings();
 
             $panel = gdsih_admin()->panel;
             $groups = $options->get($panel);
 
             $render = new d4pSettingsRender($panel, $groups);
-            $render->base = 'gdsecvalue';
+            $render->base = 'gdsihvalue';
             $render->render();
         }
 

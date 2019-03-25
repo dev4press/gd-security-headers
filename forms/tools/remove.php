@@ -29,7 +29,7 @@
         <p><?php _e("Database tables that will be affected", "gd-security-headers"); ?>:</p>
         <ul style="list-style: inside disc;">
             <li><?php echo gdsih_db()->csp_reports; ?></li>
-            <li><?php echo gdsec_db()->xxp_reports; ?></li>
+            <li><?php echo gdsih_db()->xxp_reports; ?></li>
         </ul>
     </div>
 </div>

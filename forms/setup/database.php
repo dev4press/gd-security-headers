@@ -11,7 +11,7 @@ if (!empty($list_db)) {
 }
 
 echo '<h4>'.__("Tables Check", "gd-security-headers").'</h4>';
-$check = gdsec_check_database();
+$check = gdsih_check_database();
 
 $msg = array();
 foreach ($check as $table => $data) {
