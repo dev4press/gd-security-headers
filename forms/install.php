@@ -40,7 +40,6 @@ $_classes = array('d4p-wrap', 'wpv-'.GDSIH_WPV, 'd4p-page-install');
                 ?>
                 <br/><br/><a class="button-primary" href="<?php echo network_admin_url('admin.php?page=gd-security-headers-about'); ?>"><?php _e("Click here to continue.", "gd-security-headers"); ?></a>
             </div>
-            <?php echo gdsec()->recommend('install'); ?>
         </div>
     </div>
 </div>

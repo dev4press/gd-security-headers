@@ -22,7 +22,7 @@ if (!empty($panels)) {
 }
 
 
-$_classes = array('d4p-wrap', 'wpv-'.GDSEC_WPV, 'd4p-page-'.$_real_page);
+$_classes = array('d4p-wrap', 'wpv-'.GDSIH_WPV, 'd4p-page-'.$_real_page);
 
 if ($_panel !== false) {
     $_classes[] = 'd4p-panel';

@@ -1,3 +1,3 @@
 <?php
 
-include(GDSEC_PATH.'forms/setup/database.php');
+include(GDSIH_PATH.'forms/setup/database.php');

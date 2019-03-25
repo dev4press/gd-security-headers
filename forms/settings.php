@@ -8,7 +8,7 @@ $panels = array(
         'info' => __("All plugin settings are split into panels, and you access each starting from the right.", "gd-security-headers"))
 );
 
-if (gdsec_scope()->is_master_network_admin()) {
+if (gdsih_scope()->is_master_network_admin()) {
     $panels['global'] = array(
         'title' => __("Global", "gd-security-headers"), 'icon' => 'cog', 'scope' => 'network', 
         'info' => __("From this panel you control global, common plugin settings.", "gd-security-headers"));
@@ -16,14 +16,14 @@ if (gdsec_scope()->is_master_network_admin()) {
 
 include(GDSIH_PATH.'forms/shared/top.php');
 
-$scope = is_multisite() ? gdsec_scope()->get_scope() : $panels[$_panel]['scope'];
+$scope = is_multisite() ? gdsih_scope()->get_scope() : $panels[$_panel]['scope'];
 
 ?>
 
 <form method="post" action="" autocomplete="off">
     <?php settings_fields('gd-security-headers-settings'); ?>
     <input type="hidden" value="postback" name="gdsec_handler" />
-    <input type="hidden" value="<?php echo $scope; ?>" name="gdsec_scope" />
+    <input type="hidden" value="<?php echo $scope; ?>" name="gdsih_scope" />
 
     <div class="d4p-content-left">
         <div class="d4p-panel-scroller d4p-scroll-active">

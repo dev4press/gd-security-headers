@@ -2,7 +2,6 @@
 <?php
 
 require_once(GDSIH_PATH.'core/admin/install.php');
-require_once(GDSIH_PATH.'core/admin/upgrade.php');
 
 $list_db = gdsih_install_database();
 
@@ -19,6 +18,7 @@ foreach ($check as $table => $data) {
     if ($data['status'] == 'error') {
         $_proceed = false;
         $_error_db = true;
+
         $msg[] = '<span class="gdpc-error">['.__("ERROR", "gd-security-headers").'] - <strong>'.$table.'</strong>: '.$data['msg'].'</span>';
     } else {
         $msg[] = '<span class="gdpc-ok">['.__("OK", "gd-security-headers").'] - <strong>'.$table.'</strong></span>';

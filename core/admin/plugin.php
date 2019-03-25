@@ -10,7 +10,7 @@ class gdsih_admin_core extends d4p_admin_core {
 
         $this->url = GDSIH_URL;
 
-        add_action('gdsec_plugin_init', array($this, 'core'));
+        add_action('gdsih_plugin_init', array($this, 'core'));
     }
 
     public function core() {
@@ -35,8 +35,8 @@ class gdsih_admin_core extends d4p_admin_core {
 
     public function screen_options_grid_rows_save($status, $option, $value) {
         if (in_array($option, array(
-            'gdsec_rows_per_page_csp_reports',
-            'gdsec_rows_per_page_xxp_reports'))) {
+            'gdsih_rows_per_page_csp_reports',
+            'gdsih_rows_per_page_xxp_reports'))) {
             return $value;
         }
 
@@ -44,7 +44,7 @@ class gdsih_admin_core extends d4p_admin_core {
     }
 
     public function screen_options_grid_rows_csp_reports() {
-        $key = 'gdsec_rows_per_page_csp_reports';
+        $key = 'gdsih_rows_per_page_csp_reports';
 
         $args = array(
             'label' => __("Rows", "gd-security-headers"),
@@ -55,11 +55,11 @@ class gdsih_admin_core extends d4p_admin_core {
 
         require_once(GDSIH_PATH.'core/grids/csp.php');
 
-        new gdsec_csp_report_grid();
+        new gdsih_csp_report_grid();
     }
 
     public function screen_options_grid_rows_xxp_reports() {
-        $key = 'gdsec_rows_per_page_xxp_reports';
+        $key = 'gdsih_rows_per_page_xxp_reports';
 
         $args = array(
             'label' => __("Rows", "gd-security-headers"),
@@ -70,14 +70,14 @@ class gdsih_admin_core extends d4p_admin_core {
 
         require_once(GDSIH_PATH.'core/grids/xxp.php');
 
-        new gdsec_xxp_report_grid();
+        new gdsih_xxp_report_grid();
     }
 
     public function install_notice() {
         if (current_user_can('install_plugins') && $this->page === false) {
             echo '<div class="updated"><p>';
             echo __("GD Security Headers is activated and it needs to finish installation.", "gd-security-headers");
-            echo ' <a href="admin.php?page=gd-security-headers-front">'.__("Click Here", "gd-security-headers").'</a>.';
+            echo ' <a href="'.network_admin_url('admin.php?page=gd-security-headers-front').'">'.__("Click Here", "gd-security-headers").'</a>.';
             echo '</p></div>';
         }
     }
@@ -86,14 +86,12 @@ class gdsih_admin_core extends d4p_admin_core {
         if (current_user_can('install_plugins') && $this->page === false) {
             echo '<div class="updated"><p>';
             echo __("GD Security Headers is updated and it needs to finish the update process.", "gd-security-headers");
-            echo ' <a href="admin.php?page=gd-security-headers-front">'.__("Click Here", "gd-security-headers").'</a>.';
+            echo ' <a href="'.network_admin_url('admin.php?page=gd-security-headers-front').'">'.__("Click Here", "gd-security-headers").'</a>.';
             echo '</p></div>';
         }
     }
 
     public function init_ready() {
-        do_action('gdsec_admin_load_addons');
-
         $this->menu_items = array(
             'front' => array('title' => __("Overview", "gd-security-headers"), 'icon' => 'home'),
             'about' => array('title' => __("About", "gd-security-headers"), 'icon' => 'info-circle'),
@@ -107,7 +105,7 @@ class gdsih_admin_core extends d4p_admin_core {
     public function admin_init() {
         d4p_include('grid', 'admin', GDSIH_D4PLIB);
 
-        do_action('gdsec_admin_init');
+        do_action('gdsih_admin_init');
     }
 
     public function title() {
@@ -124,16 +122,16 @@ class gdsih_admin_core extends d4p_admin_core {
         $this->page_ids[] = add_menu_page(
             'GD Security Headers',
             'Security Headers',
-            gdsec()->cap,
+            gdsih()->cap,
             $parent,
             array($this, 'panel_general'),
-            gdsec()->svg_icon);
+            gdsih()->svg_icon);
 
         foreach($this->menu_items as $item => $data) {
             $this->page_ids[] = add_submenu_page($parent,
                 'GD Security Headers: '.$data['title'],
                 $data['title'],
-                gdsec()->cap,
+                gdsih()->cap,
                 'gd-security-headers-'.$item,
                 array($this, 'panel_general'));
         }
@@ -143,8 +141,6 @@ class gdsih_admin_core extends d4p_admin_core {
 
     public function enqueue_scripts($hook) {
         $load_admin_data = false;
-
-        gdsec()->enqueue_global();
 
         if ($this->page !== false) {
             d4p_admin_enqueue_defaults();
@@ -168,10 +164,8 @@ class gdsih_admin_core extends d4p_admin_core {
                 wp_enqueue_style('d4plib-grid', $this->file('css', 'grid', true), array(), D4P_VERSION.'.'.D4P_BUILD);
             }
 
-            do_action('gdsec_admin_enqueue_scripts', $this->page);
-
             $_data = array(
-                'nonce' => wp_create_nonce('gdsec-admin-internal'),
+                'nonce' => wp_create_nonce('gdsih-admin-internal'),
                 'wp_version' => GDSIH_WPV,
                 'page' => $this->page,
                 'panel' => $this->panel,
@@ -220,7 +214,7 @@ class gdsih_admin_core extends d4p_admin_core {
 
         $id = $screen->id;
 
-        if (gdsec_scope()->is_network_admin()) {
+        if (gdsih_scope()->is_network_admin()) {
             if ($id == 'toplevel_page_gd-security-headers-front-network') {
                 $this->page = 'front';
             } else if (substr($id, 0, 42) == 'security-headers_page_gd-security-headers-') {
@@ -250,23 +244,18 @@ class gdsih_admin_core extends d4p_admin_core {
     public function load_admin_page() {
         $this->help_tab_sidebar();
 
-        do_action('gdsec_load_admin_page_'.$this->page);
+        do_action('gdsih_load_admin_page_'.$this->page);
 
         if ($this->panel !== false && $this->panel != '') {
-            do_action('gdsec_load_admin_page_'.$this->page.'_'.$this->panel);
+            do_action('gdsih_load_admin_page_'.$this->page.'_'.$this->panel);
         }
 
         $this->help_tab_getting_help();
     }
 
     public function install_or_update() {
-        if (gdsec_scope()->is_multisite() && gdsec_scope()->is_blog_admin()) {
-            $install = gdsec_blog()->is_install();
-            $update = gdsec_blog()->is_update();
-        } else {
-            $install = gdsih_settings()->is_install();
-            $update = gdsih_settings()->is_update();
-        }
+        $install = gdsih_settings()->is_install();
+        $update = gdsih_settings()->is_update();
 
         if ($install) {
             include(GDSIH_PATH.'forms/install.php');

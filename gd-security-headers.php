@@ -46,8 +46,9 @@ require_once(GDSIH_D4PLIB.'d4p.core.php');
 /* D4PLIB */
 
 d4p_includes(array(
-    array('name' => 'cache-wordpress', 'directory' => 'functions'),
     array('name' => 'datetime', 'directory' => 'core'),
+    array('name' => 'scope', 'directory' => 'core'),
+    array('name' => 'wpdb', 'directory' => 'core'),
     array('name' => 'plugin', 'directory' => 'plugin'),
     array('name' => 'errors', 'directory' => 'plugin'), 
     array('name' => 'settings', 'directory' => 'plugin'),

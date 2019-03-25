@@ -1,5 +1,5 @@
 <?php
 
-class gdsec_admin_settings {
+class gdsih_admin_settings {
 
 }
