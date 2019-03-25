@@ -77,12 +77,11 @@ class gdsih_core_settings extends d4p_settings_core {
         ),
         'xxp' => array(
             'log' => true,
-            'log_force_ssl' => false,
-            'notify' => false
+            'log_force_ssl' => false
         ),
         'headers' => array(
             'x_content_type_nosniff' => true,
-            'x_frame_options_sameorigin' => true,
+            'x_frame_options_sameorigin' => false,
             'strict_transport_security' => false,
             'referrer_policy' => false,
 

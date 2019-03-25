@@ -61,6 +61,7 @@ d4p_includes(array(
 
 require_once(GDSIH_PATH.'core/version.php');
 require_once(GDSIH_PATH.'core/settings.php');
+require_once(GDSIH_PATH.'core/functions.php');
 require_once(GDSIH_PATH.'core/plugin.php');
 
 require_once(GDSIH_PATH.'core/objects/core.db.php');

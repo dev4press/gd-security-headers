@@ -12,6 +12,15 @@ if (gdsih_scope()->is_master_network_admin()) {
     $panels['global'] = array(
         'title' => __("Global", "gd-security-headers"), 'icon' => 'cog', 'scope' => 'network', 
         'info' => __("From this panel you control global, common plugin settings.", "gd-security-headers"));
+    $panels['csp'] = array(
+        'title' => __("Content Security Policy", "gd-security-headers"), 'icon' => 'cog', 'scope' => 'network',
+        'info' => __("From this panel you control CSP settings.", "gd-security-headers"));
+    $panels['xxp'] = array(
+        'title' => __("X XSS Protection", "gd-security-headers"), 'icon' => 'cog', 'scope' => 'network',
+        'info' => __("From this panel you control XXP settings.", "gd-security-headers"));
+    $panels['msh'] = array(
+        'title' => __("More Headers", "gd-security-headers"), 'icon' => 'cog', 'scope' => 'network',
+        'info' => __("From this panel you control other security headers settings.", "gd-security-headers"));
 }
 
 include(GDSIH_PATH.'forms/shared/top.php');
