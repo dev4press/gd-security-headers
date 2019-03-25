@@ -112,6 +112,21 @@ class gdsih_core_settings extends d4p_settings_core {
     public function file_version() {
         return $this->info_version.'.'.$this->info_build;
     }
+
+    public function export_to_json($list = array()) {
+        if (empty($list)) {
+            $list = $this->_groups();
+        }
+
+        $data = new stdClass();
+        $data->info = $this->current['info'];
+
+        foreach ($list as $name) {
+            $data->$name = $this->current[$name];
+        }
+
+        return json_encode($data);
+    }
 }
 
 /** @return gdsih_core_scope */

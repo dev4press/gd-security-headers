@@ -3,12 +3,16 @@ msgid ""
 msgstr ""
 "Plural - Forms: nplurals = INTEGER; plural = EXPRESSION;\n"
 "Project-Id-Version: gd-security-headers\n"
-"POT-Creation-Date: 03/25/2019 06:36:14 PM\n"
+"POT-Creation-Date: 03/25/2019 07:19:01 PM\n"
 "Language-Team: Milan Petrovic <support@dev4press.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: GD i18n 2.1\n"
+
+#: core/admin/getback.php:52
+msgid "Only administrators can use export features."
+msgstr ""
 
 #: core/admin/install.php:76
 msgid "Some columns are missing."
