@@ -98,7 +98,7 @@ class gdsih_admin_core extends d4p_admin_core {
             'csp-reports' => array('title' => __("CSP Reports", "gd-security-headers"), 'icon' => 'info-circle'),
             'xxp-reports' => array('title' => __("XXP Reports", "gd-security-headers"), 'icon' => 'info-circle'),
             'settings' => array('title' => __("Settings", "gd-security-headers"), 'icon' => 'cogs'),
-            'tools' => array('title' => __("About", "gd-security-headers"), 'icon' => 'wrench')
+            'tools' => array('title' => __("Tools", "gd-security-headers"), 'icon' => 'wrench')
         );
     }
 

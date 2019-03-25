@@ -39,7 +39,6 @@ $_classes = array('d4p-wrap', 'wpv-'.GDSIH_WPV, 'd4p-page-update');
                 <?php _e("To reset and update Firewall rules, you can use new Tools panel called 'Reset Firewall Rules'.", "gd-security-headers"); ?>
 
                 <br/><br/><a class="button-primary" href="<?php echo network_admin_url('admin.php?page=gd-security-headers-about'); ?>"><?php _e("Click here to continue.", "gd-security-headers"); ?></a>
-                <a class="button-secondary" href="<?php echo network_admin_url('admin.php?page=gd-security-headers-tools&panel=firewall'); ?>"><?php _e("Reset Firewall Rules.", "gd-security-headers"); ?></a>
             </div>
         </div>
     </div>
