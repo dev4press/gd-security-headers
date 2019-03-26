@@ -1,0 +1,65 @@
+<?php
+
+if (!defined('ABSPATH')) { exit; }
+
+class gdsih_component_csp {
+    public $key = 'gdsih-csp-report';
+
+    public $csp = null;
+
+    public function __construct() {
+        if (gdsih_settings()->get('mode', 'csp') != 'disable') {
+            if (gdsih_settings()->get('htaccess')) {
+                add_filter('gdsih_htaccess_build_list', array($this, 'htaccess'));
+            } else {
+                $this->csp = new gdsih_core_csp();
+
+                header($this->csp->build());
+            }
+
+            if (gdsih_settings()->get('log', 'csp')) {
+                add_action('template_redirect', array($this, 'log'));
+            }
+        }
+    }
+
+    public function htaccess($htaccess = array()) {
+        $this->csp = new gdsih_core_csp();
+
+        $htaccess[] = '# add header: content security policy';
+        $htaccess[] = '<IfModule mod_headers.c>';
+        $htaccess[] = D4P_TAB.'Header set '.$this->csp->build(true);
+        $htaccess[] = '</IfModule>';
+        $htaccess[] = '';
+
+        return $htaccess;
+    }
+
+    public function log() {
+        if (isset($_GET[$this->key])) {
+            $raw = file_get_contents('php://input');
+
+            if ($csp = json_decode($raw, true)) {
+                if (isset($csp['csp-report'])) {
+                    $this->event($csp['csp-report']);
+                }
+            }
+
+            http_response_code(204);
+            exit;
+        }
+    }
+
+    private function event($csp) {
+        $report = array_map('d4p_sanitize_basic', $csp);
+
+        gdsih_db()->csp_report(array(
+            'document_uri' => $report['document-uri'],
+            'blocked_uri' => $report['blocked-uri'],
+            'referrer' => $report['referrer'],
+            'violated_directive' => $report['violated-directive'],
+            'effective_directive' => isset($report['effective-directive']) ? $report['effective-directive'] : '',
+            'original_policy' => gdsih_settings()->get('log_original_policy', 'csp') ? $report['original-policy'] : ''
+        ));
+    }
+}

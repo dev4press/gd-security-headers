@@ -76,6 +76,7 @@ class gdsih_core_settings extends d4p_settings_core {
             'frame_custom' => array()
         ),
         'xxp' => array(
+            'x_xss_protection' => true,
             'log' => true,
             'log_force_ssl' => false
         ),

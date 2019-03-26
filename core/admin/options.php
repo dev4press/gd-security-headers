@@ -133,6 +133,14 @@ class gdsih_admin_settings {
                 ))
             ),
             'xxp' => array(
+                'xxo_xss' => array('name' => __("Add", "gd-security-headers").': X-XSS-Protection', 'settings' => array(
+                    new d4pSettingElement('', '', __("Information", "gd-security-headers"),
+                        '<ul>
+                             <li>'.__("Prevents various types of cross site scripting. It also can log the XXS reportes some browsers can send.", "gd-security-headers").'</li>
+                         </ul>'
+                        , d4pSettingType::INFO),
+                    new d4pSettingElement('xxp','x_xss_protection', __("Add Header", "gd-security-headers"), '', d4pSettingType::BOOLEAN, gdsih_settings()->get('x_xss_protection', 'xxp'))
+                )),
                 'xxp_log' => array('name' => __("Log reports", "gd-security-headers"), 'settings' => array(
                     new d4pSettingElement('xxp', 'log', __("Log Reports", "gd-security-headers"), __("Plugin will store in events log every CSP report.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('log', 'xxp')),
                     new d4pSettingElement('xxp', 'log_force_ssl', __("Force SSL for Report URL", "gd-security-headers"), __("In some cases, network home URL for the website might be generated with HTTP even if your website is set to use HTTPS. Enable this option, only if you use HTTPS URL and SSL.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('log_force_ssl', 'xxp'))

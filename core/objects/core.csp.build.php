@@ -1,0 +1,130 @@
+<?php
+
+if (!defined('ABSPATH')) { exit; }
+
+class gdsih_core_csp {
+    public $key = 'gdsih-csp-report';
+
+    public $mode = '';
+    public $rules = array(
+        'default' => 'default-src',
+        'script' => 'script-src',
+        'style' => 'style-src',
+        'img' => 'img-src',
+        'font' => 'font-src',
+        'frame' => 'frame-src',
+        'object' => 'object-src',
+        'connect' => 'connect-src',
+        'media' => 'media-src',
+        'manifest' => 'manifest-src',
+        'child' => 'child-src',
+        'worker' => 'worker-src',
+        'form-action' => 'form-action',
+        'frame-ancestors' => 'frame-ancestors'
+    );
+
+    public function __construct() { }
+
+    public function url() {
+        $base_url = gdsih_settings()->get('log_force_ssl', 'csp') ? network_home_url('', 'https') : network_home_url();
+
+        return $base_url.'?'.$this->key;
+    }
+
+    public function rule($items, $name) {
+        $basic = gdsih_settings()->get($name.'_basic', 'csp');
+        $custom = gdsih_settings()->get($name.'_custom', 'csp');
+
+        $basic = apply_filters('gdsih_csp_build_basic_rule', $basic, $name);
+        $basic = apply_filters('gdsih_csp_build_basic_rule_for_'.$name, $basic);
+
+        if ($basic != 'no') {
+            $item = $this->rules[$name]." '".$basic."' ";
+
+            if (gdsih_settings()->get('auto_inline_rule', 'csp') && ($name == 'default' || $name == 'script' || $name == 'style')) {
+                $item.= "'unsafe-inline' ";
+            }
+
+            if (gdsih_settings()->get('auto_eval_rule', 'csp') && ($name == 'default' || $name == 'script')) {
+                $item.= "'unsafe-eval' ";
+            }
+
+            if (gdsih_settings()->get('auto_data_rule', 'csp') && ($name == 'default' || $name == 'script' || $name == 'style' || $name == 'img' || $name == 'font' || $name == 'child' || $name == 'frame')) {
+                $item.= "data: ";
+            }
+
+            $custom = apply_filters('gdsih_csp_build_custom_rules_for_'.$name, $custom);
+
+            $custom = array_unique($custom);
+            $custom = array_filter($custom);
+
+            $item.= join(' ', $custom).';';
+
+            $items[] = $item;
+        }
+
+        return $items;
+    }
+
+    public function build($htaccess = false) {
+        if (gdsih_settings()->get('extra_google_adsense', 'csp')) {
+            require_once(GDSIH_PATH.'core/csp/google-adsense.php');
+        }
+
+        if (gdsih_settings()->get('extra_google_analytics', 'csp')) {
+            require_once(GDSIH_PATH.'core/csp/google-analytics.php');
+        }
+
+        if (gdsih_settings()->get('extra_google_fonts', 'csp')) {
+            require_once(GDSIH_PATH.'core/csp/google-fonts.php');
+        }
+
+        if (gdsih_settings()->get('extra_google_maps', 'csp')) {
+            require_once(GDSIH_PATH.'core/csp/google-maps.php');
+        }
+
+        if (gdsih_settings()->get('extra_google_translate', 'csp')) {
+            require_once(GDSIH_PATH.'core/csp/google-translate.php');
+        }
+
+        $this->mode = gdsih_settings()->get('mode', 'csp');
+
+        $items = array();
+
+        $header = 'Content-Security-Policy-Report-Only';
+
+        if ($this->mode == 'live') {
+            $header = 'Content-Security-Policy';
+        }
+
+        foreach (array_keys($this->rules) as $key) {
+            $items = $this->rule($items, $key);
+        }
+
+        if (gdsih_settings()->get('referrer', 'csp') != 'no') {
+            $items[] = 'referrer '.gdsih_settings()->get('referrer').';';
+        }
+
+        if (gdsih_settings()->get('upgrade_insecure_requests', 'csp')) {
+            $items[] = 'upgrade-insecure-requests;';
+        }
+
+        if (gdsih_settings()->get('block_all_mixed_content', 'csp')) {
+            $items[] = 'block-all-mixed-content;';
+        }
+
+        if (gdsih_settings()->get('disown_opener', 'csp')) {
+            $items[] = 'disown-opener;';
+        }
+
+        if (gdsih_settings()->get('log', 'csp')) {
+            $items[] = 'report-uri '.$this->url().';';
+        }
+
+        if ($htaccess) {
+            return $header.' "'.join(' ', $items).'"';
+        } else {
+            return $header.': '.join(' ', $items);
+        }
+    }
+}

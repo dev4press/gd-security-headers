@@ -35,9 +35,9 @@ class gdsih_admin_postback {
             array('name' => 'functions', 'directory' => 'admin')
         ), GDSIH_D4PLIB);
 
-        include(GDSIH_PATH.'core/internal.php');
+        include(GDSIH_PATH.'core/admin/options.php');
 
-        $scope = $_REQUEST['gdsig_scope'];
+        $scope = $_REQUEST['gdsih_scope'];
 
         $options = new gdsih_admin_settings();
         $settings = $options->settings($panel);
@@ -62,6 +62,7 @@ class gdsih_admin_postback {
         }
 
         do_action('gdsih_save_settings_'.$panel);
+        do_action('gdsih_saved_the_settings');
     }
 
     private function settings() {
