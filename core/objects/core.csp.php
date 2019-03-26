@@ -8,19 +8,17 @@ class gdsih_component_csp {
     public $csp = null;
 
     public function __construct() {
-        if (gdsih_settings()->get('mode', 'csp') != 'disable') {
-            if (gdsih_settings()->get('htaccess')) {
-                add_filter('gdsih_htaccess_build_list', array($this, 'htaccess'));
-            } else {
-                $this->csp = new gdsih_core_csp();
+        if (!gdsih_settings()->get('htaccess')) {
+            $this->csp = new gdsih_core_csp();
 
-                header($this->csp->build());
-            }
-
-            if (gdsih_settings()->get('log', 'csp')) {
-                add_action('template_redirect', array($this, 'log'));
-            }
+            header($this->csp->build());
         }
+
+        if (gdsih_settings()->get('log', 'csp')) {
+            add_action('template_redirect', array($this, 'log'));
+        }
+
+        add_filter('gdsih_htaccess_build_list', array($this, 'htaccess'));
     }
 
     public function htaccess($htaccess = array()) {

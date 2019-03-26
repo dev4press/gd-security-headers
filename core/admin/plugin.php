@@ -193,8 +193,6 @@ class gdsih_admin_core extends d4p_admin_core {
                 'string_image_not_selected' => __("Image not selected.", "gd-security-headers")
             ));
         }
-
-        wp_enqueue_style('gdsih-admin', $this->file('css', 'admin'), array(), gdsih_settings()->file_version());
     }
 
     public function admin_load_hooks() {

@@ -4,11 +4,11 @@ if (!defined('ABSPATH')) { exit; }
 
 class gdsih_component_headers {
     public function __construct() {
-        if (gdsih_settings()->get('htaccess')) {
-            add_filter('gdsih_htaccess_build_list', array($this, 'htaccess'));
-        } else {
+        if (!gdsih_settings()->get('htaccess')) {
             $this->_headers();
         }
+
+        add_filter('gdsih_htaccess_build_list', array($this, 'htaccess'));
     }
 
     public function htaccess($htaccess = array()) {

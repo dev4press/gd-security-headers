@@ -101,10 +101,6 @@ class gdsih_core_csp {
             $items = $this->rule($items, $key);
         }
 
-        if (gdsih_settings()->get('referrer', 'csp') != 'no') {
-            $items[] = 'referrer '.gdsih_settings()->get('referrer').';';
-        }
-
         if (gdsih_settings()->get('upgrade_insecure_requests', 'csp')) {
             $items[] = 'upgrade-insecure-requests;';
         }

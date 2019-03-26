@@ -48,17 +48,17 @@ class gdsih_admin_settings {
                     new d4pSettingElement('csp', 'log_force_ssl', __("Force SSL for Report URL", "gd-security-headers"), __("In some cases, network home URL for the website might be generated with HTTP even if your website is set to use HTTPS. Enable this option, only if you use HTTPS URL and SSL.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('log_force_ssl', 'csp'))
                 )),
                 'csp_auto' => array('name' => __("Auto Source Rules", "gd-security-headers"), 'settings' => array(
-                    new d4pSettingElement('', '', __("Information", "gd-security-headers"), __("Due to the way WordPress works, it is highly reccommended to allow inline scripts and style, inline script eval and data sources. With these options, plugin will add these sources automatically. If you disable them here, you will need to create rules to cover them or add them manually where you need them.", "gd-security-headers"), d4pSettingType::INFO),
+                    new d4pSettingElement('', '', __("Information", "gd-security-headers"), __("Due to the way WordPress works, it is highly reccommended to allow inline scripts and style and inline script eval. With these options, plugin will add these sources automatically. If you disable them here, you will need to create rules to cover them or add them manually where you need them.", "gd-security-headers"), d4pSettingType::INFO),
                     new d4pSettingElement('', '', '', '', d4pSettingType::HR),
-                    new d4pSettingElement('csp', 'auto_inline_rule', __("Unsafe Inline Rule", "gd-security-headers"), '', d4pSettingType::BOOLEAN, gdsih_settings()->get('auto_inline_rule')),
-                    new d4pSettingElement('csp', 'auto_eval_rule', __("Unsafe Eval Rule", "gd-security-headers"), '', d4pSettingType::BOOLEAN, gdsih_settings()->get('auto_eval_rule')),
-                    new d4pSettingElement('csp', 'auto_data_rule', __("Data Rule", "gd-security-headers"), '', d4pSettingType::BOOLEAN, gdsih_settings()->get('auto_data_rule'))
+                    new d4pSettingElement('csp', 'auto_inline_rule', __("Unsafe Inline Rule", "gd-security-headers"), '', d4pSettingType::BOOLEAN, gdsih_settings()->get('auto_inline_rule', 'csp')),
+                    new d4pSettingElement('csp', 'auto_eval_rule', __("Unsafe Eval Rule", "gd-security-headers"), '', d4pSettingType::BOOLEAN, gdsih_settings()->get('auto_eval_rule', 'csp')),
+                    new d4pSettingElement('', '', '', '', d4pSettingType::HR),
+                    new d4pSettingElement('csp', 'auto_data_rule', __("Data Rule", "gd-security-headers"), __("This is highly unlikely to be needed, and enable it only if you know about instances where you might have used 'data:' in your website for source for scripts, images or frame.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('auto_data_rule', 'csp'))
                 )),
                 'csp_additional' => array('name' => __("Additional CSP Settings", "gd-security-headers"), 'settings' => array(
-                    new d4pSettingElement('csp', 'upgrade_insecure_requests', __("Upgrade insecure requests", "gd-security-headers"), '', d4pSettingType::BOOLEAN, gdsih_settings()->get('upgrade_insecure_requests')),
-                    new d4pSettingElement('csp', 'block_all_mixed_content', __("Block all mixed content", "gd-security-headers"), '', d4pSettingType::BOOLEAN, gdsih_settings()->get('block_all_mixed_content')),
-                    new d4pSettingElement('csp', 'disown_opener', __("Disown Opener", "gd-security-headers"), __("This is not yet widely supported, it works with some browsers.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('disown_opener')),
-                    new d4pSettingElement('csp', 'referrer', __("Referrer", "gd-security-headers"), '', d4pSettingType::SELECT, gdsih_settings()->get('referrer'), 'array', $this->get_refferrer())
+                    new d4pSettingElement('csp', 'upgrade_insecure_requests', __("Upgrade insecure requests", "gd-security-headers"), __("Use this only if your website is configured to use secure HTTPS.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('upgrade_insecure_requests', 'csp')),
+                    new d4pSettingElement('csp', 'block_all_mixed_content', __("Block all mixed content", "gd-security-headers"), __("Use this only if your website is configured to use secure HTTPS.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('block_all_mixed_content', 'csp')),
+                    new d4pSettingElement('csp', 'disown_opener', __("Disown Opener", "gd-security-headers"), __("This is not yet widely supported, it works only with some browsers.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('disown_opener', 'csp'))
                 )),
                 'csp_extra' => array('name' => __("Extra rules for third party services", "gd-security-headers"), 'settings' => array(
                     new d4pSettingElement('csp', 'extra_google_adsense', __("Google Adsense", "gd-security-headers"), __("If you are using Google Adsense, this option will automatically append required rules to Default, Scripts, Child and Images rules.", "gd-security-headers").' '.__("Make sure to enable listed rules for this to work.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('extra_google_adsense', 'csp')),
@@ -196,15 +196,6 @@ class gdsih_admin_settings {
             'disable' => __("Disabled", "gd-security-headers"),
             'report' => __("Report", "gd-security-headers"),
             'live' => __("Live", "gd-security-headers")
-        );
-    }
-
-    public function get_reflected_xss() {
-        return array(
-            'no' => __("Disabled", "gd-security-headers"),
-            'allow' => __("Allow", "gd-security-headers"),
-            'block' => __("Block", "gd-security-headers"),
-            'filter' => __("Filter", "gd-security-headers")
         );
     }
 

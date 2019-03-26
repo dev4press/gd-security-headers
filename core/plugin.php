@@ -58,7 +58,7 @@ class gdsih_core_plugin extends d4p_plugin_core {
             require_once(GDSIH_PATH.'core/objects/core.csp.build.php');
             require_once(GDSIH_PATH.'core/objects/core.csp.php');
 
-            //new gdsih_component_csp();
+            new gdsih_component_csp();
         }
 
         if (gdsih_settings()->get('x_xss_protection', 'xxp')) {
@@ -80,9 +80,9 @@ class gdsih_core_plugin extends d4p_plugin_core {
 
         if ($status['automatic']) {
             if (gdsih_settings()->get('htaccess')) {
-                $htaccess->reset();
-            } else {
                 $htaccess->write();
+            } else {
+                $htaccess->reset();
             }
         }
     }

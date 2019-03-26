@@ -1,0 +1,44 @@
+/* Grids */
+.gdsih-grid-csp .column-id,
+.gdsih-grid-xxp .column-id {
+    width: 72px;
+}
+
+.gdsih-grid-csp .column-violated_directive,
+.gdsih-grid-csp .column-effective_directive {
+    width: 160px;
+}
+
+.gdsih-grid-csp .column-ip,
+.gdsih-grid-xxp .column-ip {
+    width: 20%;
+}
+
+.gdsih-grid-csp .column-reported,
+.gdsih-grid-xxp .column-reported {
+    width: 112px;
+}
+
+.gdsih-grid-csp .column-data,
+.gdsih-grid-xxp .column-data {
+    width: 12%;
+}
+
+.d4p-group-inner .form-table.gdsih-grid-table tr {
+    border-bottom: 1px solid #ddd;
+}
+
+.d4p-group-inner .form-table.gdsih-grid-table th,
+.d4p-group-inner .form-table.gdsih-grid-table td {
+    padding: 7px;
+    line-height: 20px;
+}
+
+.d4p-group-inner .form-table.gdsih-grid-table tr:last-child {
+    border-bottom: none;
+}
+
+.d4p-group-inner .form-table.gdsih-grid-table tr:last-child th,
+.d4p-group-inner .form-table.gdsih-grid-table tr:last-child td {
+    padding: 7px;
+}

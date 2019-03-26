@@ -6,15 +6,15 @@ class gdsih_component_xxp {
     public $key = 'gdsih-xxp-report';
 
     public function __construct() {
-        if (gdsih_settings()->get('htaccess')) {
-            add_filter('gdsih_htaccess_build_list', array($this, 'htaccess'));
-        } else {
+        if (!gdsih_settings()->get('htaccess')) {
             header($this->build());
         }
 
         if (gdsih_settings()->get('log', 'xxp')) {
             add_action('template_redirect', array($this, 'log'));
         }
+
+        add_filter('gdsih_htaccess_build_list', array($this, 'htaccess'));
     }
 
     public function log() {

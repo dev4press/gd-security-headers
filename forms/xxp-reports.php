@@ -18,7 +18,7 @@ include(GDSIH_PATH.'forms/shared/top.php');
         $_grid = new gdsih_xxp_report_grid();
         $_grid->prepare_items();
 
-        $_grid->search_box(__("Search"), 's');
+        $_grid->search_box(__("Search", "gd-security-headers"), 's');
         $_grid->display();
 
         ?>

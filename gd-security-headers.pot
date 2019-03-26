@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural - Forms: nplurals = INTEGER; plural = EXPRESSION;\n"
 "Project-Id-Version: gd-security-headers\n"
-"POT-Creation-Date: 03/25/2019 07:19:01 PM\n"
+"POT-Creation-Date: 03/26/2019 06:23:50 PM\n"
 "Language-Team: Milan Petrovic <support@dev4press.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -44,10 +44,11 @@ msgstr ""
 #: core/admin/options.php:116
 #: core/admin/options.php:122
 #: core/admin/options.php:128
-#: core/admin/options.php:142
+#: core/admin/options.php:136
 #: core/admin/options.php:150
-#: core/admin/options.php:161
-#: core/admin/options.php:170
+#: core/admin/options.php:158
+#: core/admin/options.php:169
+#: core/admin/options.php:178
 msgid "Information"
 msgstr ""
 
@@ -64,12 +65,12 @@ msgid "Basics"
 msgstr ""
 
 #: core/admin/options.php:45
-#: core/admin/options.php:136
+#: core/admin/options.php:144
 msgid "Log Reports"
 msgstr ""
 
 #: core/admin/options.php:45
-#: core/admin/options.php:136
+#: core/admin/options.php:144
 msgid "Plugin will store in events log every CSP report."
 msgstr ""
 
@@ -82,12 +83,12 @@ msgid "Each report contains full original CSP policy that is not very useful to 
 msgstr ""
 
 #: core/admin/options.php:47
-#: core/admin/options.php:137
+#: core/admin/options.php:145
 msgid "Force SSL for Report URL"
 msgstr ""
 
 #: core/admin/options.php:47
-#: core/admin/options.php:137
+#: core/admin/options.php:145
 msgid "In some cases, network home URL for the website might be generated with HTTP even if your website is set to use HTTPS. Enable this option, only if you use HTTPS URL and SSL."
 msgstr ""
 
@@ -96,7 +97,7 @@ msgid "Auto Source Rules"
 msgstr ""
 
 #: core/admin/options.php:50
-msgid "Due to the way WordPress works, it is highly reccommended to allow inline scripts and style, inline script eval and data sources. With these options, plugin will add these sources automatically. If you disable them here, you will need to create rules to cover them or add them manually where you need them."
+msgid "Due to the way WordPress works, it is highly reccommended to allow inline scripts and style and inline script eval. With these options, plugin will add these sources automatically. If you disable them here, you will need to create rules to cover them or add them manually where you need them."
 msgstr ""
 
 #: core/admin/options.php:52
@@ -107,32 +108,37 @@ msgstr ""
 msgid "Unsafe Eval Rule"
 msgstr ""
 
-#: core/admin/options.php:54
+#: core/admin/options.php:55
 msgid "Data Rule"
 msgstr ""
 
-#: core/admin/options.php:56
-msgid "Additional CSP Settings"
+#: core/admin/options.php:55
+msgid "This is highly unlikely to be needed, and enable it only if you know about instances where you might have used 'data:' in your website for source for scripts, images or frame."
 msgstr ""
 
 #: core/admin/options.php:57
+msgid "Additional CSP Settings"
+msgstr ""
+
+#: core/admin/options.php:58
 msgid "Upgrade insecure requests"
 msgstr ""
 
 #: core/admin/options.php:58
+#: core/admin/options.php:59
+msgid "Use this only if your website is configured to use secure HTTPS."
+msgstr ""
+
+#: core/admin/options.php:59
 msgid "Block all mixed content"
 msgstr ""
 
-#: core/admin/options.php:59
+#: core/admin/options.php:60
 msgid "Disown Opener"
 msgstr ""
 
-#: core/admin/options.php:59
-msgid "This is not yet widely supported, it works with some browsers."
-msgstr ""
-
 #: core/admin/options.php:60
-msgid "Referrer"
+msgid "This is not yet widely supported, it works only with some browsers."
 msgstr ""
 
 #: core/admin/options.php:62
@@ -308,131 +314,122 @@ msgid "This is obsolete CSP source, use Child source instead."
 msgstr ""
 
 #: core/admin/options.php:135
-msgid "Log reports"
-msgstr ""
-
-#: core/admin/options.php:141
 #: core/admin/options.php:149
-#: core/admin/options.php:160
-#: core/admin/options.php:169
+#: core/admin/options.php:157
+#: core/admin/options.php:168
+#: core/admin/options.php:177
 msgid "Add"
 msgstr ""
 
-#: core/admin/options.php:144
-msgid "Prevents some browsers from MIME sniffing a response away from declared content type. Reduces exposure to some types of attacks."
+#: core/admin/options.php:138
+msgid "Prevents various types of cross site scripting. It also can log the XXS reportes some browsers can send."
 msgstr ""
 
-#: core/admin/options.php:147
-#: core/admin/options.php:156
-#: core/admin/options.php:166
-#: core/admin/options.php:176
+#: core/admin/options.php:141
+#: core/admin/options.php:155
+#: core/admin/options.php:164
+#: core/admin/options.php:174
+#: core/admin/options.php:184
 msgid "Add Header"
 msgstr ""
 
+#: core/admin/options.php:143
+msgid "Log reports"
+msgstr ""
+
 #: core/admin/options.php:152
+msgid "Prevents some browsers from MIME sniffing a response away from declared content type. Reduces exposure to some types of attacks."
+msgstr ""
+
+#: core/admin/options.php:160
 msgid "This header should strengthen secure connection implementation by forcing user agent to use HTTPS."
 msgstr ""
 
-#: core/admin/options.php:153
+#: core/admin/options.php:161
 msgid "Use only if you use HTTPS on your website!"
 msgstr ""
 
-#: core/admin/options.php:157
+#: core/admin/options.php:165
 msgid "Max Age"
 msgstr ""
 
-#: core/admin/options.php:158
+#: core/admin/options.php:166
 msgid "Extras"
 msgstr ""
 
-#: core/admin/options.php:163
+#: core/admin/options.php:171
 msgid "This header allows website to control how much information browser includes when it navigates away from your website."
 msgstr ""
 
-#: core/admin/options.php:167
+#: core/admin/options.php:175
 msgid "Policy"
 msgstr ""
 
-#: core/admin/options.php:172
+#: core/admin/options.php:180
 msgid "This header controls loading of the website inside the IFRAME. By default, SAMEORIGIN will allow loading of your website in IFRAME that originated from your website. You can disable IFRAME support, or limit it to listed domains."
 msgstr ""
 
-#: core/admin/options.php:173
+#: core/admin/options.php:181
 msgid "This header can be replaced with CSP policy 'frame-src' or 'child-src' directives. If you use that, you don't need X-Frame-Options header."
 msgstr ""
 
-#: core/admin/options.php:177
+#: core/admin/options.php:185
 #: core/grids/csp.php:209
 #: core/grids/xxp.php:175
 msgid "Value"
 msgstr ""
 
-#: core/admin/options.php:178
+#: core/admin/options.php:186
 msgid "Domains"
 msgstr ""
 
-#: core/admin/options.php:187
 #: core/admin/options.php:195
-#: core/admin/options.php:204
-#: core/admin/options.php:215
+#: core/admin/options.php:203
+#: core/admin/options.php:214
 msgid "Disabled"
 msgstr ""
 
-#: core/admin/options.php:188
+#: core/admin/options.php:196
 msgid "Report"
 msgstr ""
 
-#: core/admin/options.php:189
+#: core/admin/options.php:197
 msgid "Live"
 msgstr ""
 
-#: core/admin/options.php:196
-msgid "Allow"
-msgstr ""
-
-#: core/admin/options.php:197
-msgid "Block"
-msgstr ""
-
-#: core/admin/options.php:198
-#: core/grids/csp.php:78
-#: core/grids/xxp.php:66
-msgid "Filter"
-msgstr ""
-
-#: core/admin/options.php:205
+#: core/admin/options.php:204
 msgid "No referrer"
 msgstr ""
 
-#: core/admin/options.php:206
+#: core/admin/options.php:205
 #: core/functions.php:7
 msgid "No referrer when downgrade"
 msgstr ""
 
-#: core/admin/options.php:207
+#: core/admin/options.php:206
 #: core/functions.php:9
 msgid "Origin"
 msgstr ""
 
-#: core/admin/options.php:208
+#: core/admin/options.php:207
 #: core/functions.php:11
 msgid "Origin when cross origin"
 msgstr ""
 
-#: core/admin/options.php:209
+#: core/admin/options.php:208
 #: core/functions.php:13
 msgid "Unsafe URL"
 msgstr ""
 
-#: core/admin/options.php:216
+#: core/admin/options.php:215
 msgid "None"
 msgstr ""
 
-#: core/admin/options.php:217
+#: core/admin/options.php:216
 msgid "All"
 msgstr ""
 
-#: core/admin/options.php:218
+#: core/admin/options.php:217
 msgid "Self"
 msgstr ""
 
@@ -485,49 +482,49 @@ msgstr ""
 msgid "Tools"
 msgstr ""
 
-#: core/admin/plugin.php:174
+#: core/admin/plugin.php:173
 #: forms/setup/database.php:23
 msgid "OK"
 msgstr ""
 
-#: core/admin/plugin.php:175
+#: core/admin/plugin.php:174
 msgid "Cancel"
 msgstr ""
 
-#: core/admin/plugin.php:176
+#: core/admin/plugin.php:175
 #: core/grids/csp.php:167
 #: core/grids/xxp.php:137
 msgid "Delete"
 msgstr ""
 
-#: core/admin/plugin.php:177
+#: core/admin/plugin.php:176
 #: forms/tools.php:31
 msgid "Remove"
 msgstr ""
 
-#: core/admin/plugin.php:178
+#: core/admin/plugin.php:177
 msgid "Clear"
 msgstr ""
 
-#: core/admin/plugin.php:179
-#: core/admin/plugin.php:192
+#: core/admin/plugin.php:178
+#: core/admin/plugin.php:191
 msgid "Are you sure you want to do this?"
 msgstr ""
 
-#: core/admin/plugin.php:180
+#: core/admin/plugin.php:179
 #: forms/shared/bottom.php:4
 msgid "Please Wait..."
 msgstr ""
 
-#: core/admin/plugin.php:190
+#: core/admin/plugin.php:189
 msgid "Select Image"
 msgstr ""
 
-#: core/admin/plugin.php:191
+#: core/admin/plugin.php:190
 msgid "Use Selected Image"
 msgstr ""
 
-#: core/admin/plugin.php:193
+#: core/admin/plugin.php:192
 msgid "Image not selected."
 msgstr ""
 
@@ -592,6 +589,11 @@ msgstr ""
 
 #: core/grids/csp.php:67
 msgid "All Effective Directive"
+msgstr ""
+
+#: core/grids/csp.php:78
+#: core/grids/xxp.php:66
+msgid "Filter"
 msgstr ""
 
 #: core/grids/csp.php:109
@@ -835,6 +837,10 @@ msgstr ""
 msgid "Working. Please wait..."
 msgstr ""
 
+#: forms/shared/dialogs.php:1
+msgid "Event Data"
+msgstr ""
+
 #: forms/shared/top.php:40
 msgid "Settings are saved."
 msgstr ""
@@ -972,6 +978,11 @@ msgstr ""
 
 #: forms/tools/reportslog.php:12
 msgid "Remove logged data older than 1 year"
+msgstr ""
+
+#: forms/csp-reports.php:20
+#: forms/xxp-reports.php:20
+msgid "Search"
 msgstr ""
 
 #: forms/install.php:17

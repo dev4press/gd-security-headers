@@ -44,7 +44,6 @@ class gdsih_core_settings extends d4p_settings_core {
             'upgrade_insecure_requests' => false,
             'block_all_mixed_content' => false,
             'disown_opener' => false,
-            'referrer' => 'no',
 
             'default_basic' => 'self',
             'default_custom' => array(),

@@ -35,7 +35,7 @@ class gdsih_core_htaccess {
             $status['writable'] = is_writable(ABSPATH);
         }
 
-        $status['automatic'] = $status['writable'] && $status['apache'] && $status['mod_headers'];
+        $status['automatic'] = $status['writable'] && $status['apache'];
 
         return $status;
     }
@@ -46,6 +46,14 @@ class gdsih_core_htaccess {
 
     public function write() {
         $rules = apply_filters('gdsih_htaccess_build_list', array());
+
+        if (count($rules) > 0) {
+            $idx = count($rules) - 1;
+
+            if (empty($rules[$idx])) {
+                unset($rules[$idx]);
+            }
+        }
 
         return $this->io->insert($this->marker, $rules, 'start', true);
     }
