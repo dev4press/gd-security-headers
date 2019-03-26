@@ -126,6 +126,13 @@ class gdsih_admin_postback {
                     gdsih_settings()->remove_plugin_settings();
                 }
 
+                if (isset($remove['htaccess']) && $remove['htaccess'] == 'on') {
+                    require_once(GDSIH_PATH.'core/objects/core.htaccess.php');
+
+                    $htaccess = new gdsih_core_htaccess();
+                    $htaccess->reset();
+                }
+
                 if (isset($remove['drop']) && $remove['drop'] == 'on') {
                     require_once(GDSIH_PATH.'core/admin/install.php');
 

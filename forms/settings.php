@@ -10,16 +10,18 @@ $panels = array(
 
 if (gdsih_scope()->is_master_network_admin()) {
     $panels['global'] = array(
-        'title' => __("Global", "gd-security-headers"), 'icon' => 'cog', 'scope' => 'network', 
+        'title' => __("Global", "gd-security-headers"), 'icon' => 'cog', 'scope' => 'network',
+        'break' => __("Basic", "gd-security-headers"),
         'info' => __("From this panel you control global, common plugin settings.", "gd-security-headers"));
     $panels['csp'] = array(
-        'title' => __("Content Security Policy", "gd-security-headers"), 'icon' => 'cog', 'scope' => 'network',
+        'title' => __("Content Security Policy", "gd-security-headers"), 'icon' => 'flag', 'scope' => 'network',
+        'break' => __("Headers", "gd-security-headers"),
         'info' => __("From this panel you control CSP settings.", "gd-security-headers"));
     $panels['xxp'] = array(
-        'title' => __("X XSS Protection", "gd-security-headers"), 'icon' => 'cog', 'scope' => 'network',
+        'title' => __("X XSS Protection", "gd-security-headers"), 'icon' => 'window-close', 'scope' => 'network',
         'info' => __("From this panel you control XXP settings.", "gd-security-headers"));
     $panels['msh'] = array(
-        'title' => __("More Headers", "gd-security-headers"), 'icon' => 'cog', 'scope' => 'network',
+        'title' => __("More Headers", "gd-security-headers"), 'icon' => 'tags', 'scope' => 'network',
         'info' => __("From this panel you control other security headers settings.", "gd-security-headers"));
 }
 

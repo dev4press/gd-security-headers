@@ -64,11 +64,11 @@ class gdsih_core_db extends d4p_wpdb_core {
     public function cleanup_reports($days = 365, $tables = array()) {
         foreach ($tables as $t) {
             if ($t == 'csp') {
-                $this->query("DELETE FROM ".$this->csp_reports." WHERE reported < DATE_SUB(NOW(), INTERVAL $days DAY)");
+                $this->query($this->prepare("DELETE FROM ".$this->csp_reports." WHERE reported < DATE_SUB(NOW(), INTERVAL %d DAY)", $days));
             }
 
             if ($t == 'xxp') {
-                $this->query("DELETE FROM ".$this->xxp_reports." WHERE reported < DATE_SUB(NOW(), INTERVAL $days DAY)");
+                $this->query($this->prepare("DELETE FROM ".$this->xxp_reports." WHERE reported < DATE_SUB(NOW(), INTERVAL %d DAY)", $days));
             }
         }
     }

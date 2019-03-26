@@ -13,6 +13,9 @@
         <label>
             <input type="checkbox" class="widefat" name="gdsihtools[remove][settings]" value="on" /> <?php _e("All Plugin Settings", "gd-security-headers"); ?>
         </label>
+        <label>
+            <input type="checkbox" class="widefat" name="gdsihtools[remove][htaccess]" value="on" /> <?php _e("Rules added to .HTACCESS", "gd-security-headers"); ?>
+        </label>
     </div>
 </div>
 

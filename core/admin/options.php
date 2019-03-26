@@ -53,7 +53,7 @@ class gdsih_admin_settings {
                     new d4pSettingElement('csp', 'auto_inline_rule', __("Unsafe Inline Rule", "gd-security-headers"), '', d4pSettingType::BOOLEAN, gdsih_settings()->get('auto_inline_rule', 'csp')),
                     new d4pSettingElement('csp', 'auto_eval_rule', __("Unsafe Eval Rule", "gd-security-headers"), '', d4pSettingType::BOOLEAN, gdsih_settings()->get('auto_eval_rule', 'csp')),
                     new d4pSettingElement('', '', '', '', d4pSettingType::HR),
-                    new d4pSettingElement('csp', 'auto_data_rule', __("Data Rule", "gd-security-headers"), __("This is highly unlikely to be needed, and enable it only if you know about instances where you might have used 'data:' in your website for source for scripts, images or frame.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('auto_data_rule', 'csp'))
+                    new d4pSettingElement('csp', 'auto_data_rule', __("Data Rule", "gd-security-headers"), __("This might be needed for images or fonts. If you prefer, you can disable this option here, and manually add 'data:' as a custom rule where needed.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('auto_data_rule', 'csp'))
                 )),
                 'csp_additional' => array('name' => __("Additional CSP Settings", "gd-security-headers"), 'settings' => array(
                     new d4pSettingElement('csp', 'upgrade_insecure_requests', __("Upgrade insecure requests", "gd-security-headers"), __("Use this only if your website is configured to use secure HTTPS.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('upgrade_insecure_requests', 'csp')),

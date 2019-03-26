@@ -156,8 +156,8 @@ class gdsih_admin_core extends d4p_admin_core {
             wp_enqueue_script('d4plib-shared', $this->file('js', 'shared', true), array('jquery', 'wp-color-picker'), D4P_VERSION, true);
             wp_enqueue_script('d4plib-admin', $this->file('js', 'admin', true), array('d4plib-shared'), D4P_VERSION, true);
 
-            wp_enqueue_style('gdsih-plugin', $this->file('css', 'plugin'), array('d4plib-admin'), gdsih_settings()->file_version());
-            wp_enqueue_script('gdsih-plugin', $this->file('js', 'plugin'), array('d4plib-admin'), gdsih_settings()->file_version(), true);
+            wp_enqueue_style('gdsih-plugin', $this->file('css', 'plugin'), array('d4plib-admin', 'wp-jquery-ui-dialog'), gdsih_settings()->file_version());
+            wp_enqueue_script('gdsih-plugin', $this->file('js', 'plugin'), array('d4plib-admin', 'wpdialogs'), gdsih_settings()->file_version(), true);
 
             if ($this->page == 'about') {
                 wp_enqueue_style('d4plib-grid', $this->file('css', 'grid', true), array(), D4P_VERSION.'.'.D4P_BUILD);

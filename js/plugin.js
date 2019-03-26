@@ -8,9 +8,9 @@ var gdsih_plugin_core;
             gdsih_plugin_core.dialogs.basic();
 
             if (gdsih_data.page === "csp-reports" || gdsih_data.page === "xxp-reports") {
-                gdsih_plugin_core.dialogs.events();
+                gdsih_plugin_core.dialogs.reports();
 
-                gdsih_plugin_core.events.init();
+                gdsih_plugin_core.reports.init();
             }
 
             if (gdsih_data.page === "tools" && gdsih_data.panel === "export") {
@@ -48,7 +48,7 @@ var gdsih_plugin_core;
                     zIndex: 300000
                 };
             },
-            events: function() {
+            reports: function() {
                 var dlg_events_details = $.extend({}, gdsih_plugin_core.dialogs.defaults(), {
                     width: 750,
                     dialogClass: gdsih_plugin_core.dialogs.classes("gdsih-dialog-hidex"),
@@ -83,7 +83,7 @@ var gdsih_plugin_core;
                 $("#gdsih-dialog-please-wait").wpdialog(dlg_tools_wait);
             }
         },
-        events: {
+        reports: {
             init: function () {
                 $(".gdsih-log-view-event-data").click(function(e){
                     e.preventDefault();
