@@ -1,4 +1,4 @@
-<div class="d4p-group d4p-group-extra">
+<div class="d4p-group d4p-group-extra d4p-group-important">
     <h3><?php _e("Important", "gd-security-headers"); ?></h3>
     <div class="d4p-group-inner">
         <?php _e("This tool can remove plugin settings saved in the WordPress options table and all database tables added by the plugin.", "gd-security-headers"); ?><br/><br/>
@@ -13,8 +13,14 @@
         <label>
             <input type="checkbox" class="widefat" name="gdsihtools[remove][settings]" value="on" /> <?php _e("All Plugin Settings", "gd-security-headers"); ?>
         </label>
+    </div>
+</div>
+
+<div class="d4p-group d4p-group-tools d4p-group-reset">
+    <h3><?php _e("Remove .HTACCESS rules", "gd-security-headers"); ?></h3>
+    <div class="d4p-group-inner">
         <label>
-            <input type="checkbox" class="widefat" name="gdsihtools[remove][htaccess]" value="on" /> <?php _e("Rules added to .HTACCESS", "gd-security-headers"); ?>
+            <input type="checkbox" class="widefat" name="gdsihtools[remove][htaccess]" value="on" /> <?php _e("All rules added to .HTACCESS", "gd-security-headers"); ?>
         </label>
     </div>
 </div>

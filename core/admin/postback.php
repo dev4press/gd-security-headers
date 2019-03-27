@@ -131,6 +131,8 @@ class gdsih_admin_postback {
 
                     $htaccess = new gdsih_core_htaccess();
                     $htaccess->reset();
+
+                    gdsih_settings()->set('htaccess_added', false, 'core', true);
                 }
 
                 if (isset($remove['drop']) && $remove['drop'] == 'on') {

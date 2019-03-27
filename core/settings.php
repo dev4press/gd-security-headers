@@ -20,7 +20,9 @@ class gdsih_core_settings extends d4p_settings_core {
 
     public $settings = array(
         'core' => array(
-            'activated' => 0
+            'activated' => 0,
+            'htaccess_added' => false,
+            'htaccess_available' => false
         ),
         'settings' => array(
             'htaccess' => false,

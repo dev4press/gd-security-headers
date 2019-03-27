@@ -238,6 +238,64 @@ class gdsih_admin_core extends d4p_admin_core {
         }
     }
 
+    public function help_tab_getting_help() {
+        if ($this->panel == 'csp') {
+            get_current_screen()->add_help_tab(
+                array(
+                    'id' => 'gdsec-help-settings-csp-header',
+                    'title' => __("CSP Header", "gd-security-headers"),
+                    'content' => $this->help_csp_header()
+                )
+            );
+
+            get_current_screen()->add_help_tab(
+                array(
+                    'id' => 'gdsih-help-settings-csp-res',
+                    'title' => __("CSP Resources", "gd-security-headers"),
+                    'content' => $this->help_csp_resources()
+                )
+            );
+        }
+
+        get_current_screen()->add_help_tab(
+            array(
+                'id' => 'd4p-help-info',
+                'title' => __("Getting Help", "gd-security-headers"),
+                'content' => '<p>'.__("To get help with this plugin, you can start with Knowledge Base list of frequently asked questions and articles. If you have any questions, or you want to report a bug, or you have a suggestion, you can use support forum. All important links for this are on the right side of this help dialog.", "gd-security-headers").'</p>'
+            )
+        );
+    }
+
+    public function help_csp_header() {
+        $render = '<p>'.__("There are few more things you need to think about when setting up this rating addon.", "gd-security-headers").'</p>';
+        $render.= '<ul>';
+        $render.= '<li>'.__("Do not switch to the Live policy mode before you make all the tests with the Report policy mode.", "gd-security-headers").'</li>';
+        $render.= '<li>'.__("During the testing phase, it is best to disable Log option, or you will end up with a lot of reports logged. Use Log feature when you switch to Live policy mode.", "gd-security-headers").'</li>';
+        $render.= '<li>'.__("To test CSP, use Google Chrome or Mozilla Firefox with Firebug. But will display detailed information in the Console about each CSP issue.", "gd-security-headers").'</li>';
+        $render.= '</ul>';
+        $render.= '<p>'.__("To make sure you add valid sources to all source rules, here are few examples on what is accepted by the browsers. You can use '*' character as wildcard.", "gd-security-headers").'</p>';
+        $render.= '<ul>';
+        $render.= '<li><strong>https:</strong> - '.__("Matches any url over HTTPS scheme.", "gd-security-headers").'</li>';
+        $render.= '<li><strong>example.com</strong> - '.__("Matches both HTTP and HTTPS version of the URL.", "gd-security-headers").'</li>';
+        $render.= '<li><strong>https://*.example.com</strong> - '.__("Matches HTTPS subdomains for the URL, but now the main domain.", "gd-security-headers").'</li>';
+        $render.= '<li><strong>www.example.com:443</strong> - '.__("Matches exact domain URL, with the specified port.", "gd-security-headers").'</li>';
+        $render.= '<li><strong>*://*.example.com:*</strong> - '.__("Matches any scheme for subdomain and any port, but not the main domain.", "gd-security-headers").'</li>';
+        $render.= '<li><strong>www.example.com</strong> - '.__("Matches exact domain URL, no other subdomains.", "gd-security-headers").'</li>';
+        $render.= '</ul>';
+
+        return $render;
+    }
+
+    public function help_csp_resources() {
+        $render = '<p>'.__("To get more information about the Content Security Policy, check out these online resources.", "gd-security-headers").'</p>';
+        $render.= '<ul>';
+        $render.= '<li><a href="https://content-security-policy.com/" target="_blank">Content Security Policy (CSP) Quick Reference Guide</a></li>';
+        $render.= '<li><a href="https://www.w3.org/TR/CSP/" target="_blank">W3C - Content Security Policy</a></li>';
+        $render.= '</ul>';
+
+        return $render;
+    }
+
     public function load_admin_page() {
         $this->help_tab_sidebar();
 

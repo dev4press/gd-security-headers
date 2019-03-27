@@ -14,7 +14,7 @@ $list = array(
 );
 
 ?>
-<div class="d4p-group d4p-group-extra">
+<div class="d4p-group d4p-group-extra d4p-group-important">
     <h3><?php _e("Important", "gd-security-headers"); ?></h3>
     <div class="d4p-group-inner">
         <?php _e("This will remove old entries from CSP and XXP reports log. This operation is not reversible.", "gd-security-headers"); ?>

@@ -79,11 +79,19 @@ class gdsih_core_plugin extends d4p_plugin_core {
         $status = $htaccess->check();
 
         if ($status['automatic']) {
+            gdsih_settings()->set('htaccess_available', true, 'core');
+
             if (gdsih_settings()->get('htaccess')) {
+                gdsih_settings()->set('htaccess_added', true, 'core');
+
                 $htaccess->write();
             } else {
+                gdsih_settings()->set('htaccess_added', false, 'core');
+
                 $htaccess->reset();
             }
+
+            gdsih_settings()->save('core');
         }
     }
 }

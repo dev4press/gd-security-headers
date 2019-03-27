@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural - Forms: nplurals = INTEGER; plural = EXPRESSION;\n"
 "Project-Id-Version: gd-security-headers\n"
-"POT-Creation-Date: 03/26/2019 06:23:50 PM\n"
+"POT-Creation-Date: 03/27/2019 02:27:37 PM\n"
 "Language-Team: Milan Petrovic <support@dev4press.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -113,7 +113,7 @@ msgid "Data Rule"
 msgstr ""
 
 #: core/admin/options.php:55
-msgid "This is highly unlikely to be needed, and enable it only if you know about instances where you might have used 'data:' in your website for source for scripts, images or frame."
+msgid "This might be needed for images or fonts. If you prefer, you can disable this option here, and manually add 'data:' as a custom rule where needed."
 msgstr ""
 
 #: core/admin/options.php:57
@@ -211,6 +211,7 @@ msgstr ""
 #: core/admin/options.php:118
 #: core/admin/options.php:124
 #: core/admin/options.php:130
+#: forms/settings.php:13
 msgid "Basic"
 msgstr ""
 
@@ -386,6 +387,7 @@ msgstr ""
 #: core/admin/options.php:195
 #: core/admin/options.php:203
 #: core/admin/options.php:214
+#: forms/dashboard/headers.php:38
 msgid "Disabled"
 msgstr ""
 
@@ -472,7 +474,7 @@ msgstr ""
 
 #: core/admin/plugin.php:99
 #: forms/front.php:31
-#: forms/settings.php:40
+#: forms/settings.php:42
 msgid "Settings"
 msgstr ""
 
@@ -526,6 +528,70 @@ msgstr ""
 
 #: core/admin/plugin.php:192
 msgid "Image not selected."
+msgstr ""
+
+#: core/admin/plugin.php:245
+msgid "CSP Header"
+msgstr ""
+
+#: core/admin/plugin.php:253
+msgid "CSP Resources"
+msgstr ""
+
+#: core/admin/plugin.php:262
+msgid "Getting Help"
+msgstr ""
+
+#: core/admin/plugin.php:263
+msgid "To get help with this plugin, you can start with Knowledge Base list of frequently asked questions and articles. If you have any questions, or you want to report a bug, or you have a suggestion, you can use support forum. All important links for this are on the right side of this help dialog."
+msgstr ""
+
+#: core/admin/plugin.php:269
+msgid "There are few more things you need to think about when setting up this rating addon."
+msgstr ""
+
+#: core/admin/plugin.php:271
+msgid "Do not switch to the Live policy mode before you make all the tests with the Report policy mode."
+msgstr ""
+
+#: core/admin/plugin.php:272
+msgid "During the testing phase, it is best to disable Log option, or you will end up with a lot of reports logged. Use Log feature when you switch to Live policy mode."
+msgstr ""
+
+#: core/admin/plugin.php:273
+msgid "To test CSP, use Google Chrome or Mozilla Firefox with Firebug. But will display detailed information in the Console about each CSP issue."
+msgstr ""
+
+#: core/admin/plugin.php:275
+msgid "To make sure you add valid sources to all source rules, here are few examples on what is accepted by the browsers. You can use '*' character as wildcard."
+msgstr ""
+
+#: core/admin/plugin.php:277
+msgid "Matches any url over HTTPS scheme."
+msgstr ""
+
+#: core/admin/plugin.php:278
+msgid "Matches both HTTP and HTTPS version of the URL."
+msgstr ""
+
+#: core/admin/plugin.php:279
+msgid "Matches HTTPS subdomains for the URL, but now the main domain."
+msgstr ""
+
+#: core/admin/plugin.php:280
+msgid "Matches exact domain URL, with the specified port."
+msgstr ""
+
+#: core/admin/plugin.php:281
+msgid "Matches any scheme for subdomain and any port, but not the main domain."
+msgstr ""
+
+#: core/admin/plugin.php:282
+msgid "Matches exact domain URL, no other subdomains."
+msgstr ""
+
+#: core/admin/plugin.php:289
+msgid "To get more information about the Content Security Policy, check out these online resources."
 msgstr ""
 
 #: core/grids/csp.php:49
@@ -677,6 +743,31 @@ msgstr ""
 msgid "Requested URL"
 msgstr ""
 
+#: core/objects/core.statistics.php:21
+#: forms/settings.php:16
+msgid "Content Security Policy"
+msgstr ""
+
+#: core/objects/core.statistics.php:31
+msgid "XSS Protection"
+msgstr ""
+
+#: core/objects/core.statistics.php:38
+msgid "Referrer Policy"
+msgstr ""
+
+#: core/objects/core.statistics.php:45
+msgid "Content Type"
+msgstr ""
+
+#: core/objects/core.statistics.php:52
+msgid "Strict Transport Security"
+msgstr ""
+
+#: core/objects/core.statistics.php:60
+msgid "Frame Options"
+msgstr ""
+
 #: core/functions.php:6
 msgid "Do not send referrer"
 msgstr ""
@@ -817,6 +908,120 @@ msgstr ""
 msgid "For more information, see <a href='%s'>the changelog</a>."
 msgstr ""
 
+#: forms/dashboard/headers.php:1
+msgid "Security Headers"
+msgstr ""
+
+#: forms/dashboard/headers.php:5
+msgid ".HTACCESS"
+msgstr ""
+
+#: forms/dashboard/headers.php:7
+msgid "Added"
+msgstr ""
+
+#: forms/dashboard/headers.php:9
+msgid "Not Used"
+msgstr ""
+
+#: forms/dashboard/headers.php:12
+msgid "Available"
+msgstr ""
+
+#: forms/dashboard/headers.php:14
+msgid "Not Available"
+msgstr ""
+
+#: forms/dashboard/headers.php:28
+msgid "Active"
+msgstr ""
+
+#: forms/dashboard/headers.php:31
+msgid "Report Mode"
+msgstr ""
+
+#: forms/dashboard/headers.php:34
+msgid "Live Mode"
+msgstr ""
+
+#: forms/dashboard/headers.php:41
+msgid "Recommended"
+msgstr ""
+
+#: forms/dashboard/headers.php:43
+msgid "SSL Recommended"
+msgstr ""
+
+#: forms/dashboard/headers.php:54
+msgid "HTTP Headers Security Recommendation"
+msgstr ""
+
+#: forms/dashboard/headers.php:57
+msgid "Here are few recommendations to improve your website and your website users security."
+msgstr ""
+
+#: forms/dashboard/headers.php:61
+msgid "Check out the list of available HTTP headers and enable and configure all the headers that are recommended."
+msgstr ""
+
+#: forms/dashboard/headers.php:63
+msgid "Content Security Policy is currently configured as 'Report Only'. Make sure to switch it to 'Live Mode' once you set it up."
+msgstr ""
+
+#: forms/dashboard/headers.php:66
+msgid "You should use HTTPS everywhere on your website. For that, you need to configure valid and trusted SSL certificate on your server."
+msgstr ""
+
+#: forms/dashboard/headers.php:68
+msgid "Make sure to keep your website updated so that all core security updates are applied."
+msgstr ""
+
+#: forms/dashboard/headers.php:72
+msgid "Plugin Settings"
+msgstr ""
+
+#: forms/dashboard/reports.php:1
+msgid "CSS and XXP reports logged in the past 7 days"
+msgstr ""
+
+#: forms/dashboard/reports.php:28
+msgid "Content Security Policy - Reports for URL's"
+msgstr ""
+
+#: forms/dashboard/reports.php:31
+msgid "It is highly recommended to configure CSP security header with reporting enabled."
+msgstr ""
+
+#: forms/dashboard/reports.php:38
+#: forms/dashboard/reports.php:71
+msgid "No reports logged in the past 7 days."
+msgstr ""
+
+#: forms/dashboard/reports.php:61
+msgid "X XSS Protection - Reports for URL's"
+msgstr ""
+
+#: forms/dashboard/reports.php:64
+msgid "It is highly recommended to configure X XSS Protection security header with reporting enabled."
+msgstr ""
+
+#: forms/dashboard/reports.php:94
+msgid "All CSP reports"
+msgstr ""
+
+#: forms/dashboard/reports.php:96
+msgid "All XXP reports"
+msgstr ""
+
+#: forms/dashboard/reports.php:13
+#: forms/dashboard/reports.php:17
+#: forms/dashboard/reports.php:49
+#: forms/dashboard/reports.php:82
+msgid "report"
+msgid_plural "reports"
+msgstr[0] ""
+msgstr[1] ""
+
 #: forms/setup/database.php:0
 msgid "Database Tables"
 msgstr ""
@@ -897,26 +1102,34 @@ msgid "All Plugin Settings"
 msgstr ""
 
 #: forms/tools/remove.php:19
-msgid "Remove database data and tables"
+msgid "Remove .HTACCESS rules"
 msgstr ""
 
 #: forms/tools/remove.php:22
-msgid "Remove plugins database tables and all data in them"
-msgstr ""
-
-#: forms/tools/remove.php:25
-msgid "Remove all data from database tables"
+msgid "All rules added to .HTACCESS"
 msgstr ""
 
 #: forms/tools/remove.php:28
-msgid "Database tables that will be affected"
+msgid "Remove database data and tables"
+msgstr ""
+
+#: forms/tools/remove.php:31
+msgid "Remove plugins database tables and all data in them"
+msgstr ""
+
+#: forms/tools/remove.php:34
+msgid "Remove all data from database tables"
 msgstr ""
 
 #: forms/tools/remove.php:37
+msgid "Database tables that will be affected"
+msgstr ""
+
+#: forms/tools/remove.php:46
 msgid "Disable Plugin"
 msgstr ""
 
-#: forms/tools/remove.php:40
+#: forms/tools/remove.php:49
 msgid "Disable plugin"
 msgstr ""
 
@@ -1007,16 +1220,16 @@ msgstr ""
 msgid "Click here to continue."
 msgstr ""
 
-#: forms/settings.php:50
+#: forms/settings.php:52
 msgid "Save Settings"
 msgstr ""
 
-#: forms/settings.php:54
+#: forms/settings.php:56
 #: forms/tools.php:62
 msgid "Return to top"
 msgstr ""
 
-#: forms/settings.php:84
+#: forms/settings.php:86
 msgid "Settings Panel"
 msgstr ""
 
@@ -1032,31 +1245,31 @@ msgstr ""
 msgid "Global"
 msgstr ""
 
-#: forms/settings.php:13
+#: forms/settings.php:14
 msgid "From this panel you control global, common plugin settings."
 msgstr ""
 
-#: forms/settings.php:15
-msgid "Content Security Policy"
-msgstr ""
-
-#: forms/settings.php:16
-msgid "From this panel you control CSP settings."
+#: forms/settings.php:17
+msgid "Headers"
 msgstr ""
 
 #: forms/settings.php:18
+msgid "From this panel you control CSP settings."
+msgstr ""
+
+#: forms/settings.php:20
 msgid "X XSS Protection"
 msgstr ""
 
-#: forms/settings.php:19
+#: forms/settings.php:21
 msgid "From this panel you control XXP settings."
 msgstr ""
 
-#: forms/settings.php:21
+#: forms/settings.php:23
 msgid "More Headers"
 msgstr ""
 
-#: forms/settings.php:22
+#: forms/settings.php:24
 msgid "From this panel you control other security headers settings."
 msgstr ""
 

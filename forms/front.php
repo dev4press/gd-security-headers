@@ -38,7 +38,12 @@ include(GDSIH_PATH.'core/objects/core.statistics.php');
         </div>
     </div>
     <div class="d4p-content-right">
+        <?php
 
+            include(GDSIH_PATH.'forms/dashboard/headers.php');
+            include(GDSIH_PATH.'forms/dashboard/reports.php');
+
+        ?>
     </div>
 </div>
 
