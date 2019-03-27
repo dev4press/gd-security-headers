@@ -2,7 +2,7 @@
 Contributors: GDragoN
 Donate link: https://plugins.dev4press.com/gd-security-headers/
 Version: 1.0
-Tags: dev4press, security, http headers, csp, content security policy, referrer policy
+Tags: dev4press, security, csp, content security policy, referrer policy, xss
 Requires at least: 4.5
 Requires PHP: 5.6
 Tested up to: 5.1
@@ -10,10 +10,26 @@ Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Configure various security related HTTP headers, including Content Security Policy, Referrer Policy and more. All headers can be added to .HTACCESS file.
+Configure various security related HTTP headers, including CSP, XSS, Referrer Policy and more.
 
 == Description ==
-//
+Configure various security related HTTP headers, including Content Security Policy, Referrer Policy and more. For CSP and XSS plugin supports report logging with 2 additional database tables to store reports from browsers.
+
+The plugin has support for following HTTP headers:
+
+* Content Security Policy (CSP) - with reporting
+* XSS Protection (XXP) - with reporting
+* Content Type - No Sniff Policy
+* Strict Transport Security
+* Referrer Policy
+* Frame Options
+
+For CSP, plugin allows you to set rules for all currently supported directives, additional settings including setting the policy in Report or Live mode. Plugin also includes special extensions that can automatically fill CSP rules for popular Google services you might be using on your website (Fonts, Maps, Adsense, Analytics and Translate).
+
+Plugin can add all the generated headers into .HTACCESS file (for Apache web servers), and they will be applied to all files, not just WordPress generated content. If your website is not using Apache (or .HTACCESS), all rules are generated with each page request and will work with any server type.
+
+* More information about [GD Security Headers](https://plugins.dev4press.com/gd-security-headers/)
+* Support and Knowledge Base for [GD Security Headers](https://support.dev4press.com/kb/product/gd-security-headers/)
 
 == Installation ==
 = General Requirements =
@@ -56,7 +72,11 @@ First plugin version.
 * First plugin version
 
 == Screenshots ==
-1. Advanced search form
-2. Selected forums search field
-3. Part of the filter settings
-4. Integration control settings
+1. Plugin Dashboard
+2. CSP Reports
+3. Various Headers settings
+4. XSS Protection settings
+5. Content Security Policy settings
+6. Global settings
+7. Tools
+8. .HTACCESS with security headers
