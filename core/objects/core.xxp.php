@@ -6,7 +6,7 @@ class gdsih_component_xxp {
     public $key = 'gdsih-xxp-report';
 
     public function __construct() {
-        if (!gdsih_settings()->get('htaccess')) {
+        if (!D4P_CRON && !gdsih_settings()->get('htaccess')) {
             header($this->build());
         }
 
@@ -48,7 +48,7 @@ class gdsih_component_xxp {
         return $htaccess;
     }
 
-    private function build($htaccess = false) {
+    public function build($htaccess = false) {
         $items = array(
             '1',
             'mode=block'

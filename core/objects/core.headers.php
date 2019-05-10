@@ -4,7 +4,7 @@ if (!defined('ABSPATH')) { exit; }
 
 class gdsih_component_headers {
     public function __construct() {
-        if (!gdsih_settings()->get('htaccess')) {
+        if (!D4P_CRON && !gdsih_settings()->get('htaccess')) {
             $this->_headers();
         }
 

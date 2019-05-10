@@ -2,6 +2,13 @@
 <div class="d4p-group d4p-group-changelog">
     <h3><?php _e("Version", "gd-security-headers"); ?> 1</h3>
     <div class="d4p-group-inner">
+        <h4>Version: 1.1 / may 11 2019</h4>
+        <ul>
+            <li><strong>edit</strong> updated rules for google analytics</li>
+            <li><strong>edit</strong> do not run when WordPress runs CRON</li>
+            <li><strong>edit</strong> removed some unused code and strings</li>
+        </ul>
+
         <h4>Version: 1.0 / march 21 2019</h4>
         <ul>
             <li><strong>new</strong> first official version</li>

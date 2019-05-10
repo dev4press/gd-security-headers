@@ -1,19 +1,19 @@
 === GD Security Headers ===
 Contributors: GDragoN
 Donate link: https://plugins.dev4press.com/gd-security-headers/
-Version: 1.0
+Version: 1.1
 Tags: dev4press, security, csp, content security policy, referrer policy, xss
 Requires at least: 4.5
 Requires PHP: 5.6
-Tested up to: 5.1
+Tested up to: 5.2
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Configure various security related HTTP headers, including CSP, XSS, Referrer Policy and more.
+Configure various security-related HTTP headers, including CSP, XSS, Referrer Policy and more.
 
 == Description ==
-Configure various security related HTTP headers, including Content Security Policy, Referrer Policy and more. For CSP and XSS plugin supports report logging with 2 additional database tables to store reports from browsers.
+Configure various security-related HTTP headers, including Content Security Policy, Referrer Policy and more. For CSP and XSS plugin supports report logging with 2 additional database tables to store reports from browsers.
 
 The plugin has support for following HTTP headers:
 
@@ -24,9 +24,9 @@ The plugin has support for following HTTP headers:
 * Referrer Policy
 * Frame Options
 
-For CSP, plugin allows you to set rules for all currently supported directives, additional settings including setting the policy in Report or Live mode. Plugin also includes special extensions that can automatically fill CSP rules for popular Google services you might be using on your website (Fonts, Maps, Adsense, Analytics and Translate).
+For CSP, the plugin allows you to set rules for all currently supported directives, additional settings including setting the policy in Report or Live mode. The plugin also includes special extensions that can automatically fill CSP rules for popular Google services you might be using on your website (Fonts, Maps, Adsense, Analytics and Translate).
 
-Plugin can add all the generated headers into .HTACCESS file (for Apache web servers), and they will be applied to all files, not just WordPress generated content. If your website is not using Apache (or .HTACCESS), all rules are generated with each page request and will work with any server type.
+The plugin can add all the generated headers into HTACCESS file (for Apache web servers), and they will be applied to all files, not just WordPress generated content. If your website is not using Apache (or .HTACCESS), all rules are generated with each page request and will work with any server type.
 
 * More information about [GD Security Headers](https://plugins.dev4press.com/gd-security-headers/)
 * Support and Knowledge Base for [GD Security Headers](https://support.dev4press.com/kb/product/gd-security-headers/)
@@ -55,20 +55,25 @@ Plugin can add all the generated headers into .HTACCESS file (for Apache web ser
 
 == Frequently Asked Questions ==
 = Does plugin works with WordPress MultiSite installations? =
-Yes. In Multisite installation, plugin is available for configuration on the Network level, and headers are configured for all sites in the network at once.
+Yes. In Multisite installation, the plugin is available for configuration on the Network level, and headers are configured for all sites in the network at once.
 
-= Can I translate plugin to my language? =
-Yes. POT file is provided as a base for translation. Translation files should go into Languages directory.
+= Can I translate the plugin to my language? =
+Yes. The POT file is provided as a base for translation. Translation files should go into Languages directory.
 
 = Where can I configure the plugin? =
-Plugin has own top level item in the WordPress admin side menu: GD Security Headers. This will open a panel with global plugin settings. In Multisite installation, plugin panel is in the Network administration.
+The plugin has own top-level item in the WordPress admin side menu: GD Security Headers. This will open a panel with global plugin settings. In Multisite installation, plugin panel is in the Network administration.
 
 == Upgrade Notice ==
-= 1.0 =
+= 1.1 =
 First plugin version.
 
 == Changelog ==
-= 1.0 =
+= 1.1 - 2019.05.11 =
+* Edit: updated rules for google analytics
+* Edit: do not run when WordPress runs CRON
+* Edit: removed some unused code and strings
+
+= 1.0 - 2019.03.21 =
 * First plugin version
 
 == Screenshots ==
@@ -79,4 +84,4 @@ First plugin version.
 5. Content Security Policy settings
 6. Global settings
 7. Tools
-8. .HTACCESS with security headers
+8. HTACCESS with security headers

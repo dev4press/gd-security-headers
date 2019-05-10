@@ -79,3 +79,16 @@
     list-style: disc outside;
     margin-left: 20px;
 }
+
+.gdsih-code-block {
+    margin: 20px 0 0;
+    border: 1px dashed #888;
+    font-family: monospace;
+    font-weight: normal;
+    overflow: auto;
+}
+
+.gdsih-code-block pre {
+    margin: 10px;
+    padding: 0;
+}

@@ -8,7 +8,7 @@ class gdsih_component_csp {
     public $csp = null;
 
     public function __construct() {
-        if (!gdsih_settings()->get('htaccess')) {
+        if (!D4P_CRON && !gdsih_settings()->get('htaccess')) {
             $this->csp = new gdsih_core_csp();
 
             header($this->csp->build());

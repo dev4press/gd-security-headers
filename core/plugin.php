@@ -15,6 +15,10 @@ class gdsih_core_plugin extends d4p_plugin_core {
     private $_ip;
     private $_ua;
 
+    private $_csp = false;
+    private $_xxp = false;
+    private $_hdr = false;
+
     public function __construct() {
         parent::__construct();
 
@@ -58,18 +62,18 @@ class gdsih_core_plugin extends d4p_plugin_core {
             require_once(GDSIH_PATH.'core/objects/core.csp.build.php');
             require_once(GDSIH_PATH.'core/objects/core.csp.php');
 
-            new gdsih_component_csp();
+            $this->_csp = new gdsih_component_csp();
         }
 
         if (gdsih_settings()->get('x_xss_protection', 'xxp')) {
             require_once(GDSIH_PATH.'core/objects/core.xxp.php');
 
-            new gdsih_component_xxp();
+            $this->_xxp = new gdsih_component_xxp();
         }
 
         require_once(GDSIH_PATH.'core/objects/core.headers.php');
 
-        new gdsih_component_headers();
+        $this->_hdr = new gdsih_component_headers();
     }
 
     public function htaccess() {
@@ -93,5 +97,19 @@ class gdsih_core_plugin extends d4p_plugin_core {
 
             gdsih_settings()->save('core');
         }
+    }
+
+    public function build_headers_to_array() {
+        $list = array();
+
+        if ($this->_csp !== false) {
+            $list['CSP'] = $this->_csp->csp->build(true);
+        }
+
+        if ($this->_xxp !== false) {
+            $list['X-XSS-Protection'] = $this->_xxp->build(true);
+        }
+
+        return $list;
     }
 }
