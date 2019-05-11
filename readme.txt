@@ -28,6 +28,8 @@ For CSP, the plugin allows you to set rules for all currently supported directiv
 
 The plugin can add all the generated headers into HTACCESS file (for Apache web servers), and they will be applied to all files, not just WordPress generated content. If your website is not using Apache (or .HTACCESS), all rules are generated with each page request and will work with any server type.
 
+And, if you don't use Apache web server, plugin has a panel where it displays generated headers for most popular servers: Apache, Nginx and IIS, and you can copy generated headers to add to server configuration files.
+
 * More information about [GD Security Headers](https://plugins.dev4press.com/gd-security-headers/)
 * Support and Knowledge Base for [GD Security Headers](https://support.dev4press.com/kb/product/gd-security-headers/)
 
@@ -65,10 +67,16 @@ The plugin has own top-level item in the WordPress admin side menu: GD Security 
 
 == Upgrade Notice ==
 = 1.1 =
-First plugin version.
+Headers panel with generated headers for various servers. Various improvements and updates.
 
 == Changelog ==
 = 1.1 - 2019.05.11 =
+* New: panel with generated headers for various servers
+* New: headers panel: for apache servers
+* New: headers panel: for nginx servers
+* New: headers panel: for iis servers
+* New: new method for building the HTACCESS headers
+* Edit: improved additional headers object
 * Edit: updated rules for google analytics
 * Edit: do not run when WordPress runs CRON
 * Edit: removed some unused code and strings
@@ -83,5 +91,6 @@ First plugin version.
 4. XSS Protection settings
 5. Content Security Policy settings
 6. Global settings
-7. Tools
-8. HTACCESS with security headers
+7. Generated security headers
+8. Tools
+9. HTACCESS with security headers

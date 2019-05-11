@@ -103,12 +103,14 @@ class gdsih_core_plugin extends d4p_plugin_core {
         $list = array();
 
         if ($this->_csp !== false) {
-            $list['CSP'] = $this->_csp->csp->build(true);
+            $list['content-security-policy'] = $this->_csp->csp->build(true);
         }
 
         if ($this->_xxp !== false) {
-            $list['X-XSS-Protection'] = $this->_xxp->build(true);
+            $list['x-xss-protection'] = $this->_xxp->build(true);
         }
+
+        $list+= $this->_hdr->build(true);
 
         return $list;
     }

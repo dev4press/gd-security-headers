@@ -15,7 +15,8 @@ $list = gdsih()->build_headers_to_array();
             <h3><?php _e("Headers", "gd-security-headers"); ?></h3>
         </div>
         <div class="d4p-panel-info">
-            <?php _e("All HTTP headers generated so they can be copied into server side config. If you are not sure how to do that, please consult with your website hosting company support.") ?>
+            <?php _e("All HTTP headers generated so they can be copied into server side config. Headers are generated based on the plugin settings.", "gd-security-headers") ?>
+            <br/><br/><strong><?php _e("If you are not sure how to do that, please consult with your website hosting company support.", "gd-security-headers") ?></strong>
         </div>
         <div class="d4p-return-to-top">
             <a href="#wpwrap"><?php _e("Return to top", "gd-security-headers"); ?></a>
@@ -36,7 +37,7 @@ $list = gdsih()->build_headers_to_array();
                         echo '<br/>';
                     }
 
-                    echo '  #'.$key.'<br/>';
+                    echo '  # '.$key.'<br/>';
                     echo '  Header set '.$value.'<br/>';
 
                     $first = false;
@@ -61,7 +62,7 @@ $list = gdsih()->build_headers_to_array();
                     }
 
                     echo '# '.$key.'<br/>';
-                    echo 'add_header '.$value.'<br/>';
+                    echo 'add_header '.$value.';<br/>';
 
                     $first = false;
                 }

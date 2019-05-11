@@ -39,11 +39,8 @@ class gdsih_component_xxp {
     }
 
     public function htaccess($htaccess = array()) {
-        $htaccess[] = '# add header: x xss protection';
-        $htaccess[] = '<IfModule mod_headers.c>';
+        $htaccess[] = D4P_TAB.'# add header: x xss protection';
         $htaccess[] = D4P_TAB.'Header set '.$this->build(true);
-        $htaccess[] = '</IfModule>';
-        $htaccess[] = '';
 
         return $htaccess;
     }

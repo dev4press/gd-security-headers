@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural - Forms: nplurals = INTEGER; plural = EXPRESSION;\n"
 "Project-Id-Version: gd-security-headers\n"
-"POT-Creation-Date: 03/27/2019 02:27:37 PM\n"
+"POT-Creation-Date: 05/11/2019 11:18:03 AM\n"
 "Language-Team: Milan Petrovic <support@dev4press.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -473,124 +473,130 @@ msgid "XXP Reports"
 msgstr ""
 
 #: core/admin/plugin.php:99
+#: forms/headers.php:14
+#: forms/settings.php:17
+msgid "Headers"
+msgstr ""
+
+#: core/admin/plugin.php:100
 #: forms/front.php:31
 #: forms/settings.php:42
 msgid "Settings"
 msgstr ""
 
-#: core/admin/plugin.php:100
+#: core/admin/plugin.php:101
 #: forms/front.php:32
 #: forms/tools.php:48
 msgid "Tools"
 msgstr ""
 
-#: core/admin/plugin.php:173
+#: core/admin/plugin.php:174
 #: forms/setup/database.php:23
 msgid "OK"
 msgstr ""
 
-#: core/admin/plugin.php:174
+#: core/admin/plugin.php:175
 msgid "Cancel"
 msgstr ""
 
-#: core/admin/plugin.php:175
+#: core/admin/plugin.php:176
 #: core/grids/csp.php:167
 #: core/grids/xxp.php:137
 msgid "Delete"
 msgstr ""
 
-#: core/admin/plugin.php:176
+#: core/admin/plugin.php:177
 #: forms/tools.php:31
 msgid "Remove"
 msgstr ""
 
-#: core/admin/plugin.php:177
+#: core/admin/plugin.php:178
 msgid "Clear"
 msgstr ""
 
-#: core/admin/plugin.php:178
-#: core/admin/plugin.php:191
+#: core/admin/plugin.php:179
+#: core/admin/plugin.php:192
 msgid "Are you sure you want to do this?"
 msgstr ""
 
-#: core/admin/plugin.php:179
+#: core/admin/plugin.php:180
 #: forms/shared/bottom.php:4
 msgid "Please Wait..."
 msgstr ""
 
-#: core/admin/plugin.php:189
+#: core/admin/plugin.php:190
 msgid "Select Image"
 msgstr ""
 
-#: core/admin/plugin.php:190
+#: core/admin/plugin.php:191
 msgid "Use Selected Image"
 msgstr ""
 
-#: core/admin/plugin.php:192
+#: core/admin/plugin.php:193
 msgid "Image not selected."
 msgstr ""
 
-#: core/admin/plugin.php:245
+#: core/admin/plugin.php:246
 msgid "CSP Header"
 msgstr ""
 
-#: core/admin/plugin.php:253
+#: core/admin/plugin.php:254
 msgid "CSP Resources"
 msgstr ""
 
-#: core/admin/plugin.php:262
+#: core/admin/plugin.php:263
 msgid "Getting Help"
 msgstr ""
 
-#: core/admin/plugin.php:263
+#: core/admin/plugin.php:264
 msgid "To get help with this plugin, you can start with Knowledge Base list of frequently asked questions and articles. If you have any questions, or you want to report a bug, or you have a suggestion, you can use support forum. All important links for this are on the right side of this help dialog."
 msgstr ""
 
-#: core/admin/plugin.php:269
+#: core/admin/plugin.php:270
 msgid "There are few more things you need to think about when setting up this rating addon."
 msgstr ""
 
-#: core/admin/plugin.php:271
+#: core/admin/plugin.php:272
 msgid "Do not switch to the Live policy mode before you make all the tests with the Report policy mode."
 msgstr ""
 
-#: core/admin/plugin.php:272
+#: core/admin/plugin.php:273
 msgid "During the testing phase, it is best to disable Log option, or you will end up with a lot of reports logged. Use Log feature when you switch to Live policy mode."
 msgstr ""
 
-#: core/admin/plugin.php:273
+#: core/admin/plugin.php:274
 msgid "To test CSP, use Google Chrome or Mozilla Firefox with Firebug. But will display detailed information in the Console about each CSP issue."
 msgstr ""
 
-#: core/admin/plugin.php:275
+#: core/admin/plugin.php:276
 msgid "To make sure you add valid sources to all source rules, here are few examples on what is accepted by the browsers. You can use '*' character as wildcard."
 msgstr ""
 
-#: core/admin/plugin.php:277
+#: core/admin/plugin.php:278
 msgid "Matches any url over HTTPS scheme."
 msgstr ""
 
-#: core/admin/plugin.php:278
+#: core/admin/plugin.php:279
 msgid "Matches both HTTP and HTTPS version of the URL."
 msgstr ""
 
-#: core/admin/plugin.php:279
+#: core/admin/plugin.php:280
 msgid "Matches HTTPS subdomains for the URL, but now the main domain."
 msgstr ""
 
-#: core/admin/plugin.php:280
+#: core/admin/plugin.php:281
 msgid "Matches exact domain URL, with the specified port."
 msgstr ""
 
-#: core/admin/plugin.php:281
+#: core/admin/plugin.php:282
 msgid "Matches any scheme for subdomain and any port, but not the main domain."
 msgstr ""
 
-#: core/admin/plugin.php:282
+#: core/admin/plugin.php:283
 msgid "Matches exact domain URL, no other subdomains."
 msgstr ""
 
-#: core/admin/plugin.php:289
+#: core/admin/plugin.php:290
 msgid "To get more information about the Content Security Policy, check out these online resources."
 msgstr ""
 
@@ -976,8 +982,20 @@ msgstr ""
 msgid "Make sure to keep your website updated so that all core security updates are applied."
 msgstr ""
 
-#: forms/dashboard/headers.php:72
+#: forms/dashboard/headers.php:70
+msgid "Apache HTACCESS"
+msgstr ""
+
+#: forms/dashboard/headers.php:73
+msgid "To use headers via HTACCESS on Apache servers (or in Apache config), make sure that Apache module MOD_HEADERS is enabled."
+msgstr ""
+
+#: forms/dashboard/headers.php:77
 msgid "Plugin Settings"
+msgstr ""
+
+#: forms/dashboard/headers.php:78
+msgid "Generated Headers"
 msgstr ""
 
 #: forms/dashboard/reports.php:1
@@ -1198,6 +1216,44 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
+#: forms/headers.php:17
+msgid "All HTTP headers generated so they can be copied into server side config. Headers are generated based on the plugin settings."
+msgstr ""
+
+#: forms/headers.php:18
+msgid "If you are not sure how to do that, please consult with your website hosting company support."
+msgstr ""
+
+#: forms/headers.php:21
+#: forms/settings.php:56
+#: forms/tools.php:62
+msgid "Return to top"
+msgstr ""
+
+#: forms/headers.php:27
+msgid "Apache Server"
+msgstr ""
+
+#: forms/headers.php:29
+msgid "If you use Apache server, this plugin can add headers automatically into HTACCESS file. But, if you have disabled HTACCESS or you prefer using global server config, you can copy rules from here."
+msgstr ""
+
+#: forms/headers.php:51
+msgid "Nginx Server"
+msgstr ""
+
+#: forms/headers.php:53
+msgid "If you use NGINX server, you can copy rules from here to add to the server 'conf' file."
+msgstr ""
+
+#: forms/headers.php:75
+msgid "IIS Server"
+msgstr ""
+
+#: forms/headers.php:77
+msgid "If you use IIS server, you can copy rules from here to add to the server 'Web.config' file."
+msgstr ""
+
 #: forms/install.php:17
 msgid "Installation"
 msgstr ""
@@ -1211,22 +1267,17 @@ msgstr ""
 msgid "All Done"
 msgstr ""
 
-#: forms/install.php:37
+#: forms/install.php:35
 msgid "Installation completed."
 msgstr ""
 
-#: forms/install.php:40
-#: forms/update.php:40
+#: forms/install.php:36
+#: forms/update.php:37
 msgid "Click here to continue."
 msgstr ""
 
 #: forms/settings.php:52
 msgid "Save Settings"
-msgstr ""
-
-#: forms/settings.php:56
-#: forms/tools.php:62
-msgid "Return to top"
 msgstr ""
 
 #: forms/settings.php:86
@@ -1247,10 +1298,6 @@ msgstr ""
 
 #: forms/settings.php:14
 msgid "From this panel you control global, common plugin settings."
-msgstr ""
-
-#: forms/settings.php:17
-msgid "Headers"
 msgstr ""
 
 #: forms/settings.php:18
@@ -1351,13 +1398,5 @@ msgstr ""
 
 #: forms/update.php:35
 msgid "Update completed."
-msgstr ""
-
-#: forms/update.php:37
-msgid "Firewall Rules"
-msgstr ""
-
-#: forms/update.php:38
-msgid "To reset and update Firewall rules, you can use new Tools panel called 'Reset Firewall Rules'."
 msgstr ""
 

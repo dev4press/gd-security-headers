@@ -12,93 +12,53 @@ class gdsih_component_headers {
     }
 
     public function htaccess($htaccess = array()) {
-        if (gdsih_settings()->get('x_content_type_nosniff', 'headers')) {
-            $htaccess = array_merge($htaccess, $this->_x_content_type_nosniff());
-            $htaccess[] = '';
-        }
+        $list = $this->build(true);
 
-        if (gdsih_settings()->get('x_frame_options_sameorigin', 'headers')) {
-            $htaccess = array_merge($htaccess, $this->_x_frame_options_sameorigin());
-            $htaccess[] = '';
-        }
-
-        if (gdsih_settings()->get('strict_transport_security', 'headers')) {
-            $htaccess = array_merge($htaccess, $this->_strict_transport_security());
-            $htaccess[] = '';
-        }
-
-        if (gdsih_settings()->get('referrer_policy', 'headers')) {
-            $htaccess = array_merge($htaccess, $this->_referrer_policy());
-            $htaccess[] = '';
+        if (!empty($list)) {
+            foreach ($list as $key => $item) {
+                $htaccess[] = D4P_TAB.'# add header: '.$key;
+                $htaccess[] = D4P_TAB.'Header always set '.$item;
+            }
         }
 
         return $htaccess;
     }
 
-    private function _headers() {
+    public function build($htaccess = false) {
+        $list = array();
+
         if (gdsih_settings()->get('x_content_type_nosniff', 'headers')) {
-            header("X-Content-Type-Options: nosniff");
+            $list['x-content-type-options'] = $this->_generate_x_content_type_nosniff($htaccess);
         }
 
         if (gdsih_settings()->get('x_frame_options_sameorigin', 'headers')) {
-            $args = array(
-                'value' => gdsih_settings()->get('x_frame_options_sameorigin_value', 'headers'),
-                'domains' => gdsih_settings()->get('x_frame_options_sameorigin_domains', 'headers')
-            );
-
-            $values = array_keys(gdsih_x_frame_options_list());
-
-            if (!in_array($args['value'], $values)) {
-                $args['value'] = 'SAMEORIGIN';
-            }
-
-            $parm = $args['value'];
-
-            if ($parm == 'ALLOW-FROM') {
-                $parm.= ' '.$args['domains'];
-            }
-
-            header("X-Frame-Options: \"".$parm."\"");
+            $list['x-frame-options'] = $this->_generate_x_frame_options_sameorigin($htaccess);
         }
 
         if (gdsih_settings()->get('strict_transport_security', 'headers')) {
-            $args = array(
-                'max_age' => gdsih_settings()->get('strict_transport_security_max_age', 'headers'),
-                'extra' => gdsih_settings()->get('strict_transport_security_extra', 'headers'));
-
-            $parm = $args['max_age'];
-
-            if ($args['extra'] == 'includeSubDomains') {
-                $parm.= '; includeSubDomains';
-            }
-
-            header("Strict-Transport-Security: \"".$parm."\"");
+            $list['strict-transport-security'] = $this->_generate_strict_transport_security($htaccess);
         }
 
         if (gdsih_settings()->get('referrer_policy', 'headers')) {
-            $args = array(
-                'policy' => gdsih_settings()->get('referrer_policy_value', 'headers'));
+            $list['referrer-policy'] = $this->_generate_referrer_policy($htaccess);
+        }
 
-            $policies = array_keys(gdsih_referrer_policies_list());
+        return $list;
+    }
 
-            if (!in_array($args['policy'], $policies)) {
-                $args['policy'] = 'no-referrer-when-downgrade';
-            }
+    private function _headers() {
+        $list = $this->build();
 
-            header("Referrer-Policy: ".$args['policy']);
+        foreach ($list as $value) {
+            header($value);
         }
     }
 
-    private function _x_content_type_nosniff() {
-        return array(
-            '# add header: x-content-type-options',
-            '<IfModule mod_headers.c>',
-            D4P_TAB.'Header always set X-Content-Type-Options "nosniff"',
-            '</IfModule>'
-        );
+    private function _generate_x_content_type_nosniff($htaccess = false) {
+        return $htaccess ? 'X-Content-Type-Options "nosniff"' : 'X-Content-Type-Options: nosniff';
     }
 
-    private function _x_frame_options_sameorigin() {
+    private function _generate_x_frame_options_sameorigin($htaccess = false) {
         $value = gdsih_settings()->get('x_frame_options_sameorigin_value', 'headers');
 
         $values = array_keys(gdsih_x_frame_options_list());
@@ -111,30 +71,20 @@ class gdsih_component_headers {
             $value.= ' '.gdsih_settings()->get('x_frame_options_sameorigin_domains', 'headers');
         }
 
-        return array(
-            '# add header: x-frame-options',
-            '<IfModule mod_headers.c>',
-            D4P_TAB.'Header always set X-Frame-Options "'.$value.'"',
-            '</IfModule>'
-        );
+        return $htaccess ? 'X-Frame-Options "'.$value.'"' : 'X-Frame-Options: "'.$value.'"';
     }
 
-    private function _strict_transport_security() {
+    private function _generate_strict_transport_security($htaccess = false) {
         $max_age = gdsih_settings()->get('strict_transport_security_max_age', 'headers');
 
         if (gdsih_settings()->get('strict_transport_security_extra', 'headers') == 'includeSubDomains') {
             $max_age.= '; includeSubDomains';
         }
 
-        return array(
-            '# add header: strict-transport-security',
-            '<IfModule mod_headers.c>',
-            D4P_TAB.'Header always set Strict-Transport-Security "max-age='.$max_age.'"',
-            '</IfModule>'
-        );
+        return $htaccess ? 'Strict-Transport-Security "max-age='.$max_age.'"' : 'Strict-Transport-Security: "max-age='.$max_age.'"';
     }
 
-    private function _referrer_policy() {
+    private function _generate_referrer_policy($htaccess = false) {
         $policy = gdsih_settings()->get('referrer_policy_value', 'headers');
 
         $policies = array_keys(gdsih_referrer_policies_list());
@@ -143,11 +93,6 @@ class gdsih_component_headers {
             $policy = 'no-referrer-when-downgrade';
         }
 
-        return array(
-            '# add header: referrer-policy',
-            '<IfModule mod_headers.c>',
-            D4P_TAB.'Header always set Referrer-Policy "'.$policy.'"',
-            '</IfModule>'
-        );
+        return $htaccess ? 'Referrer-Policy "'.$policy.'"' : 'Referrer-Policy: "'.$policy.'"';
     }
 }

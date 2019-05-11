@@ -30,7 +30,7 @@ class gdsih_core_htaccess {
             'apache_get_modules' => !empty($mods),
             'mod_headers' => in_array('mod_headers', $mods)
         );
-
+d4p_error_log($status);
         if (!$status['found']) {
             $status['writable'] = is_writable(ABSPATH);
         }
@@ -45,7 +45,11 @@ class gdsih_core_htaccess {
     }
 
     public function write() {
-        $rules = apply_filters('gdsih_htaccess_build_list', array());
+        $rules = array();
+
+        $rules[] = '<IfModule mod_headers.c>';
+        $rules = apply_filters('gdsih_htaccess_build_list', $rules);
+        $rules[] = '</IfModule>';
 
         if (count($rules) > 0) {
             $idx = count($rules) - 1;

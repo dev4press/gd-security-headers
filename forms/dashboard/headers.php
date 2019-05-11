@@ -68,8 +68,14 @@
             <?php } ?>
             <li><?php _e("Make sure to keep your website updated so that all core security updates are applied.", "gd-security-headers"); ?></li>
         </ul>
+        <h4><?php _e("Apache HTACCESS", "gd-security-headers"); ?></h4>
+
+        <p>
+            <?php _e("To use headers via HTACCESS on Apache servers (or in Apache config), make sure that Apache module MOD_HEADERS is enabled.", "gd-security-headers"); ?>
+        </p>
     </div>
     <div class="d4p-group-footer">
         <a href="admin.php?page=gd-security-headers-settings" class="button-primary"><?php _e("Plugin Settings", "gd-security-headers"); ?></a>
+        <a href="admin.php?page=gd-security-headers-headers" class="button-primary"><?php _e("Generated Headers", "gd-security-headers"); ?></a>
     </div>
 </div>

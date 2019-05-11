@@ -8,6 +8,8 @@ class gdsih_component_csp {
     public $csp = null;
 
     public function __construct() {
+        $this->csp = new gdsih_core_csp();
+
         if (!D4P_CRON && !gdsih_settings()->get('htaccess')) {
             $this->csp = new gdsih_core_csp();
 
@@ -22,13 +24,8 @@ class gdsih_component_csp {
     }
 
     public function htaccess($htaccess = array()) {
-        $this->csp = new gdsih_core_csp();
-
-        $htaccess[] = '# add header: content security policy';
-        $htaccess[] = '<IfModule mod_headers.c>';
+        $htaccess[] = D4P_TAB.'# add header: content security policy';
         $htaccess[] = D4P_TAB.'Header set '.$this->csp->build(true);
-        $htaccess[] = '</IfModule>';
-        $htaccess[] = '';
 
         return $htaccess;
     }

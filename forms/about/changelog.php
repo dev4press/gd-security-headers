@@ -4,6 +4,12 @@
     <div class="d4p-group-inner">
         <h4>Version: 1.1 / may 11 2019</h4>
         <ul>
+            <li><strong>new</strong> panel with generated headers for various servers</li>
+            <li><strong>new</strong> headers panel: for apache servers</li>
+            <li><strong>new</strong> headers panel: for nginx servers</li>
+            <li><strong>new</strong> headers panel: for iis servers</li>
+            <li><strong>new</strong> new method for building the HTACCESS headers</li>
+            <li><strong>edit</strong> improved additional headers object</li>
             <li><strong>edit</strong> updated rules for google analytics</li>
             <li><strong>edit</strong> do not run when WordPress runs CRON</li>
             <li><strong>edit</strong> removed some unused code and strings</li>
