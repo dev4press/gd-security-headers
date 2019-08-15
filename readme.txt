@@ -1,9 +1,9 @@
 === GD Security Headers ===
 Contributors: GDragoN
 Donate link: https://plugins.dev4press.com/gd-security-headers/
-Version: 1.1
+Version: 1.1.1
 Tags: dev4press, security, csp, content security policy, referrer policy, xss
-Requires at least: 4.5
+Requires at least: 4.7
 Requires PHP: 5.6
 Tested up to: 5.2
 Stable tag: trunk
@@ -38,17 +38,13 @@ And, if you don't use Apache web server, plugin has a panel where it displays ge
 * PHP: 5.6 or newer
 
 = PHP Notice =
-* Plugin should work with PHP 5.3, 5.4 and 5.5, but these versions are no longer used for testing, and they are no longer supported.
-* Plugin doesn't work with PHP 5.2 or older versions.
+* Plugin doesn't work with PHP 5.5 or older versions.
 
 = WordPress Requirements =
-* WordPress: 4.5 or newer
+* WordPress: 4.7 or newer
 
 = WordPress Notice =
-* Plugin doesn't work with WordPress 4.4 or older versions.
-
-= bbPress Requirements =
-*  bbPress 2.5 or newer
+* Plugin doesn't work with WordPress 4.6 or older versions.
 
 = Basic Installation =
 * Plugin folder in the WordPress plugins folder must be `gd-security-headers`.
@@ -59,17 +55,21 @@ And, if you don't use Apache web server, plugin has a panel where it displays ge
 = Does plugin works with WordPress MultiSite installations? =
 Yes. In Multisite installation, the plugin is available for configuration on the Network level, and headers are configured for all sites in the network at once.
 
-= Can I translate the plugin to my language? =
-Yes. The POT file is provided as a base for translation. Translation files should go into Languages directory.
-
 = Where can I configure the plugin? =
 The plugin has own top-level item in the WordPress admin side menu: GD Security Headers. This will open a panel with global plugin settings. In Multisite installation, plugin panel is in the Network administration.
+
+= Can I translate the plugin to my language? =
+Yes. The POT file is provided as a base for translation. Translation files should go into Languages directory.
 
 == Upgrade Notice ==
 = 1.1 =
 Headers panel with generated headers for various servers. Various improvements and updates.
 
 == Changelog ==
+= 1.1.1 - 2019.08.15 =
+* Edit: d4pLib 2.7.6
+* Fix: problem with saving the plugin settings in some cases
+
 = 1.1 - 2019.05.11 =
 * New: panel with generated headers for various servers
 * New: headers panel: for apache servers

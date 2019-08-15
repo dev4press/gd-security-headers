@@ -1,2 +1,2 @@
-=== GD Power Search for bbPress ===
+=== GD Security Headers ===
 == List of included languages ==

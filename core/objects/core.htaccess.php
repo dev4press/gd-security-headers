@@ -30,7 +30,7 @@ class gdsih_core_htaccess {
             'apache_get_modules' => !empty($mods),
             'mod_headers' => in_array('mod_headers', $mods)
         );
-d4p_error_log($status);
+
         if (!$status['found']) {
             $status['writable'] = is_writable(ABSPATH);
         }
