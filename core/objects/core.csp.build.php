@@ -53,6 +53,18 @@ class gdsih_core_csp {
                 $item.= "data: ";
             }
 
+            if (gdsih_settings()->get('auto_blob_rule') && ($name == 'default' || $name == 'media' || $name == 'object' || $name == 'font')) {
+                $item.= "blob: ";
+            }
+
+            if (gdsih_settings()->get('auto_mediastream_rule') && ($name == 'default' || $name == 'media' || $name == 'object' || $name == 'font')) {
+                $item.= "mediastream: ";
+            }
+
+            if (gdsih_settings()->get('auto_filesystem_rule') && ($name == 'default' || $name == 'media' || $name == 'object' || $name == 'font')) {
+                $item.= "filesystem: ";
+            }
+
             $custom = apply_filters('gdsih_csp_build_custom_rules_for_'.$name, $custom);
 
             $custom = array_unique($custom);
@@ -67,6 +79,18 @@ class gdsih_core_csp {
     }
 
     public function build($htaccess = false) {
+        if (gdsih_settings()->get('extra_gravatar', 'csp')) {
+            require_once(GDSIH_PATH.'core/csp/gravatar.php');
+        }
+
+        if (gdsih_settings()->get('extra_gleam', 'csp')) {
+            require_once(GDSIH_PATH.'core/csp/gleam.php');
+        }
+
+        if (gdsih_settings()->get('extra_vimeo', 'csp')) {
+            require_once(GDSIH_PATH.'core/csp/vimeo.php');
+        }
+
         if (gdsih_settings()->get('extra_google_adsense', 'csp')) {
             require_once(GDSIH_PATH.'core/csp/google-adsense.php');
         }
@@ -87,6 +111,14 @@ class gdsih_core_csp {
             require_once(GDSIH_PATH.'core/csp/google-translate.php');
         }
 
+        if (gdsih_settings()->get('extra_google_youtube', 'csp')) {
+            require_once(GDSIH_PATH.'core/csp/google-youtube.php');
+        }
+
+        if (gdsih_settings()->get('extra_google_tag_manager', 'csp')) {
+            require_once(GDSIH_PATH.'core/csp/google-tag-manager.php');
+        }
+
         $this->mode = gdsih_settings()->get('mode', 'csp');
 
         $items = array();
@@ -101,16 +133,16 @@ class gdsih_core_csp {
             $items = $this->rule($items, $key);
         }
 
-        if (gdsih_settings()->get('upgrade_insecure_requests', 'csp')) {
+        if ($this->mode == 'live' && gdsih_settings()->get('upgrade_insecure_requests', 'csp')) {
             $items[] = 'upgrade-insecure-requests;';
+        }
+
+        if ($htaccess && gdsih_settings()->get('disown_opener', 'csp')) {
+            $items[] = 'disown-opener;';
         }
 
         if (gdsih_settings()->get('block_all_mixed_content', 'csp')) {
             $items[] = 'block-all-mixed-content;';
-        }
-
-        if (gdsih_settings()->get('disown_opener', 'csp')) {
-            $items[] = 'disown-opener;';
         }
 
         if (gdsih_settings()->get('log', 'csp')) {

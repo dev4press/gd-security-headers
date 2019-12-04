@@ -18,6 +18,7 @@ class gdsih_core_plugin extends d4p_plugin_core {
     private $_csp = false;
     private $_xxp = false;
     private $_hdr = false;
+    private $_fep = false;
 
     public function __construct() {
         parent::__construct();
@@ -71,6 +72,13 @@ class gdsih_core_plugin extends d4p_plugin_core {
             $this->_xxp = new gdsih_component_xxp();
         }
 
+        if (gdsih_settings()->get('protection', 'feature')) {
+            require_once(GDSIH_PATH.'core/objects/core.feature.build.php');
+            require_once(GDSIH_PATH.'core/objects/core.feature.php');
+
+            $this->_fep = new gdsih_component_feature_policy();
+        }
+
         require_once(GDSIH_PATH.'core/objects/core.headers.php');
 
         $this->_hdr = new gdsih_component_headers();
@@ -108,6 +116,10 @@ class gdsih_core_plugin extends d4p_plugin_core {
 
         if ($this->_xxp !== false) {
             $list['x-xss-protection'] = $this->_xxp->build(true);
+        }
+
+        if ($this->_fep !== false) {
+            $list['feature-policy'] = $this->_fep->fep->build(true);
         }
 
         $list+= $this->_hdr->build(true);

@@ -36,6 +36,13 @@ class gdsih_core_statistics {
             ),
             array(
                 'icon' => 'tag',
+                'label' => __("Feature Policy", "gd-security-headers"),
+                'status' => gdsih_settings()->get('protection', 'feature'),
+                'url' => network_admin_url('admin.php?page=gd-security-headers-settings&panel=feature'),
+                'recommended' => true
+            ),
+            array(
+                'icon' => 'tag',
                 'label' => __("Referrer Policy", "gd-security-headers"),
                 'status' => gdsih_settings()->get('referrer_policy', 'headers'),
                 'url' => network_admin_url('admin.php?page=gd-security-headers-settings&panel=headers'),

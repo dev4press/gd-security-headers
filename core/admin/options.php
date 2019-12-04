@@ -36,6 +36,16 @@ class gdsih_admin_settings {
                     new d4pSettingElement('settings', 'htaccess', __("To .HTACCESS", "gd-security-headers"), __("If enabled, plugin will add all security headers into .HTACCESS file. This is available only on Apache web servers.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('htaccess'))
                 ))
             ),
+            'feature' => array(
+                'feature_status' => array('name' => __("Add", "gd-security-headers").': Feature-Policy', 'settings' => array(
+                    new d4pSettingElement('', '', __("Information", "gd-security-headers"),
+                        '<ul>
+                             <li>'.__("Establishes rules for various features to be exposed by browser, limiting potentially malicious requests.", "gd-security-headers").'</li>
+                         </ul>'
+                        , d4pSettingType::INFO),
+                    new d4pSettingElement('feature','protection', __("Add Header", "gd-security-headers"), '', d4pSettingType::BOOLEAN, gdsih_settings()->get('protection', 'feature'))
+                ))
+            ),
             'csp' => array(
                 'csp_mode' => array('name' => __("Mode", "gd-security-headers"), 'settings' => array(
                     new d4pSettingElement('', '', __("Information", "gd-security-headers"), __("Before switching to live mode, make sure the CSP is working properly in report mode. Do not use this addon if you don't understand how it works!", "gd-security-headers"), d4pSettingType::INFO),
@@ -53,19 +63,29 @@ class gdsih_admin_settings {
                     new d4pSettingElement('csp', 'auto_inline_rule', __("Unsafe Inline Rule", "gd-security-headers"), '', d4pSettingType::BOOLEAN, gdsih_settings()->get('auto_inline_rule', 'csp')),
                     new d4pSettingElement('csp', 'auto_eval_rule', __("Unsafe Eval Rule", "gd-security-headers"), '', d4pSettingType::BOOLEAN, gdsih_settings()->get('auto_eval_rule', 'csp')),
                     new d4pSettingElement('', '', '', '', d4pSettingType::HR),
-                    new d4pSettingElement('csp', 'auto_data_rule', __("Data Rule", "gd-security-headers"), __("This might be needed for images or fonts. If you prefer, you can disable this option here, and manually add 'data:' as a custom rule where needed.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('auto_data_rule', 'csp'))
+                    new d4pSettingElement('csp', 'auto_data_rule', __("Data Rule", "gd-security-headers"), __("This might be needed for images or fonts. If you prefer, you can disable this option here, and manually add 'data:' as a custom rule where needed.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('auto_data_rule', 'csp')),
+                    new d4pSettingElement('csp', 'auto_blob_rule', __("Blob Rule", "gd-security-headers"), __("This might be needed for media, objects or fonts. If you prefer, you can disable this option here, and manually add 'blob:' as a custom rule where needed.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('auto_blob_rule', 'csp')),
+                    new d4pSettingElement('csp', 'auto_mediastream_rule', __("Mediastream Rule", "gd-security-headers"), __("This might be needed for media, objects or fonts. If you prefer, you can disable this option here, and manually add 'blob:' as a custom rule where needed.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('auto_mediastream_rule', 'csp')),
+                    new d4pSettingElement('csp', 'auto_filesystem_rule', __("FileSystem Rule", "gd-security-headers"), __("This might be needed for media, objects or fonts. If you prefer, you can disable this option here, and manually add 'blob:' as a custom rule where needed.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('auto_filesystem_rule', 'csp'))
                 )),
                 'csp_additional' => array('name' => __("Additional CSP Settings", "gd-security-headers"), 'settings' => array(
                     new d4pSettingElement('csp', 'upgrade_insecure_requests', __("Upgrade insecure requests", "gd-security-headers"), __("Use this only if your website is configured to use secure HTTPS.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('upgrade_insecure_requests', 'csp')),
                     new d4pSettingElement('csp', 'block_all_mixed_content', __("Block all mixed content", "gd-security-headers"), __("Use this only if your website is configured to use secure HTTPS.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('block_all_mixed_content', 'csp')),
                     new d4pSettingElement('csp', 'disown_opener', __("Disown Opener", "gd-security-headers"), __("This is not yet widely supported, it works only with some browsers.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('disown_opener', 'csp'))
                 )),
-                'csp_extra' => array('name' => __("Extra rules for third party services", "gd-security-headers"), 'settings' => array(
-                    new d4pSettingElement('csp', 'extra_google_adsense', __("Google Adsense", "gd-security-headers"), __("If you are using Google Adsense, this option will automatically append required rules to Default, Scripts, Child and Images rules.", "gd-security-headers").' '.__("Make sure to enable listed rules for this to work.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('extra_google_adsense', 'csp')),
-                    new d4pSettingElement('csp', 'extra_google_analytics', __("Google Analytics", "gd-security-headers"), __("If you are using Google Analytics, this option will automatically append required rules to Scripts and Images rules.", "gd-security-headers").' '.__("Make sure to enable listed rules for this to work.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('extra_google_analytics', 'csp')),
-                    new d4pSettingElement('csp', 'extra_google_fonts', __("Google Fonts", "gd-security-headers"), __("If you are using Google Fonts, this option will automatically append required rules to Styles and Fonts rules.", "gd-security-headers").' '.__("Make sure to enable listed rules for this to work.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('extra_google_fonts', 'csp')),
-                    new d4pSettingElement('csp', 'extra_google_maps', __("Google Maps", "gd-security-headers"), __("If you are using Google Maps, this option will automatically append required rules to Scripts and Images rules.", "gd-security-headers").' '.__("Make sure to enable listed rules for this to work.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('extra_google_maps', 'csp')),
-                    new d4pSettingElement('csp', 'extra_google_translate', __("Google Translate", "gd-security-headers"), __("If you are using Google Translate or you want to allow your users to use it, this option will automatically append required rules to Scripts and Images rules.", "gd-security-headers").' '.__("Make sure to enable listed rules for this to work.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('extra_google_translate', 'csp'))
+                'csp_extra' => array('name' => __("Automatic rules for third party services", "gd-security-headers"), 'settings' => array(
+                    new d4pSettingElement('', '', __("Google Services", "gd-security-headers"), '', d4pSettingType::HR),
+                    new d4pSettingElement('csp', 'extra_google_adsense', __("Google Adsense", "gd-security-headers"), __("If you are using Google Adsense, this option will automatically append required rules.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('extra_google_adsense', 'csp')),
+                    new d4pSettingElement('csp', 'extra_google_analytics', __("Google Analytics", "gd-security-headers"), __("If you are using Google Analytics, this option will automatically append required rules.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('extra_google_analytics', 'csp')),
+                    new d4pSettingElement('csp', 'extra_google_fonts', __("Google Fonts", "gd-security-headers"), __("If you are using Google Fonts, this option will automatically append required rules.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('extra_google_fonts', 'csp')),
+                    new d4pSettingElement('csp', 'extra_google_maps', __("Google Maps", "gd-security-headers"), __("If you are using Google Maps, this option will automatically append required rules.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('extra_google_maps', 'csp')),
+                    new d4pSettingElement('csp', 'extra_google_translate', __("Google Translate", "gd-security-headers"), __("If you are using Google Translate or you want to allow your users to use it, this option will automatically append required rules.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('extra_google_translate', 'csp')),
+                    new d4pSettingElement('csp', 'extra_google_youtube', __("Google Youtube", "gd-security-headers"), __("If you are embedding YouTube videos, this option will automatically append required rules.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('extra_google_youtube', 'csp')),
+                    new d4pSettingElement('csp', 'extra_google_tag_manager', __("Google Tag Manager", "gd-security-headers"), __("If you are using Google Tag Manager, this option will automatically append required rules. Also, make sure to enable support for other Google services you are including through Tag Manager.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('extra_google_tag_manager', 'csp')),
+                    new d4pSettingElement('', '', __("More Services", "gd-security-headers"), '', d4pSettingType::HR),
+                    new d4pSettingElement('csp', 'extra_gravatar', __("Gravatar", "gd-security-headers"), __("If you are using Gravatar service for user avatars, this option will automatically append required rules.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('extra_gravatar', 'csp')),
+                    new d4pSettingElement('csp', 'extra_gleam', __("Gleam", "gd-security-headers"), __("If you are embedding Gleam based contest, this option will automatically append required rules.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('extra_gleam', 'csp')),
+                    new d4pSettingElement('csp', 'extra_vimeo', __("Vimeo", "gd-security-headers"), __("If you are embedding Vimeo videos, this option will automatically append required rules.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('extra_vimeo', 'csp'))
                 )),
                 'csp_rules_default' => array('name' => __("Source Rules: Default", "gd-security-headers"), 'settings' => array(
                     new d4pSettingElement('csp', 'default_basic', __("Basic", "gd-security-headers"), '', d4pSettingType::SELECT, gdsih_settings()->get('default_basic', 'csp'), 'array', $this->get_sources()),
@@ -133,7 +153,7 @@ class gdsih_admin_settings {
                 ))
             ),
             'xxp' => array(
-                'xxo_xss' => array('name' => __("Add", "gd-security-headers").': X-XSS-Protection', 'settings' => array(
+                'xxp_xss' => array('name' => __("Add", "gd-security-headers").': X-XSS-Protection', 'settings' => array(
                     new d4pSettingElement('', '', __("Information", "gd-security-headers"),
                         '<ul>
                              <li>'.__("Prevents various types of cross site scripting. It also can log the XXS reportes some browsers can send.", "gd-security-headers").'</li>
@@ -189,6 +209,24 @@ class gdsih_admin_settings {
 
             )
         ));
+
+        foreach (gdsih_settings()->features as $feature => $label) {
+            $this->settings['feature']['fp_rules_'.$feature] = array('name' => sprintf(__("Rules: %s", "gd-security-headers"), $label), 'settings' => array(
+                new d4pSettingElement('feature', $feature.'_basic', __("Basic", "gd-security-headers"), '', d4pSettingType::SELECT, gdsih_settings()->get($feature.'_basic', 'feature'), 'array', $this->get_feature_sources()),
+                new d4pSettingElement('feature', $feature.'_custom', __("Custom URL's", "gd-security-headers"), __("Fully qualified URL's with the protocol specified.", "gd-security-headers"), d4pSettingType::EXPANDABLE_TEXT, gdsih_settings()->get($feature.'_custom', 'feature'), '', '', array('label_button_add' => __("Add new URL", "gd-security-headers"), 'width_button_remove' => 40, 'label_buttom_remove' => '<i class="fa fa-minus"></i>'))
+            ));
+        }
+    }
+
+    public function get_feature_sources() {
+        return array(
+            'no' => __("Disabled", "gd-security-headers"),
+            'none' => __("None", "gd-security-headers"),
+            'all' => __("All", "gd-security-headers"),
+            'self' => __("Self", "gd-security-headers"),
+            'custom_self' => __("Self and Custom URL's", "gd-security-headers"),
+            'custom' => __("Custom URL's Only", "gd-security-headers")
+        );
     }
 
     public function get_modes() {

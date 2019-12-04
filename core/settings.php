@@ -14,9 +14,11 @@ class gdsih_core_scope extends d4p_core_scope {
     }
 }
 
-class gdsih_core_settings extends d4p_settings_core {
+class gdsih_core_settings extends d4p_plugin_settings_core {
     public $base = 'gdsih';
     public $scope = 'network';
+
+    public $features = array();
 
     public $settings = array(
         'core' => array(
@@ -26,6 +28,9 @@ class gdsih_core_settings extends d4p_settings_core {
         ),
         'settings' => array(
             'htaccess' => false,
+        ),
+        'feature' => array(
+            'protection' => false
         ),
         'csp' => array(
             'mode' => 'report',
@@ -103,8 +108,34 @@ class gdsih_core_settings extends d4p_settings_core {
         )
     );
 
-    public function __construct() {
+    protected function constructor() {
         $this->info = new gdsih_core_info();
+
+        $this->features = array(
+            'accelerometer' => __("Accelerometer", "gd-security-headers"),
+            'autoplay' => __("Autoplay", "gd-security-headers"),
+            'battery' => __("Battery", "gd-security-headers"),
+            'camera' => __("Camera", "gd-security-headers"),
+            'fullscreen' => __("Full Screen", "gd-security-headers"),
+            'geolocation' => __("GEO Location", "gd-security-headers"),
+            'gyroscope' => __("Gyroscope", "gd-security-headers"),
+            'magnetometer' => __("Magentometer", "gd-security-headers"),
+            'microphone' => __("Microphone", "gd-security-headers"),
+            'midi' => __("MIDI", "gd-security-headers"),
+            'notifications' => __("Notifications", "gd-security-headers"),
+            'payment' => __("Payment", "gd-security-headers"),
+            'picture-in-picture' => __("Picture In Picture", "gd-security-headers"),
+            'push' => __("Push", "gd-security-headers"),
+            'speaker' => __("Speaker", "gd-security-headers"),
+            'sync-xhr' => __("Sync XHR", "gd-security-headers"),
+            'usb' => __("USB", "gd-security-headers"),
+            'vibrate' => __("Vibrate", "gd-security-headers")
+        );
+
+        foreach (array_keys($this->features) as $feature) {
+            $this->settings['feature'][$feature.'_basic'] = 'no';
+            $this->settings['feature'][$feature.'_custom'] = array();
+        }
 
         add_action('gdsih_load_settings', array($this, 'init'));
     }
@@ -117,25 +148,6 @@ class gdsih_core_settings extends d4p_settings_core {
 
     protected function _name($name) {
         return 'dev4press_'.$this->info->code.'_'.$name;
-    }
-
-    public function file_version() {
-        return $this->info_version.'.'.$this->info_build;
-    }
-
-    public function export_to_json($list = array()) {
-        if (empty($list)) {
-            $list = $this->_groups();
-        }
-
-        $data = new stdClass();
-        $data->info = $this->current['info'];
-
-        foreach ($list as $name) {
-            $data->$name = $this->current[$name];
-        }
-
-        return json_encode($data);
     }
 }
 

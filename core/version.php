@@ -8,7 +8,7 @@ class gdsih_core_info {
 
     public $version = '1.2';
     public $codename = '';
-    public $build = 22;
+    public $build = 25;
     public $edition = 'pro';
     public $status = 'stable';
     public $updated = '2019.12.05';

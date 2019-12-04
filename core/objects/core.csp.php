@@ -11,8 +11,6 @@ class gdsih_component_csp {
         $this->csp = new gdsih_core_csp();
 
         if (!D4P_CRON && !gdsih_settings()->get('htaccess')) {
-            $this->csp = new gdsih_core_csp();
-
             header($this->csp->build());
         }
 
@@ -24,7 +22,7 @@ class gdsih_component_csp {
     }
 
     public function htaccess($htaccess = array()) {
-        $htaccess[] = D4P_TAB.'# add header: content security policy';
+        $htaccess[] = D4P_TAB.'# add header: content-security-policy';
         $htaccess[] = D4P_TAB.'Header set '.$this->csp->build(true);
 
         return $htaccess;

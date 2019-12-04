@@ -4,6 +4,15 @@
     <div class="d4p-group-inner">
         <h4>Version: 1.2 / december 5 2019</h4>
         <ul>
+            <li><strong>new</strong> support for feature policy header</li>
+            <li><strong>new</strong> csp addon: predefined rules list for Google YouTube</li>
+            <li><strong>new</strong> csp addon: predefined rules list for Google Tag Manager</li>
+            <li><strong>new</strong> csp addon: predefined rules list for Gravatar</li>
+            <li><strong>new</strong> csp addon: predefined rules list for Gleam</li>
+            <li><strong>new</strong> csp addon: predefined rules list for Vimeo</li>
+            <li><strong>new</strong> csp addon: auto generated rules for some special data sources</li>
+            <li><strong>edit</strong> csp addon: expanded some of the google based preset rules</li>
+            <li><strong>edit</strong> csp addon: various improvements in the generator</li>
             <li><strong>edit</strong> d4pLib 2.8.2</li>
         </ul>
 

@@ -39,7 +39,7 @@ class gdsih_component_xxp {
     }
 
     public function htaccess($htaccess = array()) {
-        $htaccess[] = D4P_TAB.'# add header: x xss protection';
+        $htaccess[] = D4P_TAB.'# add header: x-xss-protection';
         $htaccess[] = D4P_TAB.'Header set '.$this->build(true);
 
         return $htaccess;
