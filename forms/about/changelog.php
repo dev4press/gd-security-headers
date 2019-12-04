@@ -2,6 +2,11 @@
 <div class="d4p-group d4p-group-changelog">
     <h3><?php _e("Version", "gd-security-headers"); ?> 1</h3>
     <div class="d4p-group-inner">
+        <h4>Version: 1.2 / december 5 2019</h4>
+        <ul>
+            <li><strong>edit</strong> d4pLib 2.8.2</li>
+        </ul>
+
         <h4>Version: 1.1.1 / august 15 2019</h4>
         <ul>
             <li><strong>edit</strong> d4pLib 2.7.6</li>

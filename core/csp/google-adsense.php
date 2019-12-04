@@ -3,19 +3,20 @@
 if (!defined('ABSPATH')) { exit; }
 
 class gdsih_csp_extra_google_adsense {
-    public $basic = array('img', 'child', 'script', 'default', 'connect');
+    public $basic = array('img', 'frame', 'script', 'connect');
 
     public $img = array(
         'pagead2.googlesyndication.com',
         'stats.g.doubleclick.net'
     );
 
-    public $child = array(
+    public $frame = array(
         'googleads.g.doubleclick.net',
     );
 
     public $connect = array(
         'googleads.g.doubleclick.net',
+        'stats.g.doubleclick.net',
     );
 
     public $script = array(
@@ -146,8 +147,7 @@ class gdsih_csp_extra_google_adsense {
         add_filter('gdsih_csp_build_basic_rule', array($this, 'basic'), 10, 2);
 
         add_filter('gdsih_csp_build_custom_rules_for_img', array($this, 'add_img'));
-        add_filter('gdsih_csp_build_custom_rules_for_child', array($this, 'add_child'));
-        add_filter('gdsih_csp_build_custom_rules_for_default', array($this, 'add_child'));
+        add_filter('gdsih_csp_build_custom_rules_for_frame', array($this, 'add_frame'));
         add_filter('gdsih_csp_build_custom_rules_for_script', array($this, 'add_script'));
         add_filter('gdsih_csp_build_custom_rules_for_connect', array($this, 'add_connect'));
     }
@@ -164,8 +164,8 @@ class gdsih_csp_extra_google_adsense {
         return array_merge($custom, $this->img);
     }
 
-    public function add_child($custom) {
-        return array_merge($custom, $this->child);
+    public function add_frame($custom) {
+        return array_merge($custom, $this->frame);
     }
 
     public function add_script($custom) {

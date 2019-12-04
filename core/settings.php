@@ -38,10 +38,18 @@ class gdsih_core_settings extends d4p_settings_core {
             'extra_google_fonts' => false,
             'extra_google_maps' => false,
             'extra_google_translate' => false,
+            'extra_google_youtube' => false,
+            'extra_google_tag_manager' => false,
+            'extra_gravatar' => true,
+            'extra_vimeo' => false,
+            'extra_gleam' => false,
 
             'auto_inline_rule' => true,
             'auto_eval_rule' => true,
             'auto_data_rule' => true,
+            'auto_blob_rule' => true,
+            'auto_mediastream_rule' => true,
+            'auto_filesystem_rule' => true,
 
             'upgrade_insecure_requests' => false,
             'block_all_mixed_content' => false,

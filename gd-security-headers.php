@@ -4,7 +4,7 @@
 Plugin Name: GD Security Headers
 Plugin URI: https://plugins.dev4press.com/gd-security-headers/
 Description: Configure various security related HTTP headers, including Content Security Policy, Referrer Policy and more. All headers can be added to .HTACCESS file.
-Version: 1.1.1
+Version: 1.2
 Author: Milan Petrovic
 Author URI: https://www.dev4press.com/
 Text Domain: gd-security-headers

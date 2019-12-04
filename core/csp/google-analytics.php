@@ -6,7 +6,9 @@ class gdsih_csp_extra_google_analytics {
     public $basic = array('img', 'script');
 
     public $scripts = array(
-        'www.google-analytics.com'
+        'www.google-analytics.com',
+        'ssl.google-analytics.com',
+        'stats.g.doubleclick.net'
     );
 
     public $images = array(
@@ -14,11 +16,16 @@ class gdsih_csp_extra_google_analytics {
         'stats.g.doubleclick.net'
     );
 
+    public $connect = array(
+        'www.google-analytics.com'
+    );
+
     public function __construct() {
         add_filter('gdsih_csp_build_basic_rule', array($this, 'basic'), 10, 2);
 
         add_filter('gdsih_csp_build_custom_rules_for_script', array($this, 'add_scripts'));
-        add_filter('gdsih_csp_build_custom_rules_for_img', array($this, 'add_imagess'));
+        add_filter('gdsih_csp_build_custom_rules_for_connect', array($this, 'add_connect'));
+        add_filter('gdsih_csp_build_custom_rules_for_img', array($this, 'add_images'));
     }
 
     public function basic($basic, $name) {
@@ -29,14 +36,16 @@ class gdsih_csp_extra_google_analytics {
         return $basic;
     }
 
-
-
     public function add_scripts($custom) {
         return array_merge($custom, $this->scripts);
     }
 
-    public function add_imagess($custom) {
+    public function add_images($custom) {
         return array_merge($custom, $this->images);
+    }
+
+    public function add_connect($custom) {
+        return array_merge($custom, $this->connect);
     }
 }
 
