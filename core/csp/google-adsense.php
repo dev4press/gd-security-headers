@@ -6,22 +6,25 @@ class gdsih_csp_extra_google_adsense {
     public $basic = array('img', 'frame', 'script', 'connect');
 
     public $img = array(
-        'pagead2.googlesyndication.com',
+        '*.googlesyndication.com',
         'stats.g.doubleclick.net'
     );
 
     public $frame = array(
-        'googleads.g.doubleclick.net',
+        '*.googlesyndication.com',
+        'googleads.g.doubleclick.net'
     );
 
     public $connect = array(
+        '*.googlesyndication.com',
         'googleads.g.doubleclick.net',
-        'stats.g.doubleclick.net',
+        'stats.g.doubleclick.net'
     );
 
     public $script = array(
         'www.googletagservices.com',
-        'pagead2.googlesyndication.com',
+        '*.googlesyndication.com',
+        '*.googleadservices.com',
         'googleads.g.doubleclick.net',
         'adservice.google.com',
         'adservice.google.ae',

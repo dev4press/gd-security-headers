@@ -1,11 +1,11 @@
 === GD Security Headers ===
 Contributors: GDragoN
 Donate link: https://plugins.dev4press.com/gd-security-headers/
-Version: 1.2
+Version: 1.3
 Tags: dev4press, security, csp, content security policy, referrer policy, feature policy, security headers, xss
-Requires at least: 4.7
+Requires at least: 4.9
 Requires PHP: 5.6
-Tested up to: 5.3
+Tested up to: 5.4
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -44,7 +44,7 @@ And, if you don't use Apache web server, plugin has a panel where it displays ge
 * Plugin doesn't work with PHP 5.5 or older versions.
 
 = WordPress Requirements =
-* WordPress: 4.7 or newer
+* WordPress: 4.9 or newer
 
 = WordPress Notice =
 * Plugin doesn't work with WordPress 4.6 or older versions.
@@ -65,10 +65,14 @@ The plugin has own top-level item in the WordPress admin side menu: GD Security 
 Yes. The POT file is provided as a base for translation. Translation files should go into Languages directory.
 
 == Upgrade Notice ==
-= 1.2 =
-Feature Policy Header. More CSP predefine rules. Various updates.
+= 1.3 =
+Various updates and fixes.
 
 == Changelog ==
+= 1.3 - 2020.05.08 =
+* Edit: csp addon: expanded some of the google based preset rules
+* Edit: d4pLib 2.8.8
+
 = 1.2 - 2019.12.05 =
 * New: support for feature policy header
 * New: csp addon: predefined rules list for Google YouTube

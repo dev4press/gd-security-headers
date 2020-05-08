@@ -14,7 +14,7 @@ class gdsih_core_scope extends d4p_core_scope {
     }
 }
 
-class gdsih_core_settings extends d4p_plugin_settings_core {
+class gdsih_core_settings extends d4p_plugin_settings_corex {
     public $base = 'gdsih';
     public $scope = 'network';
 
