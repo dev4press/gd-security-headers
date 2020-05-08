@@ -1,6 +1,10 @@
 <div class="d4p-about-minor">
     <h3><?php _e("Maintenance and Security Releases", "gd-security-headers"); ?></h3>
     <p>
+        <strong><?php _e("Version", "gd-security-headers"); ?> <span>1.3</span></strong> &minus;
+        Various updates and fixes
+    </p>
+    <p>
         <strong><?php _e("Version", "gd-security-headers"); ?> <span>1.2</span></strong> &minus;
         Feature Policy Header. More CSP predefine rules. Various updates.
     </p>

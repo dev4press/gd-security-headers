@@ -119,7 +119,11 @@ class gdsih_core_plugin extends d4p_plugin_core {
         }
 
         if ($this->_fep !== false) {
-            $list['feature-policy'] = $this->_fep->fep->build(true);
+            $header = $this->_fep->fep->build(true);
+
+            if (!empty($header)) {
+                $list['feature-policy'] = $header;
+            }
         }
 
         $list+= $this->_hdr->build(true);

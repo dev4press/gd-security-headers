@@ -72,6 +72,10 @@ Various updates and fixes.
 = 1.3 - 2020.05.08 =
 * Edit: csp addon: expanded some of the google based preset rules
 * Edit: d4pLib 2.8.8
+* Fix: x-frame policy: invalid headers generated when not using .htaccess
+* Fix: strict-transport-security policy: invalid headers generated when not using .htaccess
+* Fix: referer policy: invalid headers generated when not using .htaccess
+* Fix: feature policy: problem printing empty policy header
 
 = 1.2 - 2019.12.05 =
 * New: support for feature policy header

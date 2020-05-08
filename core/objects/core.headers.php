@@ -71,7 +71,7 @@ class gdsih_component_headers {
             $value.= ' '.gdsih_settings()->get('x_frame_options_sameorigin_domains', 'headers');
         }
 
-        return $htaccess ? 'X-Frame-Options "'.$value.'"' : 'X-Frame-Options: "'.$value.'"';
+        return $htaccess ? 'X-Frame-Options "'.$value.'"' : 'X-Frame-Options: '.$value;
     }
 
     private function _generate_strict_transport_security($htaccess = false) {
@@ -81,7 +81,7 @@ class gdsih_component_headers {
             $max_age.= '; includeSubDomains';
         }
 
-        return $htaccess ? 'Strict-Transport-Security "max-age='.$max_age.'"' : 'Strict-Transport-Security: "max-age='.$max_age.'"';
+        return $htaccess ? 'Strict-Transport-Security "max-age='.$max_age.'"' : 'Strict-Transport-Security: max-age='.$max_age;
     }
 
     private function _generate_referrer_policy($htaccess = false) {
@@ -93,6 +93,6 @@ class gdsih_component_headers {
             $policy = 'no-referrer-when-downgrade';
         }
 
-        return $htaccess ? 'Referrer-Policy "'.$policy.'"' : 'Referrer-Policy: "'.$policy.'"';
+        return $htaccess ? 'Referrer-Policy "'.$policy.'"' : 'Referrer-Policy: '.$policy;
     }
 }

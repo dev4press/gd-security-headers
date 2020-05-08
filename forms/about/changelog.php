@@ -6,6 +6,10 @@
         <ul>
             <li><strong>edit</strong> csp addon: expanded some of the google based preset rules</li>
             <li><strong>edit</strong> d4pLib 2.8.8</li>
+            <li><strong>fix</strong> x-frame policy: invalid headers generated when not using .htaccess</li>
+            <li><strong>fix</strong> strict-transport-security policy: invalid headers generated when not using .htaccess</li>
+            <li><strong>fix</strong> referer policy: invalid headers generated when not using .htaccess</li>
+            <li><strong>fix</strong> feature policy: problem printing empty policy header</li>
         </ul>
 
         <h4>Version: 1.2 / december 5 2019</h4>
