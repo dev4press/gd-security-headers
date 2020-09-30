@@ -11,16 +11,17 @@ class gdsih_core_csp {
         'script' => 'script-src',
         'style' => 'style-src',
         'img' => 'img-src',
-        'font' => 'font-src',
-        'frame' => 'frame-src',
-        'object' => 'object-src',
         'connect' => 'connect-src',
+        'font' => 'font-src',
+        'object' => 'object-src',
         'media' => 'media-src',
+        'frame' => 'frame-src',
         'manifest' => 'manifest-src',
         'child' => 'child-src',
         'worker' => 'worker-src',
         'form-action' => 'form-action',
-        'frame-ancestors' => 'frame-ancestors'
+        'frame-ancestors' => 'frame-ancestors',
+        'prefetch' => 'prefetch-src'
     );
 
     public function __construct() { }
@@ -39,7 +40,8 @@ class gdsih_core_csp {
         $basic = apply_filters('gdsih_csp_build_basic_rule_for_'.$name, $basic);
 
         if ($basic != 'no') {
-            $item = $this->rules[$name]." '".$basic."' ";
+            $basic_value = $basic == 'all' ? '*' : "'".$basic."'";
+            $item = $this->rules[$name].' '.$basic_value.' ';
 
             if (gdsih_settings()->get('auto_inline_rule', 'csp') && ($name == 'default' || $name == 'script' || $name == 'style')) {
                 $item.= "'unsafe-inline' ";
@@ -79,6 +81,12 @@ class gdsih_core_csp {
     }
 
     public function build($htaccess = false) {
+        require_once(GDSIH_PATH.'core/csp/cdn.php');
+
+        if (gdsih_settings()->get('extra_wordpress', 'csp')) {
+            require_once(GDSIH_PATH.'core/csp/wordpress.php');
+        }
+
         if (gdsih_settings()->get('extra_gravatar', 'csp')) {
             require_once(GDSIH_PATH.'core/csp/gravatar.php');
         }

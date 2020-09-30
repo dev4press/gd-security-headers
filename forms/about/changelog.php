@@ -2,6 +2,19 @@
 <div class="d4p-group d4p-group-changelog">
     <h3><?php _e("Version", "gd-security-headers"); ?> 1</h3>
     <div class="d4p-group-inner">
+        <h4>Version: 1.4 / october 5 2020</h4>
+        <ul>
+            <li><strong>new</strong> csp addon: generate predefined rules for one or more CDN's</li>
+            <li><strong>new</strong> csp addon: predefined rules list for WordPress.org</li>
+            <li><strong>new</strong> csp addon: support for 'prefetch-src' directive</li>
+            <li><strong>new</strong> feature policy addon: support for updated 'permission-policy' version</li>
+            <li><strong>new</strong> feature policy addon: expanded list of policies that can be included</li>
+            <li><strong>edit</strong> csp addon: improved settings organization showing CSP rule levels</li>
+            <li><strong>edit</strong> feature policy addon: included support information for some policies</li>
+            <li><strong>edit</strong> d4pLib 2.8.12</li>
+            <li><strong>fix</strong> csp addon: problem with generating the rules with 'all' basic value</li>
+        </ul>
+
         <h4>Version: 1.3 / may 8 2020</h4>
         <ul>
             <li><strong>edit</strong> csp addon: expanded some of the google based preset rules</li>

@@ -9,9 +9,9 @@ class gdsih_component_feature_policy {
         $this->fep = new gdsih_core_feature_policy();
 
         if (!D4P_CRON && !gdsih_settings()->get('htaccess')) {
-            $header = $this->fep->build();
+            $headers = $this->fep->build();
 
-            if (!empty($header)) {
+            foreach ($headers as $header) {
                 header($header);
             }
         }
@@ -20,11 +20,14 @@ class gdsih_component_feature_policy {
     }
 
     public function htaccess($htaccess = array()) {
-        $header = $this->fep->build(true);
+        $headers = $this->fep->build(true);
 
         if (!empty($header)) {
             $htaccess[] = D4P_TAB.'# add header: feature-policy';
-            $htaccess[] = D4P_TAB.'Header set '.$header;
+
+            foreach ($headers as $header) {
+                $htaccess[] = D4P_TAB.'Header set '.$header;
+            }
         }
 
         return $htaccess;

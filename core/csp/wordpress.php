@@ -2,12 +2,13 @@
 
 if (!defined('ABSPATH')) { exit; }
 
-class gdsih_csp_extra_gravatar {
+class gdsih_csp_extra_wordpress {
     public $basic = array('img');
 
     public $img = array(
-        'secure.gravatar.com',
-        'www.gravatar.com'
+        's.w.org',
+        'ps.w.org',
+        'ts.w.org'
     );
 
     public function __construct() {
@@ -29,4 +30,4 @@ class gdsih_csp_extra_gravatar {
     }
 }
 
-new gdsih_csp_extra_gravatar();
+new gdsih_csp_extra_wordpress();

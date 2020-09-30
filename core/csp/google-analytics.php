@@ -3,7 +3,7 @@
 if (!defined('ABSPATH')) { exit; }
 
 class gdsih_csp_extra_google_analytics {
-    public $basic = array('img', 'script');
+    public $basic = array('img', 'script', 'connect');
 
     public $scripts = array(
         'www.google-analytics.com',
