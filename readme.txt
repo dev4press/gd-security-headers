@@ -64,14 +64,20 @@ The plugin has own top-level item in the WordPress admin side menu: GD Security 
 = Can I translate the plugin to my language? =
 Yes. The POT file is provided as a base for translation. Translation files should go into Languages directory.
 
-== Upgrade Notice ==
-= 1.4 =
-.
-
 == Changelog ==
-= 1.4 - 2020.10.05 =
+= 1.4 (2020.10.05) =
+* New: csp addon: generate predefined rules for one or more CDN's
+* New: csp addon: predefined rules list for WordPress.org
+* New: csp addon: support for 'prefetch-src' directive
+* New: feature policy addon: support for updated 'permission-policy' version
+* New: feature policy addon: expanded list of policies that can be included
+* Edit: csp addon: improved settings organization showing CSP rule levels
+* Edit: feature policy addon: included support information for some policies
+* Edit: d4pLib 2.8.13
+* Fix: csp addon: problem with generating the rules with 'all' basic value
+* Fix: feature policy addon: few minor issues with building rules
 
-= 1.3 - 2020.05.08 =
+= 1.3 (2020.05.08) =
 * Edit: csp addon: expanded some of the google based preset rules
 * Edit: d4pLib 2.8.8
 * Fix: x-frame policy: invalid headers generated when not using .htaccess
@@ -79,7 +85,7 @@ Yes. The POT file is provided as a base for translation. Translation files shoul
 * Fix: referer policy: invalid headers generated when not using .htaccess
 * Fix: feature policy: problem printing empty policy header
 
-= 1.2 - 2019.12.05 =
+= 1.2 (2019.12.05) =
 * New: support for feature policy header
 * New: csp addon: predefined rules list for Google YouTube
 * New: csp addon: predefined rules list for Google Tag Manager
@@ -91,11 +97,11 @@ Yes. The POT file is provided as a base for translation. Translation files shoul
 * Edit: csp addon: various improvements in the generator
 * Edit: d4pLib 2.8.2
 
-= 1.1.1 - 2019.08.15 =
+= 1.1.1 (2019.08.15) =
 * Edit: d4pLib 2.7.6
 * Fix: problem with saving the plugin settings in some cases
 
-= 1.1 - 2019.05.11 =
+= 1.1 (2019.05.11) =
 * New: panel with generated headers for various servers
 * New: headers panel: for apache servers
 * New: headers panel: for nginx servers
@@ -106,8 +112,12 @@ Yes. The POT file is provided as a base for translation. Translation files shoul
 * Edit: do not run when WordPress runs CRON
 * Edit: removed some unused code and strings
 
-= 1.0 - 2019.03.21 =
+= 1.0 (2019.03.21) =
 * First plugin version
+
+== Upgrade Notice ==
+= 1.4 =
+Many improvements and fixes for CSP and Feature/Permission policy.
 
 == Screenshots ==
 1. Plugin Dashboard

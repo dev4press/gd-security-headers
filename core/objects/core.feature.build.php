@@ -13,33 +13,38 @@ class gdsih_core_feature_policy {
         $basic = apply_filters('gdsih_feature-policy_build_basic_rule_for_'.$name, $basic);
 
         if ($basic != 'no') {
-            $item = $method == 'feature-policy' ? $name.' ' : $name.'=(';
+            $item_content = '';
 
             if ($basic == 'none') {
-                $item.= $method == 'feature-policy' ? "'none'" : '';
+                $item_content = $method == 'feature-policy' ? "'none'" : '';
             } else if ($basic == 'all') {
-                $item.= '*';
+                $item_content = '*';
             } else if ($basic == 'self') {
-                $item.= $method == 'feature-policy' ? "'self'" : "self";
+                $item_content = $method == 'feature-policy' ? "'self'" : "self";
             } else if ($basic == 'custom' || $basic == 'custom_self') {
-                $custom = apply_filters('gdsih_feature-policy_build_custom_rules_for_'.$name, $custom);
+                $custom = apply_filters('gdsec_feature-policy_build_custom_rules_for_'.$name, $custom);
 
                 $custom = array_unique($custom);
                 $custom = array_filter($custom);
 
                 if ($basic == 'custom_self') {
-                    $item.= $method == 'feature-policy' ? "'self'" : "self";
+                    $item_content = $method == 'feature-policy' ? "'self'" : "self";
                 }
 
                 if (!empty($custom)) {
-                    $item.= $method == 'feature-policy' ? ' '.join(' ', $custom) : " '".join("', '", $custom)."'";
+                    $item_content = $method == 'feature-policy' ? ' '.join(' ', $custom) : " '".join("', '", $custom)."'";
                 }
             }
 
-            $item = trim($item);
-            $item.= $method == 'feature-policy' ? ';' : '),';
+            $item_content = trim($item_content);
 
-            $items[] = $item;
+            if (!empty($item_content) || $method != 'feature-policy') {
+                $item = $method == 'feature-policy' ? $name.' ' : $name.'=(';
+                $item .= $item_content;
+                $item .= $method == 'feature-policy' ? ';' : '),';
+
+                $items[] = $item;
+            }
         }
 
         return $items;
@@ -59,10 +64,12 @@ class gdsih_core_feature_policy {
             }
 
             if (!empty($items)) {
+                $_rule = join(' ', $items);
+
                 if ($htaccess) {
-                    $headers[] = $header.' "'.join(' ', $items).'"';
+                    $headers[] = $header.' "'.$_rule.'"';
                 } else {
-                    $headers[] = $header.': '.join(' ', $items);
+                    $headers[] = $header.': '.$_rule;
                 }
             }
         }
@@ -76,10 +83,12 @@ class gdsih_core_feature_policy {
             }
 
             if (!empty($items)) {
+                $_rule = trim(join(' ', $items), ',');
+
                 if ($htaccess) {
-                    $headers[] = $header.' "'.join(' ', $items).'"';
+                    $headers[] = $header.' "'.$_rule.'"';
                 } else {
-                    $headers[] = $header.': '.join(' ', $items);
+                    $headers[] = $header.': '.$_rule;
                 }
             }
         }
