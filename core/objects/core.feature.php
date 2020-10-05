@@ -22,7 +22,7 @@ class gdsih_component_feature_policy {
     public function htaccess($htaccess = array()) {
         $headers = $this->fep->build(true);
 
-        if (!empty($header)) {
+        if (!empty($headers)) {
             $htaccess[] = D4P_TAB.'# add header: feature-policy';
 
             foreach ($headers as $header) {
