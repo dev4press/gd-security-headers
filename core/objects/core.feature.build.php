@@ -22,7 +22,7 @@ class gdsih_core_feature_policy {
             } else if ($basic == 'self') {
                 $item_content = $method == 'feature-policy' ? "'self'" : "self";
             } else if ($basic == 'custom' || $basic == 'custom_self') {
-                $custom = apply_filters('gdsec_feature-policy_build_custom_rules_for_'.$name, $custom);
+                $custom = apply_filters('gdsih_feature-policy_build_custom_rules_for_'.$name, $custom);
 
                 $custom = array_unique($custom);
                 $custom = array_filter($custom);
