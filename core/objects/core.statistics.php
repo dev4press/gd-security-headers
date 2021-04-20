@@ -15,7 +15,73 @@ class gdsih_core_statistics {
         return $_gdsih_statistics;
     }
 
-    public function headers() {
+    public function permissions() : array {
+    	$list = array(
+		    'total' => array(
+		    	'icon' => 'tags',
+			    'label' => __("Total Number of Rules", "gd-security-headers"),
+			    'color' => '#000088',
+			    'count' => 0
+		    ),
+    		'used' => array(
+			    'icon' => 'tag',
+			    'label' => __("Used Rules", "gd-security-headers"),
+			    'color' => '#008800',
+			    'css' => 'width: 50%',
+			    'count' => 0
+		    ),
+		    'none' => array(
+			    'icon' => 'tag',
+			    'label' => __("Not Allowed", "gd-security-headers"),
+			    'color' => '#ec750c',
+			    'css' => 'width: 50%; padding-left: 10px;',
+			    'count' => 0
+		    ),
+		    'all' => array(
+			    'icon' => 'tag',
+			    'label' => __("Allowed for All", "gd-security-headers"),
+			    'color' => '#484848',
+			    'css' => 'width: 50%',
+			    'count' => 0
+		    ),
+		    'self' => array(
+			    'icon' => 'tag',
+			    'label' => __("Allowed for Self", "gd-security-headers"),
+			    'color' => '#484848',
+			    'css' => 'width: 50%; padding-left: 10px;',
+			    'count' => 0
+		    ),
+		    'custom_self' => array(
+			    'icon' => 'tag',
+			    'label' => __("Allowed for Self and Custom URL's", "gd-security-headers"),
+			    'color' => '#484848',
+			    'css' => 'width: 50%',
+			    'count' => 0
+		    ),
+		    'custom' => array(
+			    'icon' => 'tag',
+			    'label' => __("Allowed for Custom URL's Only", "gd-security-headers"),
+			    'color' => '#484848',
+			    'css' => 'width: 50%; padding-left: 10px;',
+			    'count' => 0
+		    )
+	    );
+
+	    foreach (array_keys(gdsih_settings()->features) as $key) {
+	    	$list['total']['count']++;
+
+		    $basic = gdsih_settings()->get($key.'_basic', 'feature');
+
+		    if ($basic != 'no') {
+			    $list['used']['count']++;
+			    $list[$basic]['count']++;
+		    }
+	    }
+
+    	return $list;
+    }
+
+    public function headers() : array {
         $list = array(
             array(
                 'icon' => 'tag',
@@ -36,7 +102,7 @@ class gdsih_core_statistics {
             ),
             array(
                 'icon' => 'tag',
-                'label' => __("Feature Policy", "gd-security-headers"),
+                'label' => __("Feature/Permissions Policy", "gd-security-headers"),
                 'status' => gdsih_settings()->get('protection', 'feature'),
                 'url' => network_admin_url('admin.php?page=gd-security-headers-settings&panel=feature'),
                 'recommended' => true
@@ -75,7 +141,7 @@ class gdsih_core_statistics {
         return $list;
     }
 
-    public function get_reports_overview_week() {
+    public function get_reports_overview_week() : array {
         $csp = "SELECT COUNT(*) FROM ".gdsih_db()->csp_reports." WHERE `reported` > DATE(NOW()) - INTERVAL 7 DAY";
         $xxp = "SELECT COUNT(*) FROM ".gdsih_db()->xxp_reports." WHERE `reported` > DATE(NOW()) - INTERVAL 7 DAY";
 

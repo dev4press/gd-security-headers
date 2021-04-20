@@ -1,16 +1,21 @@
 <?php
 
 /*
-Plugin Name: GD Security Headers
-Plugin URI: https://plugins.dev4press.com/gd-security-headers/
-Description: Configure various security related HTTP headers, including Content Security Policy, Referrer Policy and more. All headers can be added to .HTACCESS file.
-Version: 1.4
-Author: Milan Petrovic
-Author URI: https://www.dev4press.com/
-Text Domain: gd-security-headers
+Plugin Name:       GD Security Headers
+Plugin URI:        https://plugins.dev4press.com/gd-security-headers/
+Description:       Configure various security related HTTP headers, including Content Security Policy, Referrer Policy and more. All headers can be added to .HTACCESS file.
+Author:            Milan Petrovic
+Author URI:        https://www.dev4press.com/
+Text Domain:       gd-security-headers
+Version:           1.5
+Requires at least: 5.0
+Tested up to:      5.7
+Requires PHP:      7.0
+License:           GPLv3 or later
+License URI:       https://www.gnu.org/licenses/gpl-3.0.html
 
 == Copyright ==
-Copyright 2008 - 2020 Milan Petrovic (email: milan@gdragon.info)
+Copyright 2008 - 2021 Milan Petrovic (email: support@dev4press.com)
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

@@ -21,7 +21,7 @@ if (gdsih_scope()->is_master_network_admin()) {
         'title' => __("X XSS Protection", "gd-security-headers"), 'icon' => 'window-close', 'scope' => 'network',
         'info' => __("From this panel you control XXP settings.", "gd-security-headers"));
     $panels['feature'] = array(
-        'title' => __("Feature Policy", "gd-security-headers"), 'icon' => 'cubes', 'scope' => 'network',
+        'title' => __("Feature/Permissions Policy", "gd-security-headers"), 'icon' => 'cubes', 'scope' => 'network',
         'info' => __("From this panel you control Feature Policy header settings.", "gd-security-headers"));
     $panels['msh'] = array(
         'title' => __("More Headers", "gd-security-headers"), 'icon' => 'tags', 'scope' => 'network',

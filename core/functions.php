@@ -2,7 +2,7 @@
 
 if (!defined('ABSPATH')) { exit; }
 
-function gdsih_referrer_policies_list() {
+function gdsih_referrer_policies_list() : array {
     return array(
         'no-referrer' => __("Do not send referrer", "gd-security-headers"),
         'no-referrer-when-downgrade' => __("No referrer when downgrade", "gd-security-headers"),
@@ -15,14 +15,14 @@ function gdsih_referrer_policies_list() {
     );
 }
 
-function gdsih_strict_transport_security_list() {
+function gdsih_strict_transport_security_list() : array {
     return array(
         'none' => __("Nothing", "gd-security-headers"),
         'includeSubDomains' => __("Include Subdomains", "gd-security-headers")
     );
 }
 
-function gdsih_x_frame_options_list() {
+function gdsih_x_frame_options_list() : array {
     return array(
         'DENY' => __("Deny", "gd-security-headers"),
         'SAMEORIGIN' => __("Same origin", "gd-security-headers"),

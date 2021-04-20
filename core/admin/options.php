@@ -37,9 +37,10 @@ class gdsih_admin_settings {
                 ))
             ),
             'feature' => array(
-                'feature_status' => array('name' => __("Add", "gd-security-headers").': Feature-Policy', 'settings' => array(
+                'feature_status' => array('name' => __("Add", "gd-security-headers").': Feature-Policy / Permissions-Policy', 'settings' => array(
                     new d4pSettingElement('', '', __("Information", "gd-security-headers"),
-                        '<p>'.__("Establishes rules for various features to be exposed by browser, limiting potentially malicious requests.", "gd-security-headers").'</p>'
+                        '<p>'.__("Establishes rules for various features to be exposed by browser, limiting potentially malicious requests.", "gd-security-headers").'</p>'.
+                        '<p><strong>'.__("This header contains many elements, but not all of them are supported by every browser right now. What is supported, depends on the browser, browser version and platform, and it changes very often, so it is not easy to keep track of what will work where.", "gd-security-headers").'</strong></p>'
                         , d4pSettingType::INFO),
                     new d4pSettingElement('feature', 'protection', __("Add Header", "gd-security-headers"), '', d4pSettingType::BOOLEAN, gdsih_settings()->get('protection', 'feature')),
                     new d4pSettingElement('feature', 'variant', __("Header variant to generate", "gd-security-toolbox"), __("In early September 2020, 'Feature Policy' header has a new version called 'Permissions Policy'. With this option you can generate one or the other, or both.", "gd-security-toolbox"), d4pSettingType::SELECT, gdsih_settings()->get('variant', 'feature'), 'array', $this->get_variants())
@@ -221,26 +222,32 @@ class gdsih_admin_settings {
             )
         ));
 
+        $_notices = array(
+        	'interest-cohort' => __("This policy is related to the Google's new tracking method called 'Federated Learning of Cohorts' or 'FLoC'. If you do not want for your website to be part of Cohorts tracking system, set this option to 'Not Allowed'.", "gd-security-headers")
+        );
+
         foreach (gdsih_settings()->features as $feature => $label) {
+        	$_info = $_notices[ $feature ] ?? '';
+
             $this->settings['feature']['fp_rules_'.$feature] = array('name' => sprintf(__("Rules: %s", "gd-security-headers"), $label), 'settings' => array(
-                new d4pSettingElement('feature', $feature.'_basic', __("Basic", "gd-security-headers"), '', d4pSettingType::SELECT, gdsih_settings()->get($feature.'_basic', 'feature'), 'array', $this->get_feature_sources()),
+                new d4pSettingElement('feature', $feature.'_basic', __("Basic", "gd-security-headers"), $_info, d4pSettingType::SELECT, gdsih_settings()->get($feature.'_basic', 'feature'), 'array', $this->get_feature_sources()),
                 new d4pSettingElement('feature', $feature.'_custom', __("Custom URL's", "gd-security-headers"), __("Fully qualified URL's with the protocol specified.", "gd-security-headers"), d4pSettingType::EXPANDABLE_TEXT, gdsih_settings()->get($feature.'_custom', 'feature'), '', '', array('label_button_add' => __("Add new URL", "gd-security-headers"), 'width_button_remove' => 40, 'label_buttom_remove' => '<i class="fa fa-minus"></i>'))
             ));
         }
     }
 
-    public function get_feature_sources() {
+    public function get_feature_sources() : array {
         return array(
-            'no' => __("Disabled", "gd-security-headers"),
-            'none' => __("None", "gd-security-headers"),
-            'all' => __("All", "gd-security-headers"),
-            'self' => __("Self", "gd-security-headers"),
-            'custom_self' => __("Self and Custom URL's", "gd-security-headers"),
-            'custom' => __("Custom URL's Only", "gd-security-headers")
+            'no' => __("Do not include this policy", "gd-security-headers"),
+            'none' => __("Not Allowed", "gd-security-headers"),
+            'all' => __("Allowed for All", "gd-security-headers"),
+            'self' => __("Allowed for Self", "gd-security-headers"),
+            'custom_self' => __("Allowed for Self and Custom URL's", "gd-security-headers"),
+            'custom' => __("Allowed for Custom URL's Only", "gd-security-headers")
         );
     }
 
-    public function get_variants() {
+    public function get_variants() : array {
         return array(
             'feature-policy' => __("Only 'Feature Policy'", "gd-security-toolbox"),
             'permissions-policy' => __("Only 'Permissions Policy'", "gd-security-toolbox"),
@@ -248,7 +255,7 @@ class gdsih_admin_settings {
         );
     }
 
-    public function get_modes() {
+    public function get_modes() : array {
         return array(
             'disable' => __("Disabled", "gd-security-headers"),
             'report' => __("Report", "gd-security-headers"),
@@ -256,7 +263,7 @@ class gdsih_admin_settings {
         );
     }
 
-    public function get_refferrer() {
+    public function get_refferrer() : array {
         return array(
             'no' => __("Disabled", "gd-security-headers"),
             'no-referrer' => __("No referrer", "gd-security-headers"),
@@ -267,7 +274,7 @@ class gdsih_admin_settings {
         );
     }
 
-    public function get_sources() {
+    public function get_sources() : array {
         return array(
             'no' => __("Disabled", "gd-security-headers"),
             'none' => __("None", "gd-security-headers"),

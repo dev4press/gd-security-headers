@@ -30,7 +30,7 @@ class gdsih_core_settings extends d4p_plugin_settings_corex {
             'htaccess' => false,
         ),
         'feature' => array(
-            'variant' => 'feature-policy',
+            'variant' => 'both',
             'protection' => false
         ),
         'csp' => array(
@@ -118,6 +118,7 @@ class gdsih_core_settings extends d4p_plugin_settings_corex {
         $this->info = new gdsih_core_info();
 
         $this->features = array(
+	        'interest-cohort' => _x("Interest Cohort", "Feature/Permissions Policy", "gd-security-headers"),
             'accelerometer' => _x("Accelerometer", "Feature/Permissions Policy", "gd-security-headers"),
             'ambient-light-sensor' => _x("Ambient Light Sensor", "Feature/Permissions Policy", "gd-security-headers"),
             'autoplay' => _x("Autoplay", "Feature/Permissions Policy", "gd-security-headers"),
@@ -128,24 +129,24 @@ class gdsih_core_settings extends d4p_plugin_settings_corex {
             'geolocation' => _x("GEO Location", "Feature/Permissions Policy", "gd-security-headers"),
             'gyroscope' => _x("Gyroscope", "Feature/Permissions Policy", "gd-security-headers"),
             'legacy-image-formats' => _x("Legacy Image Formats", "Feature/Permissions Policy", "gd-security-headers"),
-            'magnetometer' => _x("Magentometer", "Feature/Permissions Policy", "gd-security-headers"),
+            'magnetometer' => _x("Magnetometer", "Feature/Permissions Policy", "gd-security-headers"),
             'microphone' => _x("Microphone", "Feature/Permissions Policy", "gd-security-headers"),
             'midi' => _x("MIDI", "Feature/Permissions Policy", "gd-security-headers"),
             'notifications' => _x("Notifications", "Feature/Permissions Policy", "gd-security-headers"),
-            'oversized-images' => _x("Oversized Images", "Feature/Permissions Policy", "gd-security-headers"),
+            'oversized-images' => _x("Over-sized Images", "Feature/Permissions Policy", "gd-security-headers"),
             'payment' => _x("Payment", "Feature/Permissions Policy", "gd-security-headers"),
-            'publickey-credentials-get' => _x("Publickey Credentials Get", "Feature/Permissions Policy", "gd-security-headers"),
+            'publickey-credentials-get' => _x("Public Key Credentials Get", "Feature/Permissions Policy", "gd-security-headers"),
             'speaker' => _x("Speaker", "Feature/Permissions Policy", "gd-security-headers"),
             'sync-xhr' => _x("Sync XHR", "Feature/Permissions Policy", "gd-security-headers"),
             'unoptimized-images' => _x("Unoptimized Images", "Feature/Permissions Policy", "gd-security-headers"),
-            'unsized-media' => _x("Unsized Media", "Feature/Permissions Policy", "gd-security-headers"),
+            'unsized-media' => _x("Un-sized Media", "Feature/Permissions Policy", "gd-security-headers"),
             'usb' => _x("USB", "Feature/Permissions Policy", "gd-security-headers"),
-            'battery' => _x("Battery", "Feature/Permissions Policy", "gd-security-headers").' ('.__("Not widely supported!", "gd-security-headers").')',
-            'display-capture' => _x("Display Capture", "Feature/Permissions Policy", "gd-security-headers").' ('.__("Not widely supported!", "gd-security-headers").')',
-            'layout-animations' => _x("Layout Animations", "Feature/Permissions Policy", "gd-security-headers").' ('.__("Not widely supported!", "gd-security-headers").')',
-            'picture-in-picture' => _x("Picture In Picture", "Feature/Permissions Policy", "gd-security-headers").' ('.__("Not widely supported!", "gd-security-headers").')',
-            'vibrate' => _x("Vibrate", "Feature/Permissions Policy", "gd-security-headers").' ('.__("Not widely supported!", "gd-security-headers").')',
-            'vr' => _x("VR", "Feature/Permissions Policy", "gd-security-headers").' ('.__("Not widely supported!", "gd-security-headers").')'
+            'battery' => _x("Battery", "Feature/Permissions Policy", "gd-security-headers"),
+            'display-capture' => _x("Display Capture", "Feature/Permissions Policy", "gd-security-headers"),
+            'layout-animations' => _x("Layout Animations", "Feature/Permissions Policy", "gd-security-headers"),
+            'picture-in-picture' => _x("Picture In Picture", "Feature/Permissions Policy", "gd-security-headers"),
+            'vibrate' => _x("Vibrate", "Feature/Permissions Policy", "gd-security-headers"),
+            'vr' => _x("VR", "Feature/Permissions Policy", "gd-security-headers")
         );
 
         foreach (array_keys($this->features) as $feature) {
@@ -162,7 +163,7 @@ class gdsih_core_settings extends d4p_plugin_settings_corex {
         gdsih_install_database();
     }
 
-    protected function _name($name) {
+    protected function _name($name) : string {
         return 'dev4press_'.$this->info->code.'_'.$name;
     }
 }
