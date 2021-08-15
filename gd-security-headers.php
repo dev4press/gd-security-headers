@@ -7,7 +7,7 @@ Description:       Configure various security related HTTP headers, including Co
 Author:            Milan Petrovic
 Author URI:        https://www.dev4press.com/
 Text Domain:       gd-security-headers
-Version:           1.5
+Version:           1.6
 Requires at least: 5.0
 Tested up to:      5.7
 Requires PHP:      7.0

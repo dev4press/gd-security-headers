@@ -49,6 +49,7 @@ class gdsih_core_settings extends d4p_plugin_settings_corex {
             'extra_gravatar' => true,
             'extra_gleam' => false,
             'extra_vimeo' => false,
+            'extra_instagram' => false,
             'extra_wordpress' => false,
 
             'cdn' => array(),

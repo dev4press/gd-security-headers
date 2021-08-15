@@ -1,7 +1,7 @@
 === GD Security Headers ===
 Contributors: GDragoN
 Donate link: https://plugins.dev4press.com/gd-security-headers/
-Version: 1.5
+Version: 1.6
 Tags: dev4press, security, csp, content security policy, permission policy, feature policy, referrer policy, xss, security headers
 Requires at least: 5.0
 Requires PHP: 7.0

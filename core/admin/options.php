@@ -89,6 +89,7 @@ class gdsih_admin_settings {
                     new d4pSettingElement('csp', 'extra_google_youtube', __("Google Youtube", "gd-security-headers"), __("If you are embedding YouTube videos, this option will automatically append required rules.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('extra_google_youtube', 'csp')),
                     new d4pSettingElement('csp', 'extra_google_tag_manager', __("Google Tag Manager", "gd-security-headers"), __("If you are using Google Tag Manager, this option will automatically append required rules. Also, make sure to enable support for other Google services you are including through Tag Manager.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('extra_google_tag_manager', 'csp')),
                     new d4pSettingElement('', '', __("More Services", "gd-security-headers"), '', d4pSettingType::HR),
+	                new d4pSettingElement('csp', 'extra_instagram', __("Instagram", "gd-security-headers"), __("If you are embedding Instagram posts, this option will automatically append required rules.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('extra_instagram', 'csp')),
                     new d4pSettingElement('csp', 'extra_gleam', __("Gleam", "gd-security-headers"), __("If you are embedding Gleam based contest, this option will automatically append required rules.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('extra_gleam', 'csp')),
                     new d4pSettingElement('csp', 'extra_vimeo', __("Vimeo", "gd-security-headers"), __("If you are embedding Vimeo videos, this option will automatically append required rules.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('extra_vimeo', 'csp'))
                 )),
@@ -153,7 +154,7 @@ class gdsih_admin_settings {
                     new d4pSettingElement('csp', 'manifest_basic', __("Basic", "gd-security-headers"), '', d4pSettingType::SELECT, gdsih_settings()->get('manifest_basic', 'csp'), 'array', $this->get_sources()),
                     new d4pSettingElement('csp', 'manifest_custom', __("Custom", "gd-security-headers"), '', d4pSettingType::EXPANDABLE_TEXT, gdsih_settings()->get('manifest_custom', 'csp'), '', '', array('label_button_add' => __("Add new rule", "gd-security-headers"), 'width_button_remove' => 40, 'label_buttom_remove' => '<i class="fa fa-minus"></i>'))
                 )),
-                'csp_rules_prefetch' => array('name' => __("Source Rules: Manifest", "gd-security-headers"), 'settings' => array(
+                'csp_rules_prefetch' => array('name' => __("Source Rules: Pre-Fetch", "gd-security-headers"), 'settings' => array(
                     new d4pSettingElement('', '', __("Information", "gd-security-toolbox"), __("This is experimental CSP source, and is not used by all browsers", "gd-security-toolbox"), d4pSettingType::INFO),
                     new d4pSettingElement('', '', '', '', d4pSettingType::HR),
                     new d4pSettingElement('csp', 'prefetch_basic', __("Basic", "gd-security-headers"), '', d4pSettingType::SELECT, gdsih_settings()->get('prefetch_basic', 'csp'), 'array', $this->get_sources()),

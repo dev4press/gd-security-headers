@@ -95,6 +95,10 @@ class gdsih_core_csp {
             require_once(GDSIH_PATH.'core/csp/gleam.php');
         }
 
+	    if (gdsih_settings()->get('extra_instagram', 'csp')) {
+		    require_once(GDSIH_PATH.'core/csp/instagram.php');
+	    }
+
         if (gdsih_settings()->get('extra_vimeo', 'csp')) {
             require_once(GDSIH_PATH.'core/csp/vimeo.php');
         }

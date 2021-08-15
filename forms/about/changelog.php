@@ -2,6 +2,12 @@
 <div class="d4p-group d4p-group-changelog">
     <h3><?php _e("Version", "gd-security-headers"); ?> 1</h3>
     <div class="d4p-group-inner">
+        <h4>Version: 1.5 / april 26 2021</h4>
+        <ul>
+            <li><strong>new</strong> csp addon: predefined rules list for Instagram</li>
+            <li><strong>fix</strong> csp addon: few typos in the rules names</li>
+        </ul>
+
         <h4>Version: 1.5 / april 20 2021</h4>
         <ul>
             <li><strong>new</strong> feature/permissions policy addon: support for 'interest-cohort'</li>
