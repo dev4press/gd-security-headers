@@ -21,9 +21,11 @@ class gdsih_admin_settings {
         $list = array();
 
         foreach ($this->settings[$panel] as $obj) {
-            foreach ($obj['settings'] as $o) {
-                $list[] = $o;
-            }
+			if (isset($obj['settings']) && is_array($obj['settings'])) {
+				foreach ( $obj['settings'] as $o ) {
+					$list[] = $o;
+				}
+			}
         }
 
         return $list;
@@ -54,8 +56,10 @@ class gdsih_admin_settings {
                 )),
                 'csp_basic' => array('name' => __("Basics", "gd-security-headers"), 'settings' => array(
                     new d4pSettingElement('csp', 'log', __("Log Reports", "gd-security-headers"), __("Plugin will store in events log every CSP report.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('log', 'csp')),
-                    new d4pSettingElement('csp', 'log_original_policy', __("Log Orginal Policy", "gd-security-headers"), __("Each report contains full original CSP policy that is not very useful to log, and it takes a lot of space. It is sent for reference purposes as a proof that CSP failed because of the element of that policy. You can log it to match it to your real policy as a method to discover eventual HTTP headers tampering.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('log_original_policy', 'csp')),
-                    new d4pSettingElement('csp', 'log_force_ssl', __("Force SSL for Report URL", "gd-security-headers"), __("In some cases, network home URL for the website might be generated with HTTP even if your website is set to use HTTPS. Enable this option, only if you use HTTPS URL and SSL.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('log_force_ssl', 'csp'))
+                    new d4pSettingElement('csp', 'log_original_policy', __("Log Original Policy", "gd-security-headers"), __("Each report contains full original CSP policy that is not very useful to log, and it takes a lot of space. It is sent for reference purposes as a proof that CSP failed because of the element of that policy. You can log it to match it to your real policy as a method to discover eventual HTTP headers tampering.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('log_original_policy', 'csp')),
+                    new d4pSettingElement('csp', 'log_force_ssl', __("Force SSL for Report URL", "gd-security-headers"), __("In some cases, network home URL for the website might be generated with HTTP even if your website is set to use HTTPS. Enable this option, only if you use HTTPS URL and SSL.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('log_force_ssl', 'csp')),
+	                new d4pSettingElement('', '', __("External log service", "gd-security-headers"), '', d4pSettingType::HR),
+	                new d4pSettingElement('csp', 'log_url', __("URL", "gd-security-headers"), __("If you want to send reports to third party service, enter the URL to use for sending reports.", "gd-security-headers"), d4pSettingType::LINK, gdsih_settings()->get('log_url', 'csp'), '', array(), array('placeholder' => 'https://'))
                 )),
                 'csp_auto' => array('name' => __("Auto Source Rules", "gd-security-headers"), 'settings' => array(
                     new d4pSettingElement('', '', __("Information", "gd-security-headers"), __("Due to the way WordPress works, it is highly reccommended to allow inline scripts and style and inline script eval. With these options, plugin will add these sources automatically. If you disable them here, you will need to create rules to cover them or add them manually where you need them.", "gd-security-headers"), d4pSettingType::INFO),
@@ -63,10 +67,10 @@ class gdsih_admin_settings {
                     new d4pSettingElement('csp', 'auto_inline_rule', __("Unsafe Inline Rule", "gd-security-headers"), '', d4pSettingType::BOOLEAN, gdsih_settings()->get('auto_inline_rule', 'csp')),
                     new d4pSettingElement('csp', 'auto_eval_rule', __("Unsafe Eval Rule", "gd-security-headers"), '', d4pSettingType::BOOLEAN, gdsih_settings()->get('auto_eval_rule', 'csp')),
                     new d4pSettingElement('', '', '', '', d4pSettingType::HR),
-                    new d4pSettingElement('csp', 'auto_data_rule', __("Data Rule", "gd-security-headers"), __("This might be needed for images or fonts. If you prefer, you can disable this option here, and manually add 'data:' as a custom rule where needed.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('auto_data_rule', 'csp')),
-                    new d4pSettingElement('csp', 'auto_blob_rule', __("Blob Rule", "gd-security-headers"), __("This might be needed for media, objects or fonts. If you prefer, you can disable this option here, and manually add 'blob:' as a custom rule where needed.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('auto_blob_rule', 'csp')),
-                    new d4pSettingElement('csp', 'auto_mediastream_rule', __("Mediastream Rule", "gd-security-headers"), __("This might be needed for media, objects or fonts. If you prefer, you can disable this option here, and manually add 'blob:' as a custom rule where needed.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('auto_mediastream_rule', 'csp')),
-                    new d4pSettingElement('csp', 'auto_filesystem_rule', __("FileSystem Rule", "gd-security-headers"), __("This might be needed for media, objects or fonts. If you prefer, you can disable this option here, and manually add 'blob:' as a custom rule where needed.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('auto_filesystem_rule', 'csp'))
+                    new d4pSettingElement('csp', 'auto_data_rule', __("Data Rule", "gd-security-headers"), __("This might be needed for images or fonts. If you prefer, you can disable this option here, and manually add 'data:' as a custom rule where needed. If enabled, it will be added to: 'default', 'image', 'style', 'font'.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('auto_data_rule', 'csp')),
+                    new d4pSettingElement('csp', 'auto_blob_rule', __("Blob Rule", "gd-security-headers"), __("This might be needed for media, objects or fonts. If you prefer, you can disable this option here, and manually add 'blob:' as a custom rule where needed. If enabled, it will be added to: 'default', 'media', 'object', 'font'.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('auto_blob_rule', 'csp')),
+                    new d4pSettingElement('csp', 'auto_mediastream_rule', __("Mediastream Rule", "gd-security-headers"), __("This might be needed for media, objects or fonts. If you prefer, you can disable this option here, and manually add 'mediastream:' as a custom rule where needed. If enabled, it will be added to: 'default', 'media', 'object', 'font'.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('auto_mediastream_rule', 'csp')),
+                    new d4pSettingElement('csp', 'auto_filesystem_rule', __("FileSystem Rule", "gd-security-headers"), __("This might be needed for media, objects or fonts. If you prefer, you can disable this option here, and manually add 'filesystem:' as a custom rule where needed. If enabled, it will be added to: 'default', 'media', 'object', 'font'.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('auto_filesystem_rule', 'csp'))
                 )),
                 'csp_additional' => array('name' => __("Additional CSP Settings", "gd-security-headers"), 'settings' => array(
                     new d4pSettingElement('csp', 'upgrade_insecure_requests', __("Upgrade insecure requests", "gd-security-headers"), __("Use this only if your website is configured to use secure HTTPS.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('upgrade_insecure_requests', 'csp')),
@@ -90,6 +94,7 @@ class gdsih_admin_settings {
                     new d4pSettingElement('csp', 'extra_google_tag_manager', __("Google Tag Manager", "gd-security-headers"), __("If you are using Google Tag Manager, this option will automatically append required rules. Also, make sure to enable support for other Google services you are including through Tag Manager.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('extra_google_tag_manager', 'csp')),
                     new d4pSettingElement('', '', __("More Services", "gd-security-headers"), '', d4pSettingType::HR),
 	                new d4pSettingElement('csp', 'extra_instagram', __("Instagram", "gd-security-headers"), __("If you are embedding Instagram posts, this option will automatically append required rules.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('extra_instagram', 'csp')),
+	                new d4pSettingElement('csp', 'extra_paypal', __("PayPal", "gd-security-headers"), __("If you are embedding PayPal payments, this option will automatically append required rules.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('extra_paypal', 'csp')),
                     new d4pSettingElement('csp', 'extra_gleam', __("Gleam", "gd-security-headers"), __("If you are embedding Gleam based contest, this option will automatically append required rules.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('extra_gleam', 'csp')),
                     new d4pSettingElement('csp', 'extra_vimeo', __("Vimeo", "gd-security-headers"), __("If you are embedding Vimeo videos, this option will automatically append required rules.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('extra_vimeo', 'csp'))
                 )),
@@ -126,7 +131,7 @@ class gdsih_admin_settings {
                     new d4pSettingElement('csp', 'media_basic', __("Basic", "gd-security-headers"), '', d4pSettingType::SELECT, gdsih_settings()->get('media_basic', 'csp'), 'array', $this->get_sources()),
                     new d4pSettingElement('csp', 'media_custom', __("Custom", "gd-security-headers"), '', d4pSettingType::EXPANDABLE_TEXT, gdsih_settings()->get('media_custom', 'csp'), '', '', array('label_button_add' => __("Add new rule", "gd-security-headers"), 'width_button_remove' => 40, 'label_buttom_remove' => '<i class="fa fa-minus"></i>'))
                 )),
-                'csp_rules_frame' => array('name' => __("Obsolote Source Rules: Frame", "gd-security-headers"), 'settings' => array(
+                'csp_rules_frame' => array('name' => __("Obsolete Source Rules: Frame", "gd-security-headers"), 'settings' => array(
                     new d4pSettingElement('csp', 'frame_basic', __("Basic", "gd-security-headers"), '', d4pSettingType::SELECT, gdsih_settings()->get('frame_basic', 'csp'), 'array', $this->get_sources()),
                     new d4pSettingElement('csp', 'frame_custom', __("Custom", "gd-security-headers"), '', d4pSettingType::EXPANDABLE_TEXT, gdsih_settings()->get('frame_custom', 'csp'), '', '', array('label_button_add' => __("Add new rule", "gd-security-headers"), 'width_button_remove' => 40, 'label_buttom_remove' => '<i class="fa fa-minus"></i>'))
                 )),
@@ -135,34 +140,28 @@ class gdsih_admin_settings {
                     new d4pSettingElement('csp', 'child_basic', __("Basic", "gd-security-headers"), '', d4pSettingType::SELECT, gdsih_settings()->get('child_basic', 'csp'), 'array', $this->get_sources()),
                     new d4pSettingElement('csp', 'child_custom', __("Custom", "gd-security-headers"), '', d4pSettingType::EXPANDABLE_TEXT, gdsih_settings()->get('child_custom', 'csp'), '', '', array('label_button_add' => __("Add new rule", "gd-security-headers"), 'width_button_remove' => 40, 'label_buttom_remove' => '<i class="fa fa-minus"></i>'))
                 )),
-                'csp_rules_frame-ancestors' => array('name' => __("Experimental Source Rules: Frame Ancestors", "gd-security-headers"), 'settings' => array(
-                    new d4pSettingElement('', '', __("Information", "gd-security-headers"), __("This is experimental CSP source, and is not used by all browsers.", "gd-security-headers"), d4pSettingType::INFO),
-                    new d4pSettingElement('', '', '', '', d4pSettingType::HR),
+                'csp_rules_frame-ancestors' => array('name' => __("Source Rules: Frame Ancestors", "gd-security-headers"), 'settings' => array(
                     new d4pSettingElement('csp', 'frame-ancestors_basic', __("Basic", "gd-security-headers"), '', d4pSettingType::SELECT, gdsih_settings()->get('frame-ancestors_basic', 'csp'), 'array', $this->get_sources()),
                     new d4pSettingElement('csp', 'frame-ancestors_custom', __("Custom", "gd-security-headers"), '', d4pSettingType::EXPANDABLE_TEXT, gdsih_settings()->get('frame-ancestors_custom', 'csp'), '', '', array('label_button_add' => __("Add new rule", "gd-security-headers"), 'width_button_remove' => 40, 'label_buttom_remove' => '<i class="fa fa-minus"></i>'))
                 )),
-                'csp_rules_form-action' => array('name' => __("Experimental Source Rules: Form Action", "gd-security-headers"), 'settings' => array(
-                    new d4pSettingElement('', '', __("Information", "gd-security-headers"), __("This is experimental CSP source, and is not used by all browsers.", "gd-security-headers"), d4pSettingType::INFO),
-                    new d4pSettingElement('', '', '', '', d4pSettingType::HR),
+                'csp_rules_form-action' => array('name' => __("Source Rules: Form Action", "gd-security-headers"), 'settings' => array(
                     new d4pSettingElement('csp', 'form-action_basic', __("Basic", "gd-security-headers"), '', d4pSettingType::SELECT, gdsih_settings()->get('form-action_basic', 'csp'), 'array', $this->get_sources()),
                     new d4pSettingElement('csp', 'form-action_custom', __("Custom", "gd-security-headers"), '', d4pSettingType::EXPANDABLE_TEXT, gdsih_settings()->get('form-action_custom', 'csp'), '', '', array('label_button_add' => __("Add new rule", "gd-security-headers"), 'width_button_remove' => 40, 'label_buttom_remove' => '<i class="fa fa-minus"></i>'))
                 )),
+                'csp_rules_base-uri' => array('name' => __("Source Rules: Base URI", "gd-security-headers"), 'settings' => array(
+	                new d4pSettingElement('csp', 'base-uri_basic', __("Basic", "gd-security-headers"), '', d4pSettingType::SELECT, gdsih_settings()->get('base-uri_basic', 'csp'), 'array', $this->get_sources()),
+	                new d4pSettingElement('csp', 'base-uri_custom', __("Custom", "gd-security-headers"), '', d4pSettingType::EXPANDABLE_TEXT, gdsih_settings()->get('base-uri_custom', 'csp'), '', '', array('label_button_add' => __("Add new rule", "gd-security-headers"), 'width_button_remove' => 40, 'label_buttom_remove' => '<i class="fa fa-minus"></i>'))
+                )),
                 'csp_level_3' => array('label' => __("CSP Level 3", "gd-security-toolbox"), 'type' => 'separator'),
                 'csp_rules_manifest' => array('name' => __("Source Rules: Manifest", "gd-security-headers"), 'settings' => array(
-                    new d4pSettingElement('', '', __("Information", "gd-security-toolbox"), __("This is experimental CSP source, and is not used by all browsers", "gd-security-toolbox"), d4pSettingType::INFO),
-                    new d4pSettingElement('', '', '', '', d4pSettingType::HR),
                     new d4pSettingElement('csp', 'manifest_basic', __("Basic", "gd-security-headers"), '', d4pSettingType::SELECT, gdsih_settings()->get('manifest_basic', 'csp'), 'array', $this->get_sources()),
                     new d4pSettingElement('csp', 'manifest_custom', __("Custom", "gd-security-headers"), '', d4pSettingType::EXPANDABLE_TEXT, gdsih_settings()->get('manifest_custom', 'csp'), '', '', array('label_button_add' => __("Add new rule", "gd-security-headers"), 'width_button_remove' => 40, 'label_buttom_remove' => '<i class="fa fa-minus"></i>'))
                 )),
-                'csp_rules_prefetch' => array('name' => __("Source Rules: Pre-Fetch", "gd-security-headers"), 'settings' => array(
-                    new d4pSettingElement('', '', __("Information", "gd-security-toolbox"), __("This is experimental CSP source, and is not used by all browsers", "gd-security-toolbox"), d4pSettingType::INFO),
-                    new d4pSettingElement('', '', '', '', d4pSettingType::HR),
+                'csp_rules_prefetch' => array('name' => __("Source Rules: Prefetch", "gd-security-headers"), 'settings' => array(
                     new d4pSettingElement('csp', 'prefetch_basic', __("Basic", "gd-security-headers"), '', d4pSettingType::SELECT, gdsih_settings()->get('prefetch_basic', 'csp'), 'array', $this->get_sources()),
                     new d4pSettingElement('csp', 'prefetch_custom', __("Custom", "gd-security-headers"), '', d4pSettingType::EXPANDABLE_TEXT, gdsih_settings()->get('prefetch_custom', 'csp'), '', '', array('label_button_add' => __("Add new rule", "gd-security-headers"), 'width_button_remove' => 40, 'label_buttom_remove' => '<i class="fa fa-minus"></i>'))
                 )),
                 'csp_rules_worker' => array('name' => __("Source Rules: Worker", "gd-security-headers"), 'settings' => array(
-                    new d4pSettingElement('', '', __("Information", "gd-security-headers"), __("This is experimental CSP source, and is not used by all browsers", "gd-security-headers"), d4pSettingType::INFO),
-                    new d4pSettingElement('', '', '', '', d4pSettingType::HR),
                     new d4pSettingElement('csp', 'worker_basic', __("Basic", "gd-security-headers"), '', d4pSettingType::SELECT, gdsih_settings()->get('worker_basic', 'csp'), 'array', $this->get_sources()),
                     new d4pSettingElement('csp', 'worker_custom', __("Custom", "gd-security-headers"), '', d4pSettingType::EXPANDABLE_TEXT, gdsih_settings()->get('worker_custom', 'csp'), '', '', array('label_button_add' => __("Add new rule", "gd-security-headers"), 'width_button_remove' => 40, 'label_buttom_remove' => '<i class="fa fa-minus"></i>'))
                 ))

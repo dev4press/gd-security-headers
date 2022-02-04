@@ -2,10 +2,19 @@
 <div class="d4p-group d4p-group-changelog">
     <h3><?php _e("Version", "gd-security-headers"); ?> 1</h3>
     <div class="d4p-group-inner">
-        <h4>Version: 1.5 / april 26 2021</h4>
+        <h4>Version: 1.6 / february 4 2022</h4>
         <ul>
+            <li><strong>new</strong> system requirements: PHP 7.2 or newer</li>
+            <li><strong>new</strong> system requirements: WordPress 5.3 or newer</li>
+            <li><strong>new</strong> tested with WordPress 5.9</li>
+            <li><strong>new</strong> csp addon: send reports to custom log URL</li>
+            <li><strong>new</strong> csp addon: support for 'base-uri' directive</li>
             <li><strong>new</strong> csp addon: predefined rules list for Instagram</li>
+            <li><strong>edit</strong> csp addon: updated various predefined rules lists</li>
+            <li><strong>edit</strong> csp addon: updated settings information about some rules</li>
+            <li><strong>edit</strong> d4pLib 2.8.14</li>
             <li><strong>fix</strong> csp addon: few typos in the rules names</li>
+            <li><strong>fix</strong> csp addon: minor issues with saving settings</li>
         </ul>
 
         <h4>Version: 1.5 / april 20 2021</h4>

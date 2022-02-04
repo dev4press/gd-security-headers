@@ -51,7 +51,7 @@ class gdsih_component_csp {
             'blocked_uri' => $report['blocked-uri'],
             'referrer' => $report['referrer'],
             'violated_directive' => $report['violated-directive'],
-            'effective_directive' => isset($report['effective-directive']) ? $report['effective-directive'] : '',
+            'effective_directive' => $report['effective-directive'] ?? '',
             'original_policy' => gdsih_settings()->get('log_original_policy', 'csp') ? $report['original-policy'] : ''
         ));
     }

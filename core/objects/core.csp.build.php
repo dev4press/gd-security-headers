@@ -19,6 +19,7 @@ class gdsih_core_csp {
         'manifest' => 'manifest-src',
         'child' => 'child-src',
         'worker' => 'worker-src',
+        'base-uri' => 'base-uri',
         'form-action' => 'form-action',
         'frame-ancestors' => 'frame-ancestors',
         'prefetch' => 'prefetch-src'
@@ -27,6 +28,12 @@ class gdsih_core_csp {
     public function __construct() { }
 
     public function url() {
+		$_url = trim(gdsih_settings()->get('log_url', 'csp'));
+
+		if (!empty($_url)) {
+			return $_url;
+		}
+
         $base_url = gdsih_settings()->get('log_force_ssl', 'csp') ? network_home_url('', 'https') : network_home_url();
 
         return $base_url.'?'.$this->key;
@@ -51,7 +58,7 @@ class gdsih_core_csp {
                 $item.= "'unsafe-eval' ";
             }
 
-            if (gdsih_settings()->get('auto_data_rule', 'csp') && ($name == 'default' || $name == 'script' || $name == 'style' || $name == 'img' || $name == 'font' || $name == 'child' || $name == 'frame')) {
+            if (gdsih_settings()->get('auto_data_rule', 'csp') && ($name == 'default' || $name == 'style' || $name == 'img' || $name == 'font')) {
                 $item.= "data: ";
             }
 
@@ -94,6 +101,10 @@ class gdsih_core_csp {
         if (gdsih_settings()->get('extra_gleam', 'csp')) {
             require_once(GDSIH_PATH.'core/csp/gleam.php');
         }
+
+	    if (gdsih_settings()->get('extra_paypal', 'csp')) {
+		    require_once(GDSIH_PATH.'core/csp/paypal.php');
+	    }
 
 	    if (gdsih_settings()->get('extra_instagram', 'csp')) {
 		    require_once(GDSIH_PATH.'core/csp/instagram.php');

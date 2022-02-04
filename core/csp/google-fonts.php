@@ -10,7 +10,8 @@ class gdsih_csp_extra_google_fonts {
     );
 
     public $font = array(
-        'fonts.gstatic.com'
+        'fonts.gstatic.com',
+	    'fonts.googleapis.com'
     );
 
     public $script = array(

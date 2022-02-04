@@ -38,6 +38,7 @@ class gdsih_core_settings extends d4p_plugin_settings_corex {
             'log' => true,
             'log_original_policy' => false,
             'log_force_ssl' => false,
+			'log_url' => '',
 
             'extra_google_adsense' => false,
             'extra_google_analytics' => false,
@@ -50,6 +51,7 @@ class gdsih_core_settings extends d4p_plugin_settings_corex {
             'extra_gleam' => false,
             'extra_vimeo' => false,
             'extra_instagram' => false,
+            'extra_paypal' => false,
             'extra_wordpress' => false,
 
             'cdn' => array(),
@@ -87,6 +89,8 @@ class gdsih_core_settings extends d4p_plugin_settings_corex {
             'manifest_custom' => array(),
             'form-action_basic' => 'no',
             'form-action_custom' => array(),
+            'base-uri_basic' => 'no',
+            'base-uri_custom' => array(),
             'frame-ancestors_basic' => 'no',
             'frame-ancestors_custom' => array(),
             'prefetch_basic' => 'no',

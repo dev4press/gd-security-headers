@@ -3,12 +3,12 @@ Contributors: GDragoN
 Donate link: https://plugins.dev4press.com/gd-security-headers/
 Version: 1.6
 Tags: dev4press, security, csp, content security policy, permission policy, feature policy, referrer policy, xss, security headers
-Requires at least: 5.0
-Requires PHP: 7.0
-Tested up to: 5.7
+Requires at least: 5.3
+Requires PHP: 7.2
+Tested up to: 5.9
 Stable tag: trunk
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License: GPLv3 or later
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 Configure various security-related HTTP headers, including CSP, XSS, Referrer Policy and more.
 
@@ -26,7 +26,7 @@ The plugin has support for following HTTP headers:
 * Referrer Policy
 * Frame Options
 
-For CSP, the plugin allows you to set rules for all currently supported directives, additional settings including setting the policy in Report or Live mode. The plugin also includes special extensions that can automatically fill CSP rules for popular Google services you might be using on your website (Fonts, Maps, Adsense, Analytics and more) and other populare services (Gravatar, Vimeo and more).
+For CSP, the plugin allows you to set rules for all currently supported directives, additional settings including setting the policy in Report or Live mode. The plugin also includes special extensions that can automatically fill CSP rules for popular Google services you might be using on your website (Fonts, Maps, Adsense, Analytics, TagManager and more) and other popular services (Gravatar, Instagram, PayPal Vimeo and more).
 
 And, for Feature Policy (or Permissions Policy), the plugin allows you to set rules for all currently supported rules (over 25 rules, supported by different browsers).
 
@@ -44,16 +44,16 @@ And, if you don't use Apache web server, plugin has a panel where it displays ge
 
 == Installation ==
 = General Requirements =
-* PHP: 7.0 or newer
+* PHP: 7.2 or newer
 
 = PHP Notice =
-* Plugin doesn't work with PHP 5.6 or older versions.
+* Plugin doesn't work with PHP 7.1 or older versions.
 
 = WordPress Requirements =
-* WordPress: 5.0 or newer
+* WordPress: 5.3 or newer
 
 = WordPress Notice =
-* Plugin doesn't work with WordPress 4.9 or older versions.
+* Plugin doesn't work with WordPress 5.2 or older versions.
 
 = Basic Installation =
 * Plugin folder in the WordPress plugins folder must be `gd-security-headers`.
@@ -71,6 +71,19 @@ The plugin has own top-level item in the WordPress admin side menu: GD Security 
 Yes. The POT file is provided as a base for translation. Translation files should go into Languages directory.
 
 == Changelog ==
+= 1.6 (2022.02.04) =
+* New: system requirements: PHP 7.2 or newer
+* New: system requirements: WordPress 5.3 or newer
+* New: tested with WordPress 5.9
+* New: csp addon: send reports to custom log URL
+* New: csp addon: support for 'base-uri' directive
+* New: csp addon: predefined rules list for Instagram
+* Edit: csp addon: updated various predefined rules lists
+* Edit: csp addon: updated settings information about some rules
+* Edit: d4pLib 2.8.14
+* Fix: csp addon: few typos in the rules names
+* Fix: csp addon: minor issues with saving settings
+
 = 1.5 (2021.04.20) =
 * New: feature/permissions policy addon: support for 'interest-cohort'
 * New: feature/permissions policy addon: dashboard information widget
@@ -106,7 +119,7 @@ Yes. The POT file is provided as a base for translation. Translation files shoul
 * New: csp addon: predefined rules list for Gleam
 * New: csp addon: predefined rules list for Vimeo
 * New: csp addon: auto generated rules for some special data sources
-* Edit: csp addon: expanded some of the google based preset rules
+* Edit: csp addon: expanded some Google based preset rules
 * Edit: csp addon: various improvements in the generator
 * Edit: d4pLib 2.8.2
 
@@ -121,7 +134,7 @@ Yes. The POT file is provided as a base for translation. Translation files shoul
 * New: headers panel: for iis servers
 * New: new method for building the HTACCESS headers
 * Edit: improved additional headers object
-* Edit: updated rules for google analytics
+* Edit: updated rules for Google Analytics
 * Edit: do not run when WordPress runs CRON
 * Edit: removed some unused code and strings
 
