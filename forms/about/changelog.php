@@ -2,6 +2,11 @@
 <div class="d4p-group d4p-group-changelog">
     <h3><?php _e("Version", "gd-security-headers"); ?> 1</h3>
     <div class="d4p-group-inner">
+        <h4>Version: 1.6.1 / may 16 2022</h4>
+        <ul>
+            <li><strong>new</strong> tested with WordPress 6.0</li>
+        </ul>
+
         <h4>Version: 1.6 / february 4 2022</h4>
         <ul>
             <li><strong>new</strong> system requirements: PHP 7.2 or newer</li>
