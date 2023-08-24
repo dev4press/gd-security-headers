@@ -7,10 +7,10 @@ Description:       Configure various security related HTTP headers, including Co
 Author:            Milan Petrovic
 Author URI:        https://www.dev4press.com/
 Text Domain:       gd-security-headers
-Version:           1.6.1
+Version:           1.7
 Requires at least: 5.3
-Tested up to:      6.0
-Requires PHP:      7.2
+Tested up to:      6.3
+Requires PHP:      7.3
 License:           GPLv3 or later
 License URI:       https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -77,20 +77,17 @@ $_gdsih_settings = new gdsih_core_settings();
 $_gdsih_core = new gdsih_core_plugin();
 $_gdsih_db = new gdsih_core_db();
 
-/** @return gdsih_core_plugin */
-function gdsih() {
+function gdsih() : gdsih_core_plugin {
     global $_gdsih_core;
     return $_gdsih_core;
 }
 
-/** @return gdsih_core_settings */
-function gdsih_settings() {
+function gdsih_settings() : gdsih_core_settings {
     global $_gdsih_settings;
     return $_gdsih_settings;
 }
 
-/** @return gdsih_core_db */
-function gdsih_db() {
+function gdsih_db() : gdsih_core_db {
     global $_gdsih_db;
     return $_gdsih_db;
 }

@@ -6,17 +6,17 @@ class gdsih_core_info {
     public $name = 'GD Security Headers';
     public $code = 'gd-security-headers';
 
-    public $version = '1.6.1';
-    public $build = 57;
+    public $version = '1.7';
+    public $build = 60;
     public $edition = 'free';
     public $status = 'stable';
-    public $updated = '2022.05.16';
+    public $updated = '2024.08.25';
     public $url = 'https://plugins.dev4press.com/gd-security-headers/';
     public $author_name = 'Milan Petrovic';
     public $author_url = 'https://www.dev4press.com/';
     public $released = '2019.03.26';
 
-    public $php = '7.2';
+    public $php = '7.3';
     public $mysql = '5.1';
     public $wordpress = '5.3';
 
