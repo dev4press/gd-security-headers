@@ -43,7 +43,7 @@ $scope = is_multisite() ? gdsih_scope()->get_scope() : $panels[$_panel]['scope']
         <div class="d4p-panel-scroller d4p-scroll-active">
             <div class="d4p-panel-title">
                 <i aria-hidden="true" class="fa fa-cogs"></i>
-                <h3><?php _e("Settings", "gd-security-headers"); ?></h3>
+                <h3><?php esc_html_e("Settings", "gd-security-headers"); ?></h3>
                 <?php if ($_panel != 'index') { ?>
                 <h4><i aria-hidden="true" class="fa fa-<?php echo $panels[$_panel]['icon']; ?>"></i> <?php echo $panels[$_panel]['title']; ?></h4>
                 <?php } ?>
@@ -53,11 +53,11 @@ $scope = is_multisite() ? gdsih_scope()->get_scope() : $panels[$_panel]['scope']
             </div>
             <?php if ($_panel != 'index') { ?>
                 <div class="d4p-panel-buttons">
-                    <input type="submit" value="<?php _e("Save Settings", "gd-security-headers"); ?>" class="button-primary">
+                    <input type="submit" value="<?php esc_html_e("Save Settings", "gd-security-headers"); ?>" class="button-primary">
                 </div>
             <?php } ?>
             <div class="d4p-return-to-top">
-                <a href="#wpwrap"><?php _e("Return to top", "gd-security-headers"); ?></a>
+                <a href="#wpwrap"><?php esc_html_e("Return to top", "gd-security-headers"); ?></a>
             </div>
         </div>
     </div>
@@ -87,7 +87,7 @@ $scope = is_multisite() ? gdsih_scope()->get_scope() : $panels[$_panel]['scope']
                         <?php if (isset($obj['type'])) { ?>
                         <span><?php echo $obj['type']; ?></span>
                         <?php } ?>
-                        <a class="button-primary" href="<?php echo $url; ?>"><?php _e("Settings Panel", "gd-security-headers"); ?></a>
+                        <a class="button-primary" href="<?php echo $url; ?>"><?php esc_html_e("Settings Panel", "gd-security-headers"); ?></a>
                     </div>
                 </div>
         

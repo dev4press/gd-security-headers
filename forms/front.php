@@ -16,7 +16,7 @@ include(GDSIH_PATH.'core/objects/core.statistics.php');
             <h5>
                 <?php
 
-                _e("Version", "gd-security-headers");
+                esc_html_e("Version", "gd-security-headers");
                 echo': '.gdsih_settings()->info->version;
 
                 if (gdsih_settings()->info->status != 'stable') {
@@ -29,12 +29,12 @@ include(GDSIH_PATH.'core/objects/core.statistics.php');
         </div>
 
         <div class="d4p-buttons-group">
-            <a class="button-secondary" href="admin.php?page=gd-security-headers-settings"><i aria-hidden="true" class="fa fa-cogs fa-fw"></i> <?php _e("Settings", "gd-security-headers"); ?></a>
-            <a class="button-secondary" href="admin.php?page=gd-security-headers-tools"><i aria-hidden="true" class="fa fa-wrench fa-fw"></i> <?php _e("Tools", "gd-security-headers"); ?></a>
+            <a class="button-secondary" href="admin.php?page=gd-security-headers-settings"><i aria-hidden="true" class="fa fa-cogs fa-fw"></i> <?php esc_html_e("Settings", "gd-security-headers"); ?></a>
+            <a class="button-secondary" href="admin.php?page=gd-security-headers-tools"><i aria-hidden="true" class="fa fa-wrench fa-fw"></i> <?php esc_html_e("Tools", "gd-security-headers"); ?></a>
         </div>
 
         <div class="d4p-buttons-group">
-            <a class="button-secondary" href="admin.php?page=gd-security-headers-about"><i aria-hidden="true" class="fa fa-info-circle fa-fw"></i> <?php _e("About", "gd-security-headers"); ?></a>
+            <a class="button-secondary" href="admin.php?page=gd-security-headers-about"><i aria-hidden="true" class="fa fa-info-circle fa-fw"></i> <?php esc_html_e("About", "gd-security-headers"); ?></a>
         </div>
     </div>
     <div class="d4p-content-right">

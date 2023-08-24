@@ -2,7 +2,7 @@
 
 if (!defined('ABSPATH')) { exit; }
 
-function gdsih_list_database_tables() {
+function gdsih_list_database_tables() : array {
     global $wpdb;
 
     return array(
@@ -11,7 +11,7 @@ function gdsih_list_database_tables() {
     );
 }
 
-function gdsih_install_database() {
+function gdsih_install_database() : array {
     global $wpdb;
 
     $charset_collate = '';
@@ -63,7 +63,7 @@ CREATE TABLE ".$tables['xxp_reports']." (
     return dbDelta($query);
 }
 
-function gdsih_check_database() {
+function gdsih_check_database() : array {
     global $wpdb;
 
     $result = array();

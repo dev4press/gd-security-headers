@@ -17,11 +17,11 @@ class gdsih_admin_postback {
     );
 
     public function __construct() {
-        if (isset($_POST['option_page']) && $_POST['option_page'] == 'gd-security-headers-settings') {
+        if (isset($_POST['option_page']) && $_POST['option_page'] === 'gd-security-headers-settings') {
             $this->settings();
         }
 
-        if (isset($_POST['option_page']) && $_POST['option_page'] == 'gd-security-headers-tools') {
+        if (isset($_POST['option_page']) && $_POST['option_page'] === 'gd-security-headers-tools') {
             $this->tools();
         }
 
@@ -47,7 +47,7 @@ class gdsih_admin_postback {
 
         $data = $processor->process();
 
-        if ($scope == 'network') {
+        if ($scope === 'network') {
             foreach ($data as $group => $values) {
                 if (!empty($group)) {
                     foreach ($values as $name => $value) {

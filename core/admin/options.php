@@ -17,7 +17,7 @@ class gdsih_admin_settings {
         }
     }
 
-    public function settings($panel) {
+    public function settings($panel) : array {
         $list = array();
 
         foreach ($this->settings[$panel] as $obj) {
@@ -260,17 +260,6 @@ class gdsih_admin_settings {
             'disable' => __("Disabled", "gd-security-headers"),
             'report' => __("Report", "gd-security-headers"),
             'live' => __("Live", "gd-security-headers")
-        );
-    }
-
-    public function get_refferrer() : array {
-        return array(
-            'no' => __("Disabled", "gd-security-headers"),
-            'no-referrer' => __("No referrer", "gd-security-headers"),
-            'no-referrer-when-downgrade' => __("No referrer when downgrade", "gd-security-headers"),
-            'origin' => __("Origin", "gd-security-headers"),
-            'origin-when-cross-origin' => __("Origin when cross origin", "gd-security-headers"),
-            'unsafe-url' => __("Unsafe URL", "gd-security-headers")
         );
     }
 

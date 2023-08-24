@@ -64,7 +64,7 @@ class gdsih_admin_getback {
     private function csp_delete() {
         check_ajax_referer('gdsih-admin-panel');
 
-        $log_id = isset($_GET['csps']) ? intval($_GET['csps']) : 0;
+        $log_id = isset($_GET['csps']) ? absint($_GET['csps']) : 0;
 
         $url = gdsih_admin()->current_url();
 
@@ -83,7 +83,7 @@ class gdsih_admin_getback {
     private function xxp_delete() {
         check_ajax_referer('gdsih-admin-panel');
 
-        $log_id = isset($_GET['xxps']) ? intval($_GET['xxps']) : 0;
+        $log_id = isset($_GET['xxps']) ? absint($_GET['xxps']) : 0;
 
         $url = gdsih_admin()->current_url();
 

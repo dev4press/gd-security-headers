@@ -227,11 +227,11 @@ class gdsih_admin_core extends d4p_admin_core {
         }
 
         if (is_super_admin()) {
-            if (isset($_POST['gdsih_handler']) && $_POST['gdsih_handler'] == 'postback') {
+            if (isset($_POST['gdsih_handler']) && sanitize_key($_POST['gdsih_handler']) === 'postback') {
                 require_once(GDSIH_PATH.'core/admin/postback.php');
 
                 new gdsih_admin_postback();
-            } else if (isset($_GET['gdsih_handler']) && $_GET['gdsih_handler'] == 'getback') {
+            } else if (isset($_GET['gdsih_handler']) && sanitize_key($_GET['gdsih_handler']) === 'getback') {
                 require_once(GDSIH_PATH.'core/admin/getback.php');
 
                 new gdsih_admin_getback();

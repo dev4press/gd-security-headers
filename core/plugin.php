@@ -15,9 +15,13 @@ class gdsih_core_plugin extends d4p_plugin_core {
     private $_ip;
     private $_ua;
 
+	/** @var bool|gdsih_component_csp */
     private $_csp = false;
+	/** @var bool|gdsih_component_xxp */
     private $_xxp = false;
+	/** @var bool|gdsih_component_headers */
     private $_hdr = false;
+	/** @var bool|gdsih_component_feature_policy */
     private $_fep = false;
 
     public function __construct() {
@@ -107,7 +111,7 @@ class gdsih_core_plugin extends d4p_plugin_core {
         }
     }
 
-    public function build_headers_to_array() {
+    public function build_headers_to_array() : array {
         $list = array();
 
         if ($this->_csp !== false) {

@@ -2,9 +2,9 @@
 </div>
 
 <div style="display: none">
-    <div title="<?php _e("Please Wait...", "gd-security-headers"); ?>" id="gdsih-dialog-please-wait">
+    <div title="<?php esc_html_e("Please Wait...", "gd-security-headers"); ?>" id="gdsih-dialog-please-wait">
         <div class="gdsih-inner-content">
-            <i aria-hidden="true" class="fa fa-spinner fa-fw fa-spin"></i> <?php _e("Working. Please wait...", "gd-security-headers"); ?>
+            <i aria-hidden="true" class="fa fa-spinner fa-fw fa-spin"></i> <?php esc_html_e("Working. Please wait...", "gd-security-headers"); ?>
         </div>
     </div>
 </div>

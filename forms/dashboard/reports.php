@@ -1,5 +1,5 @@
 <div class="d4p-group d4p-group-dashboard-card d4p-group-dashboard-basic">
-    <h3><?php _e("CSS and XXP reports logged in the past 7 days", "gd-security-headers"); ?></h3>
+    <h3><?php esc_html_e("CSS and XXP reports logged in the past 7 days", "gd-security-headers"); ?></h3>
     <div class="d4p-group-stats">
         <ul>
 
@@ -26,17 +26,17 @@
         </ul><div class="d4p-clearfix"></div>
     </div>
     <div class="d4p-group-inner">
-        <h4><?php _e("Content Security Policy - Reports for URL's", "gd-security-headers"); ?></h4>
+        <h4><?php esc_html_e("Content Security Policy - Reports for URL's", "gd-security-headers"); ?></h4>
 
         <?php if (!$_data['csp']['active']) { ?>
-            <p><?php _e("It is highly recommended to configure CSP security header with reporting enabled.", "gd-security-headers"); ?></p>
+            <p><?php esc_html_e("It is highly recommended to configure CSP security header with reporting enabled.", "gd-security-headers"); ?></p>
         <?php } else { ?>
             <?php
 
             $_list = gdsih_statistics()->get_csp_urls_week();
 
             if (empty($_list)) { ?>
-                <p><?php _e("No reports logged in the past 7 days.", "gd-security-headers"); ?></p>
+                <p><?php esc_html_e("No reports logged in the past 7 days.", "gd-security-headers"); ?></p>
             <?php } else {
 
                 ?>
@@ -59,17 +59,17 @@
 
         <hr/>
 
-        <h4><?php _e("X XSS Protection - Reports for URL's", "gd-security-headers"); ?></h4>
+        <h4><?php esc_html_e("X XSS Protection - Reports for URL's", "gd-security-headers"); ?></h4>
 
         <?php if (!$_data['xxp']['active']) { ?>
-            <p><?php _e("It is highly recommended to configure X XSS Protection security header with reporting enabled.", "gd-security-headers"); ?></p>
+            <p><?php esc_html_e("It is highly recommended to configure X XSS Protection security header with reporting enabled.", "gd-security-headers"); ?></p>
         <?php } else { ?>
             <?php
 
             $_list = gdsih_statistics()->get_xxp_urls_week();
 
             if (empty($_list)) { ?>
-                <p><?php _e("No reports logged in the past 7 days.", "gd-security-headers"); ?></p>
+                <p><?php esc_html_e("No reports logged in the past 7 days.", "gd-security-headers"); ?></p>
             <?php } else {
 
                 ?>
@@ -92,9 +92,9 @@
     </div>
     <div class="d4p-group-footer">
         <?php if ($_data['csp']['active']) { ?>
-            <a href="admin.php?page=gd-security-headers-csp-reports" class="button-primary"><?php _e("All CSP reports", "gd-security-headers"); ?></a>
+            <a href="admin.php?page=gd-security-headers-csp-reports" class="button-primary"><?php esc_html_e("All CSP reports", "gd-security-headers"); ?></a>
         <?php } if ($_data['xxp']['active']) { ?>
-            <a href="admin.php?page=gd-security-headers-xxp-reports" class="button-primary"><?php _e("All XXP reports", "gd-security-headers"); ?></a>
+            <a href="admin.php?page=gd-security-headers-xxp-reports" class="button-primary"><?php esc_html_e("All XXP reports", "gd-security-headers"); ?></a>
         <?php } ?>
     </div>
 </div>

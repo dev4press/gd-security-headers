@@ -15,10 +15,10 @@ $_classes = array('d4p-wrap', 'wpv-'.GDSIH_WPV, 'd4p-page-update');
         <div class="d4p-content-left">
             <div class="d4p-panel-title">
                 <i aria-hidden="true" class="fa fa-magic"></i>
-                <h3><?php _e("Update", "gd-security-headers"); ?></h3>
+                <h3><?php esc_html_e("Update", "gd-security-headers"); ?></h3>
             </div>
             <div class="d4p-panel-info">
-                <?php _e("Before you continue, make sure plugin was successfully updated.", "gd-security-headers"); ?>
+                <?php esc_html_e("Before you continue, make sure plugin was successfully updated.", "gd-security-headers"); ?>
             </div>
         </div>
         <div class="d4p-content-right">
@@ -32,10 +32,10 @@ $_classes = array('d4p-wrap', 'wpv-'.GDSIH_WPV, 'd4p-page-update');
 
                 ?>
 
-                <h3><?php _e("All Done", "gd-security-headers"); ?></h3>
-                <?php _e("Update completed.", "gd-security-headers"); ?>
+                <h3><?php esc_html_e("All Done", "gd-security-headers"); ?></h3>
+                <?php esc_html_e("Update completed.", "gd-security-headers"); ?>
 
-                <br/><br/><a class="button-primary" href="<?php echo network_admin_url('admin.php?page=gd-security-headers-about'); ?>"><?php _e("Click here to continue.", "gd-security-headers"); ?></a>
+                <br/><br/><a class="button-primary" href="<?php echo network_admin_url('admin.php?page=gd-security-headers-about'); ?>"><?php esc_html_e("Click here to continue.", "gd-security-headers"); ?></a>
             </div>
         </div>
     </div>

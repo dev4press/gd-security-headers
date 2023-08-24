@@ -46,7 +46,7 @@ include(GDSIH_PATH.'forms/shared/top.php');
         <div class="d4p-panel-scroller d4p-scroll-active">
             <div class="d4p-panel-title">
                 <i aria-hidden="true" class="fa fa-wrench"></i>
-                <h3><?php _e("Tools", "gd-security-headers"); ?></h3>
+                <h3><?php esc_html_e("Tools", "gd-security-headers"); ?></h3>
                 <?php if ($_panel != 'index') { ?>
                 <h4><i aria-hidden="true" class="fa fa-<?php echo $panels[$_panel]['icon']; ?>"></i> <?php echo $panels[$_panel]['title']; ?></h4>
                 <?php } ?>
@@ -60,7 +60,7 @@ include(GDSIH_PATH.'forms/shared/top.php');
                 </div>
             <?php } ?>
             <div class="d4p-return-to-top">
-                <a href="#wpwrap"><?php _e("Return to top", "gd-security-headers"); ?></a>
+                <a href="#wpwrap"><?php esc_html_e("Return to top", "gd-security-headers"); ?></a>
             </div>
         </div>
     </div>
@@ -87,7 +87,7 @@ include(GDSIH_PATH.'forms/shared/top.php');
                     <i aria-hidden="true" class="fa fa-<?php echo $obj['icon']; ?>"></i>
                     <h5><?php echo $obj['title']; ?></h5>
                     <div>
-                        <a class="button-primary" href="<?php echo $url; ?>"><?php _e("Tools Panel", "gd-security-headers"); ?></a>
+                        <a class="button-primary" href="<?php echo $url; ?>"><?php esc_html_e("Tools Panel", "gd-security-headers"); ?></a>
                     </div>
                 </div>
 

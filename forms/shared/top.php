@@ -9,7 +9,7 @@ $_panel = gdsih_admin()->panel;
 $_real_page = $_page;
 
 if (!empty($panels)) {
-    if ($_panel === false || empty($_panel)) {
+    if ( empty($_panel) ) {
         $_panel = 'index';
     }
 
@@ -34,7 +34,6 @@ $_color = '';
 
 if (isset($_GET['message']) && $_GET['message'] != '') {
     $msg = d4p_sanitize_slug($_GET['message']);
-    $_error = isset($_GET['error-message']) ? $_GET['error-message'] : '';
 
     switch ($msg) {
         case 'saved':
@@ -49,10 +48,6 @@ if (isset($_GET['message']) && $_GET['message'] != '') {
         default:
             $_message = apply_filters('gdsih_admin_message_text', '', $msg);
             break;
-    }
-
-    if ($_error != '') {
-        $_message.= '<br/>'.$_error;
     }
 }
 
@@ -106,7 +101,7 @@ if (isset($_GET['message']) && $_GET['message'] != '') {
     <?php
 
     if ($_message != '') {
-        echo '<div class="updated">'.$_message.'</div>';
+        echo '<div class="updated">'.esc_html($_message).'</div>';
     }
 
     ?>

@@ -32,7 +32,7 @@ class gdsih_component_xxp {
         }
     }
 
-    public function url() {
+    public function url() : string {
         $base_url = gdsih_settings()->get('log_force_ssl', 'xxp') ? network_home_url('', 'https') : network_home_url();
 
         return $base_url.'?'.$this->key;
@@ -45,7 +45,7 @@ class gdsih_component_xxp {
         return $htaccess;
     }
 
-    public function build($htaccess = false) {
+    public function build($htaccess = false) : string {
         $items = array(
             '1',
             'mode=block'

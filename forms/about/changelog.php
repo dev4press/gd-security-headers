@@ -1,10 +1,15 @@
 <?php if (!defined('ABSPATH')) { exit; } ?>
 <div class="d4p-group d4p-group-changelog">
-    <h3><?php _e("Version", "gd-security-headers"); ?> 1</h3>
+    <h3><?php esc_html_e("Version", "gd-security-headers"); ?> 1</h3>
     <div class="d4p-group-inner">
-        <h4>Version: 1.7 / august 25 2022</h4>
+        <h4>Version: 1.7 / august 24 2023</h4>
         <ul>
+            <li><strong>new</strong> system requirements: PHP 7.3 or newer</li>
+            <li><strong>new</strong> tested with WordPress 6.0 to 6.3</li>
+            <li><strong>edit</strong> various improvements to display escaping and sanitation</li>
+            <li><strong>edit</strong> various improvements to the core code</li>
             <li><strong>edit</strong> d4pLib 2.8.15</li>
+            <li><strong>fix</strong> reflected XSS vulnerability with error message handling</li>
         </ul>
 
         <h4>Version: 1.6.1 / may 16 2022</h4>
@@ -86,7 +91,7 @@
             <li><strong>new</strong> headers panel: for apache servers</li>
             <li><strong>new</strong> headers panel: for nginx servers</li>
             <li><strong>new</strong> headers panel: for iis servers</li>
-            <li><strong>new</strong> new method for building the HTACCESS headers</li>
+            <li><strong>new</strong> method for building the HTACCESS headers</li>
             <li><strong>edit</strong> improved additional headers object</li>
             <li><strong>edit</strong> updated rules for google analytics</li>
             <li><strong>edit</strong> do not run when WordPress runs CRON</li>

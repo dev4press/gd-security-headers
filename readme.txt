@@ -71,8 +71,13 @@ The plugin has own top-level item in the WordPress admin side menu: GD Security 
 Yes. The POT file is provided as a base for translation. Translation files should go into Languages directory.
 
 == Changelog ==
-= 1.7 (2023.08.25) =
+= 1.7 (2023.08.24) =
+* New: system requirements: PHP 7.3 or newer
+* New: tested with WordPress 6.0 to 6.3
+* Edit: various improvements to display escaping and sanitation
+* Edit: various improvements to the core code
 * Edit: d4pLib 2.8.15
+* Fix: reflected XSS vulnerability with error message handling
 
 = 1.6.1 (2022.05.16) =
 * New: tested with WordPress 6.0
@@ -148,8 +153,8 @@ Yes. The POT file is provided as a base for translation. Translation files shoul
 * First plugin version
 
 == Upgrade Notice ==
-= 1.5 =
-Permissions policy support to disable FLoC. Many updates for Feature/Permissions Policy support.
+= 1.7 =
+Various updated and fixes.
 
 == Screenshots ==
 1. Plugin Dashboard

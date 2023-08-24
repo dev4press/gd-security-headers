@@ -1,4 +1,4 @@
-<h3 style="margin-top: 0;"><?php _e("Database Tables", "gd-security-headers"); ?></h3>
+<h3 style="margin-top: 0;"><?php esc_html_e("Database Tables", "gd-security-headers"); ?></h3>
 <?php
 
 require_once(GDSIH_PATH.'core/admin/install.php');
