@@ -1,7 +1,7 @@
 === GD Security Headers ===
 Contributors: GDragoN
 Donate link: https://plugins.dev4press.com/gd-security-headers/
-Version: 1.7
+Version: 1.7.1
 Tags: dev4press, security, csp, content security policy, permission policy, feature policy, referrer policy, xss, security headers
 Requires at least: 5.3
 Requires PHP: 7.3
@@ -71,6 +71,12 @@ The plugin has own top-level item in the WordPress admin side menu: GD Security 
 Yes. The POT file is provided as a base for translation. Translation files should go into Languages directory.
 
 == Changelog ==
+= 1.7.1 (2023.10.29) =
+* Edit: improvements to the CSP logs panel input processing
+* Edit: improvements to the CSP logs panel arguments sanitization
+* Edit: improvements to the log classes PHP code
+* Fix: union based SQL injection vulnerability with the CSP logs panel
+
 = 1.7 (2023.08.24) =
 * New: system requirements: PHP 7.3 or newer
 * New: tested with WordPress 6.0 to 6.3

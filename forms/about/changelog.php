@@ -2,6 +2,14 @@
 <div class="d4p-group d4p-group-changelog">
     <h3><?php esc_html_e("Version", "gd-security-headers"); ?> 1</h3>
     <div class="d4p-group-inner">
+        <h4>Version: 1.7.1 / october 29 2023</h4>
+        <ul>
+            <li><strong>edit</strong> improvements to the CSP logs panel input processing</li>
+            <li><strong>edit</strong> improvements to the CSP logs panel arguments sanitization</li>
+            <li><strong>edit</strong> improvements to the log classes PHP code</li>
+            <li><strong>fix</strong> union based SQL injection vulnerability with the CSP logs panel</li>
+        </ul>
+
         <h4>Version: 1.7 / august 24 2023</h4>
         <ul>
             <li><strong>new</strong> system requirements: PHP 7.3 or newer</li>

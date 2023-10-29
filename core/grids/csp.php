@@ -20,6 +20,12 @@ class gdsih_csp_report_grid extends d4p_grid {
 
     public $geo = null;
 
+	public $directives = array(
+		'violated_directive' => null,
+		'effective_directive' => null,
+	);
+	public $args;
+
     function __construct($args = array()) {
         $this->current_ip = gdsih()->ip();
         $this->server_ip = d4p_server_ip();
@@ -29,6 +35,23 @@ class gdsih_csp_report_grid extends d4p_grid {
             'plural' => 'csps',
             'ajax' => false
         ));
+
+		$this->args = array(
+			'period' => !empty($_GET['filter-period']) ? d4p_sanitize_slug($_GET['filter-period']) : 'all',
+			'violated_directive' => !empty($_GET['filter-vd']) ? d4p_sanitize_basic($_GET['filter-vd']) : '0',
+			'effective_directive' => !empty($_GET['filter-ed']) ? d4p_sanitize_basic($_GET['filter-ed']) : '0',
+		);
+
+		$_violated = $this->list_all_directives('violated_directive');
+		$_effective = $this->list_all_directives('effective_directive');
+
+		if (!in_array($this->args['violated_directive'], $_violated)) {
+			$this->args['violated_directive'] = '0';
+	    }
+
+	    if (!in_array($this->args['effective_directive'], $_effective)) {
+		    $this->args['effective_directive'] = '0';
+	    }
     }
 
     private function _self($args, $getback = false) {
@@ -44,7 +67,7 @@ class gdsih_csp_report_grid extends d4p_grid {
         return self_admin_url($url);
     }
 
-    function extra_tablenav($which) {
+	protected function extra_tablenav($which) {
         if ($which == 'top') {
             $all_periods = array_merge(array(
                 'all' => __("All Time", "gd-security-headers"),
@@ -68,30 +91,28 @@ class gdsih_csp_report_grid extends d4p_grid {
                 '0' => __("All Effective Directive", "gd-security-headers")
             ), $this->list_all_directives('effective_directive'));
 
-            $_sel_period = isset($_GET['filter-period']) && !empty($_GET['filter-period']) ? d4p_sanitize_slug($_GET['filter-period']) : 'all';
-            $_sel_violated_directive = isset($_GET['filter-vd']) && !empty($_GET['filter-vd']) ? d4p_sanitize_basic($_GET['filter-vd']) : '0';
-            $_sel_effective_directive = isset($_GET['filter-ed']) && !empty($_GET['filter-ed']) ? d4p_sanitize_basic($_GET['filter-ed']) : '0';
-
             echo '<div class="alignleft actions">';
-            d4p_render_select($all_periods, array('selected' => $_sel_period, 'name' => 'filter-period'));
-            d4p_render_select($all_violated_directives, array('selected' => $_sel_violated_directive, 'name' => 'filter-vd'));
-            d4p_render_select($all_effective_directives, array('selected' => $_sel_effective_directive, 'name' => 'filter-ed'));
+            d4p_render_select($all_periods, array('selected' => $this->args['period'], 'name' => 'filter-period'));
+            d4p_render_select($all_violated_directives, array('selected' => $this->args['violated_directive'], 'name' => 'filter-vd'));
+            d4p_render_select($all_effective_directives, array('selected' => $this->args['effective_directive'], 'name' => 'filter-ed'));
             submit_button(__("Filter", "gd-security-headers"), 'button', false, false, array('id' => 'gdsih-csp-reports-submit'));
             echo '</div>';
         }
     }
 
     public function list_all_directives($column) {
-        $sql = "SELECT DISTINCT ".$column." as `directive` FROM ".gdsih_db()->csp_reports." ORDER BY ".$column." ASC";
-        $raw = gdsih_db()->run($sql);
+		if (is_null($this->directives[$column])) {
+			$sql = "SELECT DISTINCT `".$column."` as `directive` FROM ".gdsih_db()->csp_reports." ORDER BY `".$column."` ASC";
+			$raw = gdsih_db()->run($sql);
 
-        $list = array();
+			$this->directives[$column] = array();
 
-        foreach ($raw as $row) {
-            $list[$row->directive] = $row->directive;
-        }
+			foreach ($raw as $row) {
+				$this->directives[$column][$row->directive] = $row->directive;
+			}
+		}
 
-        return $list;
+        return $this->directives[$column];
     }
 
     public function list_all_months_dropdown() {
@@ -127,7 +148,7 @@ class gdsih_csp_report_grid extends d4p_grid {
         return $per_page;
     }
 
-    function get_columns() {
+	public function get_columns() {
         $columns = array(
             'cb' => '<input type="checkbox" />',
             'id' => __("ID", "gd-security-headers"),
@@ -147,7 +168,20 @@ class gdsih_csp_report_grid extends d4p_grid {
         return $columns;
     }
 
-    function get_sortable_columns() {
+	public function get_row_classes($item) {
+		static $row_class = '';
+		$row_class = $row_class == '' ? ' alternate' : '';
+
+		$classes = array();
+
+		if ($row_class != '') {
+			$classes[] = $row_class;
+		}
+
+		return $classes;
+	}
+
+	protected function get_sortable_columns() {
         $columns = array(
             'id' => array('l.id', false),
             'ip' => array('l.ip', false),
@@ -163,7 +197,7 @@ class gdsih_csp_report_grid extends d4p_grid {
         return $columns;
     }
 
-    function get_bulk_actions() {
+	protected function get_bulk_actions() {
         $bulk = array(
             'delete' => __("Delete", "gd-security-headers")
         );
@@ -171,24 +205,11 @@ class gdsih_csp_report_grid extends d4p_grid {
         return $bulk;
     }
 
-    public function get_row_classes($item) {
-        static $row_class = '';
-        $row_class = $row_class == '' ? ' alternate' : '';
-
-        $classes = array();
-
-        if ($row_class != '') {
-            $classes[] = $row_class;
-        }
-
-        return $classes;
-    }
-
-    function column_cb($item){
+	protected function column_cb($item){
         return sprintf('<input type="checkbox" name="%1$s[]" value="%2$s" />', $this->_args['singular'], $item->id);
     }
 
-    function column_data($item) {
+	protected function column_data($item) {
         $show = array();
         $keys = array('referrer', 'user_agent', 'original_policy');
 
@@ -227,7 +248,7 @@ class gdsih_csp_report_grid extends d4p_grid {
         return join(', ', $show).$content;
     }
 
-    function column_ip($item) {
+	protected function column_ip($item) {
         if (empty($item->ip)) {
             return __("No IP logged", "gd-security-headers");
         }
@@ -252,17 +273,17 @@ class gdsih_csp_report_grid extends d4p_grid {
         return $content.$this->row_actions($actions);
     }
 
-    function column_reported($item) {
+	protected function column_reported($item) {
         $timestamp = gdsih()->datetime->timestamp_gmt_to_local(strtotime($item->reported));
 
         return date('Y-m-d', $timestamp).'<br/>@ '.date('H:i:s', $timestamp);
     }
 
-    function column_default($item, $column_name){
+	protected function column_default($item, $column_name){
         return $item->$column_name;
     }
 
-    function prepare_items() {
+	public function prepare_items() {
         $this->_column_headers = $this->get_column_info();
 
         $per_page = $this->rows_per_page();
@@ -274,16 +295,17 @@ class gdsih_csp_report_grid extends d4p_grid {
 
         $where = array();
 
-        $last = isset($_GET['filter-period']) && !empty($_GET['filter-period']) ? d4p_sanitize_slug($_GET['filter-period']) : '';
-        $violated_directive = isset($_GET['filter-vd']) && !empty($_GET['filter-vd']) ? d4p_sanitize_basic($_GET['filter-vd']) : '';
-        $effective_directive = isset($_GET['filter-ed']) && !empty($_GET['filter-ed']) ? d4p_sanitize_basic($_GET['filter-ed']) : '';
+        $last = $this->args['period'];
+        $violated_directive = $this->args['violated_directive'];
+        $effective_directive = $this->args['effective_directive'];
+
         $search = isset($_GET['s']) && $_GET['s'] != '' ? sanitize_text_field($_GET['s']) : '';
 
-        if ($violated_directive != '') {
+        if ($violated_directive != '0') {
             $where[] = "l.`violated_directive` = '$violated_directive'";
         }
 
-        if ($effective_directive != '') {
+        if ($effective_directive != '0') {
             $where[] = "l.`effective_directive` = '$effective_directive'";
         }
 

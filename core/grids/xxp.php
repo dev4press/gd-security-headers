@@ -44,7 +44,7 @@ class gdsih_xxp_report_grid extends d4p_grid {
         return self_admin_url($url);
     }
 
-    function extra_tablenav($which) {
+	protected function extra_tablenav($which) {
         if ($which == 'top') {
             $all_periods = array_merge(array(
                 'all' => __("All Time", "gd-security-headers"),
@@ -60,7 +60,7 @@ class gdsih_xxp_report_grid extends d4p_grid {
                 'dy-30' => __("Last 30 days", "gd-security-headers")
             ), $this->list_all_months_dropdown());
 
-            $_sel_period = isset($_GET['filter-period']) && !empty($_GET['filter-period']) ? d4p_sanitize_slug($_GET['filter-period']) : 'all';
+            $_sel_period = !empty($_GET['filter-period']) ? d4p_sanitize_slug($_GET['filter-period']) : 'all';
 
             echo '<div class="alignleft actions">';
             d4p_render_select($all_periods, array('selected' => $_sel_period, 'name' => 'filter-period'));
@@ -102,7 +102,7 @@ class gdsih_xxp_report_grid extends d4p_grid {
         return $per_page;
     }
 
-    function get_columns() {
+    public function get_columns() {
         $columns = array(
             'cb' => '<input type="checkbox" />',
             'id' => __("ID", "gd-security-headers"),
@@ -119,7 +119,7 @@ class gdsih_xxp_report_grid extends d4p_grid {
         return $columns;
     }
 
-    function get_sortable_columns() {
+	protected function get_sortable_columns() {
         $columns = array(
             'id' => array('l.id', false),
             'ip' => array('l.ip', false),
@@ -133,7 +133,7 @@ class gdsih_xxp_report_grid extends d4p_grid {
         return $columns;
     }
 
-    function get_bulk_actions() {
+	protected function get_bulk_actions() {
         $bulk = array(
             'delete' => __("Delete", "gd-security-headers")
         );
@@ -154,11 +154,11 @@ class gdsih_xxp_report_grid extends d4p_grid {
         return $classes;
     }
 
-    function column_cb($item){
+    protected function column_cb($item){
         return sprintf('<input type="checkbox" name="%1$s[]" value="%2$s" />', $this->_args['singular'], $item->id);
     }
 
-    function column_data($item) {
+	protected function column_data($item) {
         $show = array();
         $keys = array('user_agent', 'request_body');
 
@@ -193,7 +193,7 @@ class gdsih_xxp_report_grid extends d4p_grid {
         return join(', ', $show).$content;
     }
 
-    function column_ip($item) {
+	protected function column_ip($item) {
         if (empty($item->ip)) {
             return __("No IP logged", "gd-security-headers");
         }
@@ -218,17 +218,17 @@ class gdsih_xxp_report_grid extends d4p_grid {
         return $content.$this->row_actions($actions);
     }
 
-    function column_reported($item) {
+	protected function column_reported($item) {
         $timestamp = gdsih()->datetime->timestamp_gmt_to_local(strtotime($item->reported));
 
         return date('Y-m-d', $timestamp).'<br/>@ '.date('H:i:s', $timestamp);
     }
 
-    function column_default($item, $column_name){
+	protected function column_default($item, $column_name){
         return $item->$column_name;
     }
 
-    function prepare_items() {
+    public function prepare_items() {
         $this->_column_headers = $this->get_column_info();
 
         $per_page = $this->rows_per_page();
