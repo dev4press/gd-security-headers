@@ -8,16 +8,18 @@
 			$_data = gdsih_statistics()->get_reports_overview_week();
 
 			foreach ( $_data as $component => $obj ) {
+				$reports = $obj['reports'];
+
 				if ( $obj['active'] ) {
 					?>
                     <li><a href="admin.php?page=gd-security-headers-<?php echo $component; ?>-reports">
                         <strong><?php echo $obj['label']; ?></strong>
-						<?php echo '<strong>' . $obj['reports'] . '</strong> ' . _n( 'report', 'reports', $obj['reports'], 'gd-security-headers' ); ?></a>
+						<?php echo '<strong>' . $obj['reports'] . '</strong> ' . _n( 'report', 'reports', $reports, 'gd-security-headers' ); ?></a>
                     </li><?php
 				} else {
 					?>
                     <li><strong><?php echo $obj['label']; ?></strong>
-					<?php echo '<strong>' . $obj['reports'] . '</strong> ' . _n( 'report', 'reports', $obj['reports'], 'gd-security-headers' ); ?>
+					<?php echo '<strong>' . $obj['reports'] . '</strong> ' . _n( 'report', 'reports', $reports, 'gd-security-headers' ); ?>
                     </li><?php
 				}
 

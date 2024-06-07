@@ -303,6 +303,14 @@ class gdsih_admin_settings {
 				),
 			),
 			'xxp'     => array(
+				'xxp_note' => array(
+					'name'     => __( 'Notice', 'gd-security-headers' ) . ': X-XSS-Protection',
+					'settings' => array(
+						new d4pSettingElement( '', '', __( 'Important', 'gd-security-headers' ),
+							'<p style="color: #900; font-weight: bold;">' . __( 'This header is not supported by modern browsers, and in some cases it has been reported to cause issues if used in the same time with CSP header. It is highly recommended to use CSP, and disable `X-XSS-Protection` header.', 'gd-security-headers' ) . '</p>'
+							, d4pSettingType::INFO ),
+					),
+				),
 				'xxp_xss' => array(
 					'name'     => __( 'Add', 'gd-security-headers' ) . ': X-XSS-Protection',
 					'settings' => array(
