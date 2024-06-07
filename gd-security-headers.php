@@ -10,6 +10,7 @@
  * Requires at least: 5.5
  * Tested up to:      6.6
  * Requires PHP:      7.4
+ * Network:           true
  * License:           GPLv3 or later
  * License URI:       https://www.gnu.org/licenses/gpl-3.0.html
  *

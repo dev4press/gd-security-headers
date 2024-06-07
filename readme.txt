@@ -61,11 +61,11 @@ And, if you don't use Apache web server, the plugin has a panel where it display
 * Activate the plugin through the 'Plugins' menu in WordPress.
 
 == Frequently Asked Questions ==
-= Does plugin works with WordPress MultiSite installations? =
+= Does plugin work with WordPress MultiSite installations? =
 Yes. In Multisite installation, the plugin is available for configuration on the Network level, and headers are configured for all sites in the network at once.
 
 = Where can I configure the plugin? =
-The plugin has own top-level item in the WordPress admin side menu: GD Security Headers. This will open a panel with global plugin settings. In Multisite installation, plugin panel is in the Network administration.
+The plugin has its own top-level item in the WordPress admin side menu: GD Security Headers. This will open a panel with global plugin settings. In Multisite installation, a plugin panel is in the Network administration.
 
 = Can I translate the plugin to my language? =
 Yes. The POT file is provided as a base for translation. Translation files should go into Languages directory.
