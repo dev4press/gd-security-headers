@@ -77,8 +77,10 @@ class gdsih_component_headers {
     private function _generate_strict_transport_security($htaccess = false) {
         $max_age = gdsih_settings()->get('strict_transport_security_max_age', 'headers');
 
-        if (gdsih_settings()->get('strict_transport_security_extra', 'headers') == 'includeSubDomains') {
+        if (gdsih_settings()->get('strict_transport_security_extra', 'headers') === 'includeSubDomains') {
             $max_age.= '; includeSubDomains';
+        } else if (gdsih_settings()->get('strict_transport_security_extra', 'headers') === 'includeSubDomainsPreload') {
+	        $max_age.= '; includeSubDomains; preload';
         }
 
         return $htaccess ? 'Strict-Transport-Security "max-age='.$max_age.'"' : 'Strict-Transport-Security: max-age='.$max_age;

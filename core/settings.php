@@ -101,8 +101,8 @@ class gdsih_core_settings extends d4p_plugin_settings_corex {
             'frame_custom' => array()
         ),
         'xxp' => array(
-            'x_xss_protection' => true,
-            'log' => true,
+            'x_xss_protection' => false,
+            'log' => false,
             'log_force_ssl' => false
         ),
         'headers' => array(

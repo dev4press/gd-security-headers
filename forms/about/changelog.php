@@ -2,6 +2,16 @@
 <div class="d4p-group d4p-group-changelog">
     <h3><?php esc_html_e("Version", "gd-security-headers"); ?> 1</h3>
     <div class="d4p-group-inner">
+        <h4>Version: 1.8 / june 7 2024</h4>
+        <ul>
+            <li><strong>new</strong> system requirements: PHP 7.4 or newer</li>
+            <li><strong>new</strong> tested with WordPress 6.4 to 6.6</li>
+            <li><strong>new</strong> strict transport security: extra value for 'preload' flag</li>
+            <li><strong>edit</strong> added more information for some settings</li>
+            <li><strong>edit</strong> changes to default values for some settings</li>
+            <li><strong>edit</strong> d4pLib 2.8.17</li>
+        </ul>
+
         <h4>Version: 1.7.1 / october 29 2023</h4>
         <ul>
             <li><strong>edit</strong> improvements to the CSP logs panel input processing</li>

@@ -119,6 +119,19 @@ class gdsih_xxp_report_grid extends d4p_grid {
         return $columns;
     }
 
+	public function get_row_classes($item) {
+		static $row_class = '';
+		$row_class = $row_class == '' ? ' alternate' : '';
+
+		$classes = array();
+
+		if ($row_class != '') {
+			$classes[] = $row_class;
+		}
+
+		return $classes;
+	}
+
 	protected function get_sortable_columns() {
         $columns = array(
             'id' => array('l.id', false),
@@ -139,19 +152,6 @@ class gdsih_xxp_report_grid extends d4p_grid {
         );
 
         return $bulk;
-    }
-
-    public function get_row_classes($item) {
-        static $row_class = '';
-        $row_class = $row_class == '' ? ' alternate' : '';
-
-        $classes = array();
-
-        if ($row_class != '') {
-            $classes[] = $row_class;
-        }
-
-        return $classes;
     }
 
     protected function column_cb($item){

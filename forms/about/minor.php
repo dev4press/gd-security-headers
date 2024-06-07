@@ -1,7 +1,7 @@
 <div class="d4p-about-minor">
     <h3><?php esc_html_e("Maintenance and Security Releases", "gd-security-headers"); ?></h3>
     <p>
-        <strong><?php esc_html_e("Version", "gd-security-headers"); ?> <span>1.7</span></strong> &minus;
+        <strong><?php esc_html_e("Version", "gd-security-headers"); ?> <span>1.7 / 1.8</span></strong> &minus;
         Various improvements and fixes.
     </p>
     <p>
@@ -13,11 +13,7 @@
         Many Feature Policy improvements.
     </p>
     <p>
-        <strong><?php esc_html_e("Version", "gd-security-headers"); ?> <span>1.4</span></strong> &minus;
-        Many CSP and Feature Policy improvements.
-    </p>
-    <p>
-        <strong><?php esc_html_e("Version", "gd-security-headers"); ?> <span>1.3</span></strong> &minus;
+        <strong><?php esc_html_e("Version", "gd-security-headers"); ?> <span>1.3 / 1.4</span></strong> &minus;
         CSP and Feature Policy improvements.
     </p>
     <p>
@@ -29,11 +25,7 @@
         Feature Policy Header. More CSP predefine rules. Various updates.
     </p>
     <p>
-        <strong><?php esc_html_e("Version", "gd-security-headers"); ?> <span>1.1.1</span></strong> &minus;
-        Bug fixes.
-    </p>
-    <p>
-        <strong><?php esc_html_e("Version", "gd-security-headers"); ?> <span>1.1</span></strong> &minus;
+        <strong><?php esc_html_e("Version", "gd-security-headers"); ?> <span>1.1 / 1.1.1</span></strong> &minus;
         Panel with generated security headers. Various updates and improvements.
     </p>
     <p>

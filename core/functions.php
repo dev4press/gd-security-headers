@@ -18,7 +18,8 @@ function gdsih_referrer_policies_list() : array {
 function gdsih_strict_transport_security_list() : array {
     return array(
         'none' => __("Nothing", "gd-security-headers"),
-        'includeSubDomains' => __("Include Subdomains", "gd-security-headers")
+        'includeSubDomains' => __("Include Subdomains", "gd-security-headers"),
+        'includeSubDomainsPreload' => __("Include Subdomains with Preload", "gd-security-headers")
     );
 }
 

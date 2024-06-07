@@ -73,9 +73,9 @@ class gdsih_admin_settings {
                     new d4pSettingElement('csp', 'auto_filesystem_rule', __("FileSystem Rule", "gd-security-headers"), __("This might be needed for media, objects or fonts. If you prefer, you can disable this option here, and manually add 'filesystem:' as a custom rule where needed. If enabled, it will be added to: 'default', 'media', 'object', 'font'.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('auto_filesystem_rule', 'csp'))
                 )),
                 'csp_additional' => array('name' => __("Additional CSP Settings", "gd-security-headers"), 'settings' => array(
-                    new d4pSettingElement('csp', 'upgrade_insecure_requests', __("Upgrade insecure requests", "gd-security-headers"), __("Use this only if your website is configured to use secure HTTPS.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('upgrade_insecure_requests', 'csp')),
+                    new d4pSettingElement('csp', 'upgrade_insecure_requests', __("Upgrade insecure requests", "gd-security-headers"), __("Use this only if your website is configured to use secure HTTPS.", "gd-security-headers").'<br/><strong>'.__("This option can be applied in LIVE mode only!", "gd-security-headers").'</strong>', d4pSettingType::BOOLEAN, gdsih_settings()->get('upgrade_insecure_requests', 'csp')),
                     new d4pSettingElement('csp', 'block_all_mixed_content', __("Block all mixed content", "gd-security-headers"), __("Use this only if your website is configured to use secure HTTPS.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('block_all_mixed_content', 'csp')),
-                    new d4pSettingElement('csp', 'disown_opener', __("Disown Opener", "gd-security-headers"), __("This is not yet widely supported, it works only with some browsers.", "gd-security-headers"), d4pSettingType::BOOLEAN, gdsih_settings()->get('disown_opener', 'csp'))
+                    new d4pSettingElement('csp', 'disown_opener', __("Disown Opener", "gd-security-headers"), __("This is not yet widely supported, it works only with some browsers.", "gd-security-headers").'<br/><strong>'.__("This option can be applied only if using HTACCESS integration!", "gd-security-headers").'</strong>', d4pSettingType::BOOLEAN, gdsih_settings()->get('disown_opener', 'csp'))
                 )),
                 'csp_cdn' => array('name' => __("Automatic generate rules for CDN", "gd-security-toolbox"), 'settings' => array(
                     new d4pSettingElement('csp', 'cdn', __("List of CDN domains", "gd-security-toolbox"), '', d4pSettingType::EXPANDABLE_TEXT, gdsih_settings()->get('cdn', 'csp'), '', '', array('label_button_add' => __("Add new CDN", "gd-security-toolbox"), 'width_button_remove' => 40, 'label_buttom_remove' => '<i class="fa fa-minus"></i>'))
@@ -169,7 +169,7 @@ class gdsih_admin_settings {
             'xxp' => array(
                 'xxp_xss' => array('name' => __("Add", "gd-security-headers").': X-XSS-Protection', 'settings' => array(
                     new d4pSettingElement('', '', __("Information", "gd-security-headers"),
-                        '<p>'.__("Prevents various types of cross site scripting. It also can log the XXS reportes some browsers can send.", "gd-security-headers").'</p>'
+                        '<p>'.__("Prevents various types of cross site scripting. It also can log the XXS reports some browsers can send.", "gd-security-headers").'</p>'
                         , d4pSettingType::INFO),
                     new d4pSettingElement('xxp','x_xss_protection', __("Add Header", "gd-security-headers"), '', d4pSettingType::BOOLEAN, gdsih_settings()->get('x_xss_protection', 'xxp'))
                 )),
