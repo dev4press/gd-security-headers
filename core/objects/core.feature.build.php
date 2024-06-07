@@ -53,7 +53,7 @@ class gdsih_core_feature_policy {
 		return $items;
 	}
 
-	public function build( $htaccess = false ) {
+	public function build( $htaccess = false ) : array {
 		$variant = gdsih_settings()->get( 'variant', 'feature' );
 
 		$headers = array();

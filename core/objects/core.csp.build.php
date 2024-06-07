@@ -30,7 +30,7 @@ class gdsih_core_csp {
 	public function __construct() {
 	}
 
-	public function url() {
+	public function url() : string {
 		$_url = trim( gdsih_settings()->get( 'log_url', 'csp' ) );
 
 		if ( ! empty( $_url ) ) {
@@ -90,7 +90,7 @@ class gdsih_core_csp {
 		return $items;
 	}
 
-	public function build( $htaccess = false ) {
+	public function build( $htaccess = false ) : string {
 		require_once( GDSIH_PATH . 'core/csp/cdn.php' );
 
 		if ( gdsih_settings()->get( 'extra_wordpress', 'csp' ) ) {

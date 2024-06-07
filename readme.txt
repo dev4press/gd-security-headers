@@ -16,7 +16,7 @@ Configure various security-related HTTP headers, including CSP, XSS, Referrer Po
 Configure various security-related HTTP headers, including Content Security Policy, Feature Policy, Referrer Policy and more. For CSP and XSS plugin supports report logging with 2 additional database tables to store reports from browsers.
 
 = Supported security headers =
-The plugin has support for following HTTP headers:
+The plugin has support for the following HTTP headers:
 
 * Content Security Policy (CSP) - with reporting
 * XSS Protection (XXP) - with reporting
@@ -30,13 +30,13 @@ For CSP, the plugin allows you to set rules for all currently supported directiv
 
 And, for Feature Policy (or Permissions Policy), the plugin allows you to set rules for all currently supported rules (over 25 rules, supported by different browsers).
 
-= FLoC =
-Permissions Policy rules list includes 'interest-cohort' rule that can be used to disable Google's new tracking method called 'Federated Learning of Cohorts' or 'FLoC'.
+= FLoC / Browsing Topics =
+Permissions Policy rules list includes 'browsing-topics' rule that can be used to disable Google's new tracking method 'Browsing Topics API' (which replaced 'Federated Learning of Cohorts' or 'FLoC').
 
 = Methods for adding headers =
 The plugin can add all the generated headers into HTACCESS file (for Apache web servers), and they will be applied to all files, not just WordPress generated content. If your website is not using Apache (or .HTACCESS), all rules are generated with each page request and will work with any server type.
 
-And, if you don't use Apache web server, plugin has a panel where it displays generated headers for most popular servers: Apache, Nginx and IIS, and you can copy generated headers to add to server configuration files.
+And, if you don't use Apache web server, the plugin has a panel where it displays generated headers for most popular servers: Apache, Nginx and IIS, and you can copy generated headers to add to server configuration files.
 
 = About the plugin =
 * More information about [GD Security Headers](https://plugins.dev4press.com/gd-security-headers/)
@@ -44,16 +44,16 @@ And, if you don't use Apache web server, plugin has a panel where it displays ge
 
 == Installation ==
 = General Requirements =
-* PHP: 7.2 or newer
+* PHP: 7.4 or newer
 
 = PHP Notice =
-* Plugin doesn't work with PHP 7.1 or older versions.
+* Plugin doesn't work with PHP 7.3 or older versions.
 
 = WordPress Requirements =
-* WordPress: 5.3 or newer
+* WordPress: 5.5 or newer
 
 = WordPress Notice =
-* Plugin doesn't work with WordPress 5.2 or older versions.
+* Plugin doesn't work with WordPress 5.4 or older versions.
 
 = Basic Installation =
 * Plugin folder in the WordPress plugins folder must be `gd-security-headers`.
@@ -71,6 +71,16 @@ The plugin has own top-level item in the WordPress admin side menu: GD Security 
 Yes. The POT file is provided as a base for translation. Translation files should go into Languages directory.
 
 == Changelog ==
+= 1.8 (2024.06.07) =
+* New: system requirements: PHP 7.4 or newer
+* New: tested with WordPress 6.4 to 6.6
+* New: strict transport security: extra value for 'preload' flag
+* Edit: updated list of permissions policy elements
+* Edit: updated permissions policy, Browsing Topics replacing FLoC
+* Edit: added more information for some settings
+* Edit: changes to default values for some settings
+* Edit: d4pLib 2.8.17
+
 = 1.7.1 (2023.10.29) =
 * Edit: improvements to the CSP logs panel input processing
 * Edit: improvements to the CSP logs panel arguments sanitization
@@ -159,6 +169,9 @@ Yes. The POT file is provided as a base for translation. Translation files shoul
 * First plugin version
 
 == Upgrade Notice ==
+= 1.8 =
+Various improvements.
+
 = 1.7 =
 Various updated and fixes.
 

@@ -26,7 +26,7 @@ class gdsih_component_headers {
 		return $htaccess;
 	}
 
-	public function build( $htaccess = false ) {
+	public function build( $htaccess = false ) : array {
 		$list = array();
 
 		if ( gdsih_settings()->get( 'x_content_type_nosniff', 'headers' ) ) {
@@ -56,11 +56,11 @@ class gdsih_component_headers {
 		}
 	}
 
-	private function _generate_x_content_type_nosniff( $htaccess = false ) {
+	private function _generate_x_content_type_nosniff( $htaccess = false ) : string {
 		return $htaccess ? 'X-Content-Type-Options "nosniff"' : 'X-Content-Type-Options: nosniff';
 	}
 
-	private function _generate_x_frame_options_sameorigin( $htaccess = false ) {
+	private function _generate_x_frame_options_sameorigin( $htaccess = false ) : string {
 		$value = gdsih_settings()->get( 'x_frame_options_sameorigin_value', 'headers' );
 
 		$values = array_keys( gdsih_x_frame_options_list() );
@@ -76,7 +76,7 @@ class gdsih_component_headers {
 		return $htaccess ? 'X-Frame-Options "' . $value . '"' : 'X-Frame-Options: ' . $value;
 	}
 
-	private function _generate_strict_transport_security( $htaccess = false ) {
+	private function _generate_strict_transport_security( $htaccess = false ) : string {
 		$max_age = gdsih_settings()->get( 'strict_transport_security_max_age', 'headers' );
 
 		if ( gdsih_settings()->get( 'strict_transport_security_extra', 'headers' ) === 'includeSubDomains' ) {
@@ -88,7 +88,7 @@ class gdsih_component_headers {
 		return $htaccess ? 'Strict-Transport-Security "max-age=' . $max_age . '"' : 'Strict-Transport-Security: max-age=' . $max_age;
 	}
 
-	private function _generate_referrer_policy( $htaccess = false ) {
+	private function _generate_referrer_policy( $htaccess = false ) : string {
 		$policy = gdsih_settings()->get( 'referrer_policy_value', 'headers' );
 
 		$policies = array_keys( gdsih_referrer_policies_list() );

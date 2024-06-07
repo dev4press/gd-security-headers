@@ -9,6 +9,8 @@
             <li><strong>new</strong> system requirements: PHP 7.4 or newer</li>
             <li><strong>new</strong> tested with WordPress 6.4 to 6.6</li>
             <li><strong>new</strong> strict transport security: extra value for 'preload' flag</li>
+            <li><strong>edit</strong> updated list of permissions policy elements</li>
+            <li><strong>edit</strong> updated permissions policy, Browsing Topics replacing FLoC</li>
             <li><strong>edit</strong> added more information for some settings</li>
             <li><strong>edit</strong> changes to default values for some settings</li>
             <li><strong>edit</strong> d4pLib 2.8.17</li>

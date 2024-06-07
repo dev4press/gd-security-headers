@@ -8,7 +8,7 @@ class gdsih_core_statistics {
 	public function __construct() {
 	}
 
-	public static function instance( $ip = '' ) {
+	public static function instance( $ip = '' ) : gdsih_core_statistics {
 		static $_gdsih_statistics = null;
 
 		if ( is_null( $_gdsih_statistics ) ) {
@@ -175,6 +175,6 @@ class gdsih_core_statistics {
 	}
 }
 
-function gdsih_statistics() {
+function gdsih_statistics() : gdsih_core_statistics {
 	return gdsih_core_statistics::instance();
 }

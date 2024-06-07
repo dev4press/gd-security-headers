@@ -14,11 +14,11 @@ class gdsih_core_htaccess {
 		$this->io = new d4p_core_marker( $this->path() );
 	}
 
-	public function path() {
+	public function path() : string {
 		return ABSPATH . GDSIH_HTACCESS_FILE_NAME;
 	}
 
-	public function check() {
+	public function check() : array {
 		global $is_apache;
 
 		$mods = function_exists( 'apache_get_modules' ) ? apache_get_modules() : array();
@@ -42,11 +42,11 @@ class gdsih_core_htaccess {
 		return $status;
 	}
 
-	public function reset() {
+	public function reset() : bool {
 		return $this->io->remove( $this->marker );
 	}
 
-	public function write() {
+	public function write() : bool {
 		$rules = array();
 
 		$rules[] = '<IfModule mod_headers.c>';
