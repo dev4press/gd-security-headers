@@ -22,13 +22,13 @@ var gdsih_plugin_core;
                 var cls = "wp-dialog d4p-dialog gdsih-modal-dialog";
 
                 if (extra !== "") {
-                    cls+= " " + extra;
+                    cls += " " + extra;
                 }
 
                 return cls;
             },
             icons: function(id) {
-                $(id).next().find(".ui-dialog-buttonset button").each(function(){
+                $(id).next().find(".ui-dialog-buttonset button").each(function() {
                     var icon = $(this).data("icon");
 
                     if (icon !== "") {
@@ -57,7 +57,7 @@ var gdsih_plugin_core;
                             id: "gdsih-log-ok",
                             class: "gdsih-dialog-button-ok gdsih-button-focus",
                             text: gdsih_data.dialog_button_ok,
-                            data: { icon: "ok" },
+                            data: {icon: "ok"},
                             click: function() {
                                 $("#gdsih-dialog-log-details").wpdialog("close");
                             }
@@ -84,8 +84,8 @@ var gdsih_plugin_core;
             }
         },
         reports: {
-            init: function () {
-                $(".gdsih-log-view-event-data").click(function(e){
+            init: function() {
+                $(".gdsih-log-view-event-data").click(function(e) {
                     e.preventDefault();
 
                     var id = $(this).attr("href").substr(1);
@@ -97,7 +97,7 @@ var gdsih_plugin_core;
         },
         tools: {
             export: function() {
-                $("#gdsih-tool-export").click(function(e){
+                $("#gdsih-tool-export").click(function(e) {
                     e.preventDefault();
 
                     window.location = $("#gdsih-export-url").val();

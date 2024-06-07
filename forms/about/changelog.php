@@ -1,6 +1,8 @@
-<?php if (!defined('ABSPATH')) { exit; } ?>
+<?php if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+} ?>
 <div class="d4p-group d4p-group-changelog">
-    <h3><?php esc_html_e("Version", "gd-security-headers"); ?> 1</h3>
+    <h3><?php esc_html_e( 'Version', 'gd-security-headers' ); ?> 1</h3>
     <div class="d4p-group-inner">
         <h4>Version: 1.8 / june 7 2024</h4>
         <ul>
