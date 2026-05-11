@@ -6,16 +6,16 @@
  * Author:            Milan Petrovic
  * Author URI:        https://www.dev4press.com/
  * Text Domain:       gd-security-headers
- * Version:           1.8
+ * Version:           1.9
  * Requires at least: 5.5
- * Tested up to:      6.6
+ * Tested up to:      7.0
  * Requires PHP:      7.4
  * Network:           true
  * License:           GPLv3 or later
  * License URI:       https://www.gnu.org/licenses/gpl-3.0.html
  *
  * == Copyright ==
- * Copyright 2008 - 2024 Milan Petrovic (email: support@dev4press.com)
+ * Copyright 2008 - 2026 Milan Petrovic (email: support@dev4press.com)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by

@@ -165,7 +165,7 @@ class gdsih_xxp_report_grid extends d4p_grid {
 		$keys = array( 'user_agent', 'request_body' );
 
 		if ( isset( $item->user_agent ) && $item->user_agent != '' ) {
-			$show[] = '<abbr title="' . $item->user_agent . '">' . __( 'User Agent', 'gd-security-headers' ) . '</abbr>';
+			$show[] = '<abbr title="' . esc_attr( $item->user_agent ) . '">' . __( 'User Agent', 'gd-security-headers' ) . '</abbr>';
 		}
 
 		$content = empty( $show ) ? '' : '<br/>';
@@ -180,7 +180,7 @@ class gdsih_xxp_report_grid extends d4p_grid {
 
 		foreach ( $keys as $key ) {
 			if ( isset( $item->$key ) ) {
-				$content .= '<tr><td>' . $key . '</td><td>' . $item->$key . '</td></tr>';
+				$content .= '<tr><td>' . esc_html( $key ) . '</td><td>' . esc_html( $item->$key ) . '</td></tr>';
 			}
 		}
 
@@ -215,7 +215,7 @@ class gdsih_xxp_report_grid extends d4p_grid {
 			$title  .= ' ' . __( 'Your server IP.', 'gd-security-headers' );
 		}
 
-		$content = sprintf( '<span title="%s" class="gdsih-ip-%s">%s</span>', trim( $title ), $status, $item->ip );
+		$content = sprintf( '<span title="%s" class="gdsih-ip-%s">%s</span>', trim( $title ), $status, esc_html( $item->ip ) );
 
 		return $content . $this->row_actions( $actions );
 	}
@@ -227,7 +227,7 @@ class gdsih_xxp_report_grid extends d4p_grid {
 	}
 
 	protected function column_default( $item, $column_name ) {
-		return $item->$column_name;
+		return esc_html( $item->$column_name );
 	}
 
 	public function prepare_items() {
@@ -242,14 +242,14 @@ class gdsih_xxp_report_grid extends d4p_grid {
 
 		$where = array();
 
-		$last   = isset( $_GET['filter-period'] ) && ! empty( $_GET['filter-period'] ) ? d4p_sanitize_slug( $_GET['filter-period'] ) : '';
+		$last   = ! empty( $_GET['filter-period'] ) ? d4p_sanitize_slug( $_GET['filter-period'] ) : '';
 		$search = isset( $_GET['s'] ) && $_GET['s'] != '' ? sanitize_text_field( $_GET['s'] ) : '';
 
 		if ( ! empty( $search ) ) {
 			$_search = array();
 
 			foreach ( $this->_search_through_fields as $field ) {
-				$_search[] = "`" . $field . "` LIKE '%" . $search . "%'";
+				$_search[] = gdsih_db()->prepare( "`" . $field . "` LIKE %s", '%' . $search . '%' );
 			}
 
 			$where[] = '(' . join( ' OR ', $_search ) . ')';

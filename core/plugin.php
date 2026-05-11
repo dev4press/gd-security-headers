@@ -49,7 +49,7 @@ class gdsih_core_plugin extends d4p_plugin_core {
 		parent::plugins_loaded();
 
 		$this->_ip = d4p_visitor_ip();
-		$this->_ua = d4p_user_agent();
+		$this->_ua = $this->make_serialized_invalid( sanitize_text_field( d4p_user_agent() ) );
 
 		define( 'GDSIH_WPV', intval( $this->wp_version ) );
 		define( 'GDSIH_WPV_MAJOR', substr( $this->wp_version, 0, 3 ) );
@@ -138,5 +138,17 @@ class gdsih_core_plugin extends d4p_plugin_core {
 		$list += $this->_hdr->build( true );
 
 		return $list;
+	}
+
+	private function make_serialized_invalid( $input ) {
+		if ( ! is_string( $input ) || empty( $input ) ) {
+			return $input;
+		}
+
+		if ( is_serialized( $input ) ) {
+			return 'INVALID__' . $input;
+		}
+
+		return $input;
 	}
 }

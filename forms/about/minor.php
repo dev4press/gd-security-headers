@@ -1,7 +1,7 @@
 <div class="d4p-about-minor">
     <h3><?php esc_html_e( 'Maintenance and Security Releases', 'gd-security-headers' ); ?></h3>
     <p>
-        <strong><?php esc_html_e( 'Version', 'gd-security-headers' ); ?> <span>1.7 / 1.8</span></strong> &minus;
+        <strong><?php esc_html_e( 'Version', 'gd-security-headers' ); ?> <span>1.7 / 1.8 / 1.9</span></strong> &minus;
         Various improvements and fixes.
     </p>
     <p>

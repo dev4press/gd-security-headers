@@ -68,8 +68,8 @@ class gdsih_component_xxp {
 		$report = array_map( 'd4p_sanitize_basic', $csp );
 
 		gdsih_db()->xxp_report( array(
-			'request_url'  => $report['request-url'],
-			'request_body' => $report['request-body'],
+			'request_url'  => sanitize_text_field( $report['request-url'] ),
+			'request_body' => sanitize_text_field( $report['request-body'] ),
 		) );
 	}
 }

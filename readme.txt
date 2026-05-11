@@ -1,11 +1,11 @@
 === GD Security Headers ===
 Contributors: GDragoN
 Donate link: https://plugins.dev4press.com/gd-security-headers/
-Version: 1.8
+Version: 1.9
 Tags: dev4press, security, csp, content security policy, permission policy, feature policy, referrer policy, xss, security headers
 Requires at least: 5.5
 Requires PHP: 7.4
-Tested up to: 6.6
+Tested up to: 7.0
 Stable tag: trunk
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -71,6 +71,14 @@ The plugin has its own top-level item in the WordPress admin side menu: GD Secur
 Yes. The POT file is provided as a base for translation. Translation files should go into Languages directory.
 
 == Changelog ==
+= 1.9 (2026.05.12) =
+* New: tested with WordPress up to 7.0
+* Edit: improved import data sanitization
+* Edit: improvements to the echo of escaped values
+* Edit: sanitize user_agent on input before storing it
+* Edit: d4pLib 2.8.20
+* Fix: XSS vulnerability via user_agent
+
 = 1.8 (2024.06.07) =
 * New: system requirements: PHP 7.4 or newer
 * New: tested with WordPress 6.4 to 6.6
@@ -169,6 +177,9 @@ Yes. The POT file is provided as a base for translation. Translation files shoul
 * First plugin version
 
 == Upgrade Notice ==
+= 1.9 =
+Various updated and fixes.
+
 = 1.8 =
 Various improvements.
 

@@ -216,11 +216,11 @@ class gdsih_csp_report_grid extends d4p_grid {
 		$keys = array( 'referrer', 'user_agent', 'original_policy' );
 
 		if ( isset( $item->referrer ) && $item->referrer != '' ) {
-			$show[] = '<abbr title="' . $item->referrer . '">' . __( 'Referer', 'gd-security-headers' ) . '</abbr>';
+			$show[] = '<abbr title="' . esc_attr( $item->referrer ) . '">' . __( 'Referer', 'gd-security-headers' ) . '</abbr>';
 		}
 
 		if ( isset( $item->user_agent ) && $item->user_agent != '' ) {
-			$show[] = '<abbr title="' . $item->user_agent . '">' . __( 'User Agent', 'gd-security-headers' ) . '</abbr>';
+			$show[] = '<abbr title="' . esc_attr( $item->user_agent ) . '">' . __( 'User Agent', 'gd-security-headers' ) . '</abbr>';
 		}
 
 		$content = empty( $show ) ? '' : '<br/>';
@@ -235,7 +235,7 @@ class gdsih_csp_report_grid extends d4p_grid {
 
 		foreach ( $keys as $key ) {
 			if ( isset( $item->$key ) ) {
-				$content .= '<tr><td>' . $key . '</td><td>' . $item->$key . '</td></tr>';
+				$content .= '<tr><td>' . esc_html( $key ) . '</td><td>' . esc_html( $item->$key ) . '</td></tr>';
 			}
 		}
 
@@ -270,7 +270,7 @@ class gdsih_csp_report_grid extends d4p_grid {
 			$title  .= ' ' . __( 'Your server IP.', 'gd-security-headers' );
 		}
 
-		$content = sprintf( '<span title="%s" class="gdsih-ip-%s">%s</span>', trim( $title ), $status, $item->ip );
+		$content = sprintf( '<span title="%s" class="gdsih-ip-%s">%s</span>', trim( $title ), $status, esc_html( $item->ip ) );
 
 		return $content . $this->row_actions( $actions );
 	}
@@ -282,7 +282,7 @@ class gdsih_csp_report_grid extends d4p_grid {
 	}
 
 	protected function column_default( $item, $column_name ) {
-		return $item->$column_name;
+		return esc_html( $item->$column_name );
 	}
 
 	public function prepare_items() {
@@ -304,18 +304,18 @@ class gdsih_csp_report_grid extends d4p_grid {
 		$search = isset( $_GET['s'] ) && $_GET['s'] != '' ? sanitize_text_field( $_GET['s'] ) : '';
 
 		if ( $violated_directive != '0' ) {
-			$where[] = "l.`violated_directive` = '$violated_directive'";
+			$where[] = gdsih_db()->prepare( "l.`violated_directive` = %s", $violated_directive );
 		}
 
 		if ( $effective_directive != '0' ) {
-			$where[] = "l.`effective_directive` = '$effective_directive'";
+			$where[] = gdsih_db()->prepare( "l.`effective_directive` = %s", $effective_directive );
 		}
 
 		if ( ! empty( $search ) ) {
 			$_search = array();
 
 			foreach ( $this->_search_through_fields as $field ) {
-				$_search[] = "`" . $field . "` LIKE '%" . $search . "%'";
+				$_search[] = gdsih_db()->prepare( "`" . $field . "` LIKE %s", '%' . $search . '%' );
 			}
 
 			$where[] = '(' . join( ' OR ', $_search ) . ')';

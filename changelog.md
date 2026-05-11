@@ -2,6 +2,15 @@
 
 ## Changelog
 
+### Version: 1.9 / may 12 2026
+
+* **new** tested with WordPress up to 7.0
+* **edit** improved import data sanitization
+* **edit** improvements to the echo of escaped values
+* **edit** sanitize user_agent on input before storing it
+* **edit** d4pLib 2.8.20
+* **fix** XSS vulnerability via user_agent
+
 ### Version: 1.8 / june 7 2024
 
 * **new** system requirements: PHP 7.4 or newer

@@ -12,14 +12,14 @@
 
 				if ( $obj['active'] ) {
 					?>
-                    <li><a href="admin.php?page=gd-security-headers-<?php echo $component; ?>-reports">
-                        <strong><?php echo $obj['label']; ?></strong>
-						<?php echo '<strong>' . $obj['reports'] . '</strong> ' . _n( 'report', 'reports', $reports, 'gd-security-headers' ); ?></a>
+                    <li><a href="admin.php?page=gd-security-headers-<?php echo esc_attr( $component ); ?>-reports">
+                        <strong><?php echo esc_html( $obj['label'] ); ?></strong>
+						<?php echo '<strong>' . esc_html( $obj['reports'] ) . '</strong> ' . _n( 'report', 'reports', $reports, 'gd-security-headers' ); ?></a>
                     </li><?php
 				} else {
 					?>
-                    <li><strong><?php echo $obj['label']; ?></strong>
-					<?php echo '<strong>' . $obj['reports'] . '</strong> ' . _n( 'report', 'reports', $reports, 'gd-security-headers' ); ?>
+                    <li><strong><?php echo esc_html( $obj['label'] ); ?></strong>
+					<?php echo '<strong>' . esc_html( $obj['reports'] ) . '</strong> ' . _n( 'report', 'reports', $reports, 'gd-security-headers' ); ?>
                     </li><?php
 				}
 
@@ -48,12 +48,12 @@
                 <ul class="gdsih-security-reports">
 					<?php
 
-					foreach ( $_list as $obj ) {
+                    foreach ( $_list as $obj ) {
 
 						?>
                         <li>
-                        <strong><?php echo $obj->url; ?></strong>
-                        <a href="admin.php?page=gd-security-headers-csp-reports&s=<?php echo esc_attr( $obj->url ); ?>"><?php echo '<strong>' . $obj->reports . '</strong> ' . _n( 'report', 'reports', $obj->reports, 'gd-security-headers' ); ?></a>
+                        <strong><?php echo esc_html( $obj->url ); ?></strong>
+                        <a href="admin.php?page=gd-security-headers-csp-reports&s=<?php echo esc_attr( $obj->url ); ?>"><?php echo '<strong>' . esc_html( $obj->reports ) . '</strong> ' . _n( 'report', 'reports', $obj->reports, 'gd-security-headers' ); ?></a>
                         </li><?php
 
 					}
@@ -82,12 +82,12 @@
                 <ul class="gdsih-security-reports">
 					<?php
 
-					foreach ( $_list as $obj ) {
+                    foreach ( $_list as $obj ) {
 
 						?>
                         <li>
-                        <strong><?php echo $obj->url; ?></strong>
-                        <a href="admin.php?page=gd-security-headers-xxp-reports&s=<?php echo esc_attr( $obj->url ); ?>"><?php echo '<strong>' . $obj->reports . '</strong> ' . _n( 'report', 'reports', $obj->reports, 'gd-security-headers' ); ?></a>
+                        <strong><?php echo esc_html( $obj->url ); ?></strong>
+                        <a href="admin.php?page=gd-security-headers-xxp-reports&s=<?php echo esc_attr( $obj->url ); ?>"><?php echo '<strong>' . esc_html( $obj->reports ) . '</strong> ' . _n( 'report', 'reports', $obj->reports, 'gd-security-headers' ); ?></a>
                         </li><?php
 
 					}

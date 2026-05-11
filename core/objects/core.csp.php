@@ -49,11 +49,11 @@ class gdsih_component_csp {
 		$report = array_map( 'd4p_sanitize_basic', $csp );
 
 		gdsih_db()->csp_report( array(
-			'document_uri'        => $report['document-uri'],
-			'blocked_uri'         => $report['blocked-uri'],
-			'referrer'            => $report['referrer'],
-			'violated_directive'  => $report['violated-directive'],
-			'effective_directive' => $report['effective-directive'] ?? '',
+			'document_uri'        => sanitize_text_field( $report['document-uri'] ),
+			'blocked_uri'         => sanitize_text_field( $report['blocked-uri'] ),
+			'referrer'            => sanitize_text_field( $report['referrer'] ),
+			'violated_directive'  => sanitize_text_field( $report['violated-directive'] ),
+			'effective_directive' => sanitize_text_field( $report['effective-directive'] ?? '' ),
 			'original_policy'     => gdsih_settings()->get( 'log_original_policy', 'csp' ) ? $report['original-policy'] : '',
 		) );
 	}
